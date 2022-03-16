@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
@@ -10,6 +10,7 @@ import Feedback from './Pages/Feedback/Feedback';
 import Policy from './Pages/Policy/Policy';
 import History from './Pages/History/History';
 import Order from './Pages/Order/Order';
+import Homepage from './Pages/Homepage/Homepage';
 
 import './App.css';
 
@@ -17,7 +18,7 @@ function App() {
   return (
       <Router>
          <Routes>
-            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/" element={< Homepage />}></Route>
             <Route exact path="/login" element={<Login />}></Route>
             <Route exact path="/register" element={<Register />}></Route>
             <Route exact path="/profile" element={<Profile />}></Route>
@@ -27,7 +28,7 @@ function App() {
             <Route exact path="/history" element={<History />}></Route>
             <Route exact path="/order" element={<Order />}></Route>
             <Route exact path="/policy" element={<Policy />}></Route>
-            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/home" element={<Home />}></Route>
         </Routes>   
         </Router>
   );
