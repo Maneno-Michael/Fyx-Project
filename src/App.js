@@ -12,6 +12,18 @@ import History from './Pages/History/History';
 import Order from './Pages/Order/Order';
 import Homepage from './Pages/Homepage/Homepage';
 
+
+import TechHome from './Technician/TechHome/TechHome';
+import TechLogin from './Technician/TechLogin/TechLogin';
+import TechRegister from './Technician/TechRegister/TechRegister';
+import TechProfile from './Technician/TechProfile/TechProfile';
+import TechAbout from './Technician/TechAbout/TechAbout';
+import Jobdashboard from './Technician/Jobdashboard/Jobdashboard';
+import Notifications from './Technician/Notifications/Notifications';
+import TechPolicy from './Technician/TechPolicy/TechPolicy';
+import Wallet from './Technician/Wallet/Wallet';
+
+
 import './App.css';
 
 function App() {
@@ -29,6 +41,18 @@ function App() {
             <Route exact path="/order" element={<Order />}></Route>
             <Route exact path="/policy" element={<Policy />}></Route>
             <Route exact path="/home" element={<Home />}></Route>
+
+
+           
+            <Route exact path="/techlogin" element={<TechLogin />}></Route>
+            <Route exact path="/techregister" element={<TechRegister />}></Route>
+            <Route exact path="/techprofile" element={<TechProfile />}></Route>
+            <Route exact path="/techabout" element={<TechAbout />}></Route>
+            <Route exact path="/jobdashboard" element={<Jobdashboard />}></Route>
+            <Route exact path="/notification" element={<Notifications />}></Route>
+            <Route exact path="/techpolicy" element={<TechPolicy />}></Route>
+            <Route exact path="/wallet" element={<Wallet />}></Route>
+            <Route exact path="/techhome" element={<TechHome />}></Route>
         </Routes>   
         </Router>
   );

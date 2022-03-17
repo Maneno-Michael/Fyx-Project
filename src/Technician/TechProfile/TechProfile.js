@@ -6,7 +6,7 @@ import { FaCamera } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
-import "./Profile.css";
+import "./TechProfile.css";
 
 
 

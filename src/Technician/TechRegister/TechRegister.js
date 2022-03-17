@@ -7,7 +7,7 @@ import back from "../../Assets/images/bgimage.jpeg";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
-import './Register.css';
+import './TechRegister.css';
 
 function Register() {
 
