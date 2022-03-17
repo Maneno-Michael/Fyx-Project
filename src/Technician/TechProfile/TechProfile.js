@@ -27,6 +27,11 @@ function Profile() {
         confirmPassword: Yup.string()
         .oneOf([Yup.ref('password'), null], 'password must match')
         . required('confirm password is required'),
+
+        location: Yup.string()
+        .required('Field is required'),
+        area: Yup.string()
+        .required('Field is required'),
     })
     
         return ( 
@@ -38,6 +43,8 @@ function Profile() {
                 number:"",
                 email:"",
                 password:"",
+                area:"",
+                location:"",
                 confirmPassword:"",
                
             }}
@@ -46,7 +53,7 @@ function Profile() {
              {formik => (
                         
                     <div className="page">
-                        <div className="conte" style={{marginLeft:"25%",marginTop:"7%",background:"white", width:"60%", boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)" }}>
+                        <div className="conte" style={{marginLeft:"25%",marginTop:"7%",background:"white", width:"53%", boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)" }}>
                            
                         <FaWindowClose style={{float:"right", fontSize:"25px",borderRadius:"50px",marginTop:"10px", marginRight:"5px"}}/>
 
@@ -55,22 +62,31 @@ function Profile() {
                                          
                                          <div className="wrapper">
 
-                                            <input type="file" className="input" accept='image/*'/>
-                                            <FaCamera style={{fontSize:"20px",borderRadius:"5px", marginTop:"75px",marginLeft:"60px", background:"black",color:"white", zIndex:"2"}}/>
+                                            <input type="file" className="input" />
+                                            <FaCamera style={{fontSize:"20px",borderRadius:"5px", marginTop:"65px",marginLeft:"55px", background:"black",color:"white", zIndex:"2"}}/>
                                             </div>
                                         
                                    
-                                        <Form style={{ marginLeft:"25%",marginTop:"15px"}}>
+                                        <Form style={{ marginLeft:"15%",marginTop:"15px"}}>
 
-                                            <div style={{display:"flex", gap:"10%", marginBottom:"20px",overflow:"wrap" }}>
+                                            <div style={{display:"flex", gap:"3%", marginBottom:"20px",overflow:"wrap" }}>
                                            <Formi label="First name" name="Fname" type="text" style={{background:"#e8e9ed"}}   />
                                            <Formi label="Surname" name="Sname" type="text" style={{background:"#e8e9ed"}} />
                                            
                                             </div>
-                                            <Formi label="Phone number" name="number" type="text" style={{width:"208px", marginBottom:"20px" , background:"#e8e9ed"}} />
-                                            <Formi label="Email address" name="email" type="email" style={{width:"67.5%", marginBottom:"20px",background:"#e8e9ed"}} />
+
+
+
                                             
-                                            <div style={{display:"flex", gap:"10%", marginBottom:"20px"}}>
+                                            <div style={{display:"flex", gap:"3%", marginBottom:"20px",overflow:"wrap" }}>
+                                            <Formi label="Phone number" name="number" type="text" style={{width:"208px", marginBottom:"20px" , background:"#e8e9ed"}} />
+                                           <Formi label="Location" name="location" type="text" style={{background:"#e8e9ed"}}   />
+                                           <Formi label="Area" name="area" type="text" style={{background:"#e8e9ed"}} />
+                                           
+                                            </div>
+                                           <Formi label="Email address" name="email" type="email" style={{width:"61%", marginBottom:"20px",background:"#e8e9ed"}} />
+                                            
+                                            <div style={{display:"flex", gap:"3%", marginBottom:"20px"}}>
                                            <Formi label="Password" name="password" type="password" style={{background:"#e8e9ed"}} />
                                            <Formi label="Confirm Password" name="confirmPassword" type="password" style={{background:"#e8e9ed"}} />
                                             </div>

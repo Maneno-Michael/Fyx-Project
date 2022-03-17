@@ -12,6 +12,7 @@ import { FaGoogle } from "react-icons/fa";
 
 
 
+
 function Login() {
     const validate = Yup.object({
         email: Yup.string()
@@ -65,7 +66,7 @@ function Login() {
                                             <button text="submit" style={{width:"500px",borderRadius:"15px", marginTop:"0px", paddingtop:"5px",paddingBottom:"5px"
                                             ,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>Login</button>
     
-                                            <p>Don't have an account?<Link style={{textDecoration:'none', color:"red", marginLeft:"10px"}} to={"/Register"}>Sign up </Link></p>
+                                            <p>Don't have an account?<Link style={{textDecoration:'none', color:"red", marginLeft:"10px"}} to={"/TechRegister"}>Sign up </Link></p>
                                         </Form>
                                  </div>
 

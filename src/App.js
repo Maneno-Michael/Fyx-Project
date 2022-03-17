@@ -22,7 +22,7 @@ import Jobdashboard from './Technician/Jobdashboard/Jobdashboard';
 import Notifications from './Technician/Notifications/Notifications';
 import TechPolicy from './Technician/TechPolicy/TechPolicy';
 import Wallet from './Technician/Wallet/Wallet';
-
+import TechForgot from './Technician/TechLogin/TechForgot';
 
 import './App.css';
 
@@ -53,6 +53,7 @@ function App() {
             <Route exact path="/techpolicy" element={<TechPolicy />}></Route>
             <Route exact path="/wallet" element={<Wallet />}></Route>
             <Route exact path="/techhome" element={<TechHome />}></Route>
+            <Route exact path="/techforgot" element={<TechForgot />}></Route>
         </Routes>   
         </Router>
   );

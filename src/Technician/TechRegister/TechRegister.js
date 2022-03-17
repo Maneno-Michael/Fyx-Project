@@ -66,7 +66,7 @@ const validate = Yup.object({
                                         <button text="submit" style={{width:"400px",borderRadius:"15px", marginTop:"20px", paddingtop:"5px",paddingBottom:"5px"
                                         ,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>Signup</button>
 
-                                        <p>Do you have an account?<Link style={{textDecoration:'none', color:"red", marginLeft:"10px"}} to={"/login"}>Log In </Link></p>
+                                        <p>Do you have an account?<Link style={{textDecoration:'none', color:"red", marginLeft:"10px"}} to={"/Techlogin"}>Log In </Link></p>
                                     </Form>
                              </div>
                          </div>
