@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import { BiMessageRounded } from "react-icons/bi";
 
 
 function Scheduled() {
@@ -11,8 +12,8 @@ function Scheduled() {
 
             <Link style={{textDecoration:'none', color:"black",border:"1px solid white", paddingTop:"5px", paddingBottom:"5px",
                  paddingLeft:"20px",paddingRight:"20px",borderRadius:"20px",boxShadow: "0px 3px 5px rgba(139, 137, 137, 0.5)", background:"white"}} to={"/Newjobs"}>New Jobs </Link>
-            <Link style={{textDecoration:'none', color:"black",border:"1px solid white", paddingTop:"5px", paddingBottom:"5px",
-                 paddingLeft:"20px",paddingRight:"20px",borderRadius:"20px",boxShadow: "0px 3px 5px rgba(139, 137, 137, 0.5)", background:"white"}} to={"/Scheduled"}>Scheduled Jobs </Link>
+            <Link style={{textDecoration:'none', color:"black",border:"1px solid #f8b609", paddingTop:"5px", paddingBottom:"5px",
+                 paddingLeft:"20px",paddingRight:"20px",borderRadius:"20px",boxShadow: "0px 3px 5px rgba(139, 137, 137, 0.5)", background:"#f8b609"}} to={"/Scheduled"}>Scheduled Jobs </Link>
             <Link style={{textDecoration:'none', color:"black", border:"1px solid white", paddingTop:"5px", paddingBottom:"5px",
                  paddingLeft:"20px",paddingRight:"20px",borderRadius:"20px",boxShadow: "0px 3px 5px rgba(139, 137, 137, 0.5)", background:"white"}} to={"/Jobhistory"}>Job History </Link>
              
@@ -32,36 +33,42 @@ function Scheduled() {
       </tr>
     </thead>
     <tbody style={{boxShadow: "0px 3px 5px rgba(139, 137, 137, 0.5)"}}>
+      
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>joh.com</td>
-        <td>John</td>
-        <td>Doe</td>
-        <td><Link style={{textDecoration:'Underline', color:" #f8b609",}} to={"/Newjobs"}>More Details... </Link>
-            </td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mar.com</td>
-        <td>John</td>
-        <td>Doe</td>
-        <td><Link style={{textDecoration:'Underline', color:" #f8b609",}} to={"/Newjobs"}>More Details... </Link>
-            </td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>jul.com</td>
-        <td>John</td>
-        <td>Doe</td>
-        <td><Link style={{textDecoration:'Underline', color:" #f8b609",}} to={"/Newjobs"}>More Details... </Link>
-            </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><Link style={{textDecoration:'Underline', color:" #f8b609",}} to={"/Newjobs"}>More Details... </Link>
+          </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><Link style={{textDecoration:'Underline', color:" #f8b609",}} to={"/Newjobs"}>More Details... </Link>
+          </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><Link style={{textDecoration:'Underline', color:" #f8b609",}} to={"/Newjobs"}>More Details... </Link>
+          </td>
       </tr>
     </tbody>
   </table>
   
+
+  <BiMessageRounded style={{fontSize:"35px", float:"right",background:"green", color:"white", borderRadius:"50%",
+                                          padding:"5px", zIndex:"2",marginTop:"20%",marginRight:"-1.5%"}}/>
+                                
+
             </div>
 
 

@@ -53,7 +53,7 @@ function App() {
             <Route exact path="/techprofile" element={<TechProfile />}></Route>
             <Route exact path="/techabout" element={<TechAbout />}></Route>
             <Route exact path="/jobdashboard" element={<Jobdashboard />}></Route>
-            <Route exact path="/notification" element={<Notifications />}></Route>
+            <Route exact path="/notifications" element={<Notifications />}></Route>
             <Route exact path="/techpolicy" element={<TechPolicy />}></Route>
             <Route exact path="/wallet" element={<Wallet />}></Route>
             <Route exact path="/techhome" element={<TechHome />}></Route>
