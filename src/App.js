@@ -23,6 +23,10 @@ import Notifications from './Technician/Notifications/Notifications';
 import TechPolicy from './Technician/TechPolicy/TechPolicy';
 import Wallet from './Technician/Wallet/Wallet';
 import TechForgot from './Technician/TechLogin/TechForgot';
+import Newjobs from './Technician/Jobdashboard/Newjobs';
+import Scheduled from './Technician/Jobdashboard/Scheduled';
+import Jobhistory from './Technician/Jobdashboard/Jobhistory';
+
 
 import './App.css';
 
@@ -54,6 +58,10 @@ function App() {
             <Route exact path="/wallet" element={<Wallet />}></Route>
             <Route exact path="/techhome" element={<TechHome />}></Route>
             <Route exact path="/techforgot" element={<TechForgot />}></Route>
+            <Route exact path="/newjobs" element={<Newjobs />}></Route>
+            <Route exact path="/scheduled" element={<Scheduled />}></Route>
+            <Route exact path="/jobhistory" element={<Jobhistory />}></Route>
+            
         </Routes>   
         </Router>
   );
