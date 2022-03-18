@@ -5,10 +5,8 @@ import Sidebar from '../../components/Sidebar';
 function Order() {
     return ( 
         <div>
-<<<<<<< HEAD
           <Sidebar/>
           <ProfileNav profile="Nicole"/>  
-=======
 
 
        
@@ -81,7 +79,6 @@ function Order() {
 
 
 
->>>>>>> 59cd5019a9f9b7e009f7274e1bed0e55ddd41f88
         </div>
                     </div>
      );
