@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import "./Homepage.css";
 import theme from "../../images/logo 1.png";
@@ -607,6 +608,15 @@ function Homepage() {
 
     </div>
   );
+=======
+
+function Homepage() {
+    return ( 
+        <div>
+            
+        </div>
+     );
+>>>>>>> b524a16281cfa1bf9d8e07bcdac40b39b2b74dc9
 }
 
 export default Homepage;

@@ -7,7 +7,11 @@ import back from "../../Assets/images/bgimage.jpeg";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import './TechRegister.css';
+import axios from 'axios';
+
 
 function Register() {
 
@@ -26,6 +30,66 @@ const validate = Yup.object({
     . required('confirm password is required'),
 })
 
+
+
+// Handle the input events
+
+const navigate = useNavigate();
+
+const [reg, setregInput] = useState({
+    name:'',
+    email:'',
+    phone_number:'',
+    password:'',
+    password_confirmation:'',
+    
+}); 
+
+const handleIput = (e) => {
+    e.persist();
+    setregInput({...reg, [e.target.name]: e.target.value})
+}
+
+const regSubmit = (e) => {
+e.preventDefault();
+
+const details = {
+    name: reg.name,
+    email: reg.email,
+    phone_number: reg.phone_number,
+    password: reg.password,
+    password_confirmation: reg.password_confirmation,
+}
+//    console.log(errors); 
+
+
+axios.post(`/api/register`, details ).then(res =>{
+    // console.log('res', res)
+
+    alert("register")
+    if(res.status === 200)
+    {
+        localStorage.setItem("auth_token", res.data.token);
+        localStorage.setItem("auth_userName", JSON.stringify(res.data.user));
+
+
+          navigate('/login');
+
+
+     }else
+    {
+
+
+
+    }
+
+});
+
+}
+
+
+
+
     return ( 
         <Formik
         
@@ -36,6 +100,8 @@ const validate = Yup.object({
             confirmPassword:"",
         }}
         validationSchema={validate}
+
+        onSubmit={regSubmit}
         >
          {formik => (
                     <div className='whole' style={{marginLeft:"15%", marginTop:"10%"}}>
@@ -58,10 +124,10 @@ const validate = Yup.object({
                                  <p style={{marginLeft:"55%", marginTop:"20px"}}>Please fill the following details to sign up.</p>
                                 
                                     <Form style={{float:"left", marginLeft:"8%"}}>
-                                        < Formi style={{ width:"400px",borderRadius:"15px"}} label="name" name="fullName" type="text" placeholder="Full Name" />
-                                        < Formi style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="email" type="email"  placeholder="Email" />
-                                        < Formi style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="password" type="password" placeholder="Password"/>
-                                        < Formi style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="confirmPassword" type="password" placeholder="Confirm Password"/>
+                                        < Formi onChange={handleIput} value={reg.fullName} style={{ width:"400px",borderRadius:"15px"}} label="name" name="fullName" type="text" placeholder="Full Name" />
+                                        < Formi  onChange={handleIput} value={reg.email} style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="email" type="email"  placeholder="Email" />
+                                        < Formi  onChange={handleIput} value={reg.password} style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="password" type="password" placeholder="Password"/>
+                                        < Formi onChange={handleIput} value={reg.confirmPassword} style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="confirmPassword" type="password" placeholder="Confirm Password"/>
                                     
                                         <button text="submit" style={{width:"400px",borderRadius:"15px", marginTop:"20px", paddingtop:"5px",paddingBottom:"5px"
                                         ,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>Signup</button>

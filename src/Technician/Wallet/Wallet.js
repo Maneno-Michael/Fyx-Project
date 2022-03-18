@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Order() {
+function Wallet() {
     return ( 
         <div>
             
@@ -8,4 +8,4 @@ function Order() {
      );
 }
 
-export default Order;
+export default Wallet;
