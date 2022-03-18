@@ -11,11 +11,11 @@ const ProfileNav = ({profile})=>{
                   <Col lg={1} md={1} >
                       <a href="/home" ><fa.FaHome  style={{ fontSize:"30px", color:"black"}}/></a>
                   </Col>  
-                  <Col lg={9} md={6}></Col>
+                  <Col lg={8} md={6}></Col>
                   <Col lg={1} md={1}>
                   <IoPersonCircle  style={{ fontSize:"30px", color:"black"}}/>
                   </Col>
-                  <Col lg={1} md={3}>Hi {profile} </Col>
+                  <Col lg={2} md={3}>Hi {profile} </Col>
                 </Row>
                 </Card.Body>
         </Card>

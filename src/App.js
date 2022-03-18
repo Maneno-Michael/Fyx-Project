@@ -8,6 +8,7 @@ import About from './Pages/About/About';
 import BookService from './Pages/BookService/BookService';
 import Feedback from './Pages/Feedback/Feedback';
 import Policy from './Pages/Policy/Policy';
+import Ratings from './Pages/Feedback/Rates';
 import History from './Pages/History/History';
 import Order from './Pages/Order/Order';
 import ScheduledOrder from './Pages/Order/scheduledOrder';
@@ -83,6 +84,7 @@ function App() {
             <Route exact path="/register" element={<Register />}></Route>
             <Route exact path="/profile" element={<Profile />}></Route>
             <Route exact path="/about" element={<About />}></Route>
+            <Route exact path="/rating" element={<Ratings />}></Route>
             <Route exact path="/bookservice" element={<BookService />}></Route>
             <Route exact path="/feedback" element={<Feedback />}></Route>
             <Route exact path="/history" element={<History />}></Route>
@@ -91,9 +93,6 @@ function App() {
             <Route exact path="/historyerror" element={<HistoryError />}></Route>
             <Route exact path="/policy" element={<Policy />}></Route>
             <Route exact path="/home" element={<Home />}></Route>
-
-
-           
             <Route exact path="/techlogin" element={<TechLogin />}></Route>
             <Route exact path="/techregister" element={<TechRegister />}></Route>
             <Route exact path="/techprofile" element={<TechProfile />}></Route>

@@ -38,7 +38,7 @@ const Sidebar=()=>{
             </ul>
             <div className="settings" >
                 <ul>
-                    <li>  <a href="#about" className="text-black"><fa.FaInfoCircle style={{color:"black",fontSize:"30px"}}  className="ms-2" />About us</a></li>
+                    <li>  <a href="/about" className="text-black"><fa.FaInfoCircle style={{color:"black",fontSize:"30px"}}  className="ms-2" />About us</a></li>
                     <li>  <a href="/"> <MdLogout style={{color:"black",fontSize:"35px"}}  className="ms-2" />Log Out</a></li>
                 </ul>
             </div>

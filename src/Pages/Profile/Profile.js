@@ -7,6 +7,8 @@ import { FaWindowClose } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import "./Profile.css";
+import Sidebar from '../../components/Sidebar';
+import ProfileNav from '../../components/profileNav';
 
 
 
@@ -30,6 +32,10 @@ function Profile() {
     })
     
         return ( 
+            <div>
+
+            <Sidebar/>
+            <ProfileNav profile="Nicole" />
             <Formik
             
             initialValues={{
@@ -87,6 +93,7 @@ function Profile() {
              )}
     
             </Formik>
+            </div>
          );
 }
 
