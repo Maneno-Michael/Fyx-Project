@@ -29,8 +29,43 @@ import TechForgot from './Technician/TechLogin/TechForgot';
 import Newjobs from './Technician/Jobdashboard/Newjobs';
 import Scheduled from './Technician/Jobdashboard/Scheduled';
 import Jobhistory from './Technician/Jobdashboard/Jobhistory';
-import axios from 'axios';
 
+
+
+
+import AdminDashboard from './Admin/AdminDashboard/AdminDashboard';
+import AdminLogin from './Admin/AdminLogin/AdminLogin';
+import AdminRegister from './Admin/AdminRegister/AdminRegister';
+import ClientManagement from './Admin/ClientManagement/ClientManagement';
+import Communication from './Admin/Communication/Communication';
+import ContentManagement from './Admin/ContentManagement/ContentManagement';
+import FinanceModule from './Admin/FinanceModule/Payments';
+// import OrderManagement from './Admin/OrderManagement/OrderManagement';
+import TechManagement from './Admin/TechManagement/TechManagement';
+import UserManagement from './Admin/UserManagement/UserManagement';
+
+import CallRequests from './Admin/ClientManagement/CallRequests';
+import Clients from './Admin/ClientManagement/Clients';
+import LiveChats from './Admin/Communication/LiveChats';
+import Newsletters from './Admin/Communication/Newsletters';
+import Advertisements from './Admin/ContentManagement/Advertisements';
+import Carousel from './Admin/ContentManagement/Carousel';
+import Comments from './Admin/ContentManagement/Comments';
+import MiniForm from './Admin/ContentManagement/MiniForm';
+import ContentPolicy from './Admin/ContentManagement/ContentPolicy';
+import ContentTechnicians from './Admin/ContentManagement/ContentTechnicians';
+// import NewOrder from './Admin/OrderManagement/NewOrder';
+// import OrderHistory from './Admin/OrderManagement/OrderHistory';
+// import SchedOrder from './Admin/OrderManagement/SchedOrder';
+
+import Technicians from './Admin/TechManagement/Technicians';
+import TechNotifications from './Admin/TechManagement/TechNotifications';
+import TechRegistrations from './Admin/TechManagement/TechRegistrations';
+
+
+
+
+import axios from 'axios';
 import './App.css';
 
 axios.defaults.withCredentials = true;
@@ -72,6 +107,35 @@ function App() {
             <Route exact path="/scheduled" element={<Scheduled />}></Route>
             <Route exact path="/jobhistory" element={<Jobhistory />}></Route>
             
+
+            <Route exact path="/admindashboard" element={<AdminDashboard />}></Route>
+            <Route exact path="/adminLogin" element={<AdminLogin />}></Route>
+            <Route exact path="/adminregister" element={<AdminRegister />}></Route>
+            <Route exact path="/clientmanagement" element={<ClientManagement />}></Route>
+            <Route exact path="/communication" element={<Communication />}></Route>
+            <Route exact path="/contentmanagement" element={<ContentManagement />}></Route>
+            <Route exact path="/financemodule" element={<FinanceModule />}></Route>
+            {/* <Route exact path="/ordermanagement" element={<OrderManagement />}></Route> */}
+            <Route exact path="/techmanagement" element={<TechManagement />}></Route>
+            <Route exact path="/usermanagement" element={<UserManagement />}></Route>
+            <Route exact path="/callrequests" element={<CallRequests />}></Route>
+            <Route exact path="/clients" element={<Clients />}></Route>
+            <Route exact path="/livechats" element={<LiveChats />}></Route>
+            <Route exact path="/newsletters" element={<Newsletters />}></Route>
+            <Route exact path="/advertisements" element={<Advertisements />}></Route>
+            <Route exact path="/carousel" element={<Carousel />}></Route>
+            <Route exact path="/comments" element={<Comments />}></Route>
+            <Route exact path="/miniForm" element={<MiniForm />}></Route>
+            <Route exact path="/contentPolicy" element={<ContentPolicy />}></Route>
+            <Route exact path="/contenttechnicians" element={<ContentTechnicians />}></Route>
+            {/* <Route exact path="/neworder" element={<NewOrder />}></Route> */}
+            {/* <Route exact path="/orderhistory" element={<OrderHistory />}></Route> */}
+            {/* <Route exact path="/schedorder" element={<SchedOrder />}></Route> */}
+            <Route exact path="/technicians" element={<Technicians />}></Route>
+            <Route exact path="/technotifications" element={<TechNotifications />}></Route>
+            <Route exact path="/techregistrations" element={<TechRegistrations />}></Route>
+            
+           
         </Routes>   
         </Router>
   );
