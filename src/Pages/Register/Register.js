@@ -111,7 +111,7 @@ axios.post(`/api/register`, details ).then(res =>{
          {formik => (
                     <div className='whole' style={{marginLeft:"15%", marginTop:"10%"}}>
                          <div className='pic' style={{}}>
-                            <img src={back} alt="" style={{width:"600px", float:"left", height:"480px", marginTop:"40px", borderRadius:"15px"}} />
+                            <img src={back} alt="" style={{width:"600px", float:"left", height:"400px", marginTop:"80px", borderRadius:"15px"}} />
                          </div>
          
                          <div className='content'>
