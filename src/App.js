@@ -10,6 +10,8 @@ import Feedback from './Pages/Feedback/Feedback';
 import Policy from './Pages/Policy/Policy';
 import History from './Pages/History/History';
 import Order from './Pages/Order/Order';
+import ScheduledOrder from './Pages/Order/scheduledOrder';
+import HistoryError from './Pages/History/historyError';
 import Homepage from './Pages/Homepage/Homepage';
 
 
@@ -50,6 +52,8 @@ function App() {
             <Route exact path="/feedback" element={<Feedback />}></Route>
             <Route exact path="/history" element={<History />}></Route>
             <Route exact path="/order" element={<Order />}></Route>
+            <Route exact path="/scheduledorder" element={<ScheduledOrder />}></Route>
+            <Route exact path="/historyerror" element={<HistoryError />}></Route>
             <Route exact path="/policy" element={<Policy />}></Route>
             <Route exact path="/home" element={<Home />}></Route>
 
