@@ -1,8 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import "./Homepage.css";
-import theme from "../../images/logo 1.png";
 function Homepage() {
   return (
     <div>
@@ -143,7 +141,7 @@ function Homepage() {
     </header>
     
     
-      <section id = "markerting" />
+      <section id = "markerting" >
          <div id = "advert1">
            <h2 className = "text-center font-weight-bold mt-5">Services we Offer</h2>
           <div id="services-carousel" className="carousel slide carousel-multi-item" data-ride="carousel" data-interval="6000">
@@ -397,7 +395,9 @@ function Homepage() {
             </div>
           </div>
         </div>
-        <br><br>
+        
+        <br><br><br><br />
+
         <div id = "brands">
           <h2 className = "text-center font-weight-bold mt-5">Brands we fix</h2>
          <div id="multi-item-example" className="carousel slide carousel-multi-item" data-ride="carousel" data-interval="8000">
@@ -443,8 +443,9 @@ function Homepage() {
          
          </div> 
         </div>
-       
-      </section>
+       </section>
+    </br>
+    
 
       <section id = "clientreviews" className = "mb-4"/>
         <h3 className = "text-center  font-weight-bold">Happy Clients' Testimonials</h3>
@@ -608,15 +609,6 @@ function Homepage() {
 
     </div>
   );
-=======
-
-function Homepage() {
-    return ( 
-        <div>
-            
-        </div>
-     );
->>>>>>> b524a16281cfa1bf9d8e07bcdac40b39b2b74dc9
 }
 
 export default Homepage;
