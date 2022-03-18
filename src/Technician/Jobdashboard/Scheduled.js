@@ -40,8 +40,8 @@ function Scheduled() {
       <td></td>
       <td></td>
       <td></td>
-      <td><Link style={{textDecoration:'Underline', color:" #f8b609",}} to={"/Newjobs"}>More Details... </Link>
-          </td>
+      <td><button style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"white"}}>More Details...</button>
+       </td>
     </tr>
     <tr>
       <td></td>
@@ -49,8 +49,8 @@ function Scheduled() {
       <td></td>
       <td></td>
       <td></td>
-      <td><Link style={{textDecoration:'Underline', color:" #f8b609",}} to={"/Newjobs"}>More Details... </Link>
-          </td>
+      <td><button style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"white"}}>More Details...</button>
+      </td>
     </tr>
     <tr>
       <td></td>
@@ -58,8 +58,8 @@ function Scheduled() {
       <td></td>
       <td></td>
       <td></td>
-      <td><Link style={{textDecoration:'Underline', color:" #f8b609",}} to={"/Newjobs"}>More Details... </Link>
-          </td>
+      <td><button style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"white"}}>More Details...</button>
+       </td>
       </tr>
     </tbody>
   </table>

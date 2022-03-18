@@ -3,7 +3,7 @@ import { useField, ErrorMessage } from 'formik';
 
 export const Formi =({label, ...props }) => {
     const [field, meta] = useField(props);
-    console.log(field, meta);
+    
     return (
         <div>
 

@@ -2,11 +2,15 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import {Formi} from './Formi';
 import * as Yup from 'yup';
-import {Link} from "react-router-dom";
+import {Link, Navigate} from "react-router-dom";
 import back from "../../Assets/images/bgimage.jpeg";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
+import { useState } from "react";
+import axios from 'axios';
+
+
 
 
 
@@ -22,7 +26,55 @@ function Login() {
         .required("password field is required"),
  
     })
+
+
+
+// post events.
+
+const [ loginInput, setLogin] = useState ({
+    email: '',
+    password: '',
+   
+});
+
+const handleInput = (e) =>{
+    e.persist();
+
+    setLogin({...loginInput, [e.target.name]: e.target.value});
+}
     
+const loginSubmit = (e) => {
+    e.preventDefault();
+
+    const data ={
+        email: loginInput.email,
+        password: loginInput.password,
+    }
+
+
+axios.post(`api/login`, data) .then(res =>{
+    if(res.status === 200)
+    {
+        localStorage.setItem("auth_token", res.data.token);
+        localStorage.setItem("auth_userName", JSON.stringify(res.data.user));
+
+
+
+
+        Navigate('/home');
+
+    }else{
+
+    }
+
+});
+
+}
+
+
+
+
+
         return ( 
 
             
@@ -35,6 +87,7 @@ function Login() {
                
             }}
             validationSchema={validate}
+            onSubmit={loginSubmit}
             >
              {formik => (
 
@@ -57,12 +110,12 @@ function Login() {
                                      <p style={{marginLeft:"11.1%", marginTop:"20px"}}>Please enter username and password to log in to your account.</p>
                                     
                                         <Form style={{float:"left", marginLeft:"8%"}}>
-                                            < Formi style={{ width:"100%", marginTop:"20px",borderRadius:"15px"}} label="name" name="email" type="email"  placeholder="Email" />
-                                            < Formi style={{ width:"100%", marginTop:"20px",borderRadius:"15px"}} label="name" name="password" type="password" placeholder="Password"/>
+                                            < Formi onChange={handleInput} value={loginInput.email} style={{ width:"100%", marginTop:"20px",borderRadius:"15px"}} label="name" name="email" type="email"  placeholder="Email" />
+                                            < Formi onChange={handleInput} value={loginInput.password} style={{ width:"100%", marginTop:"20px",borderRadius:"15px"}} label="name" name="password" type="password" placeholder="Password"/>
                                           
                                            <p style={{marginLeft:"370px"}}>Forgot Password?</p>
 
-                                            <button text="submit" style={{width:"500px",borderRadius:"15px", marginTop:"0px", paddingtop:"5px",paddingBottom:"5px"
+                                            <button type="submit" style={{width:"500px",borderRadius:"15px", marginTop:"0px", paddingtop:"5px",paddingBottom:"5px"
                                             ,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>Login</button>
     
                                             <p>Don't have an account?<Link style={{textDecoration:'none', color:"red", marginLeft:"10px"}} to={"/Register"}>Sign up </Link></p>
