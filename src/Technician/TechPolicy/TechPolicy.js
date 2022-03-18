@@ -1,7 +1,7 @@
 import React from 'react';
 // import {Button,Row,container-fluid} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Policy.css';
+import './TechPolicy.css';
 function Policy() {
     return ( 
         <section>

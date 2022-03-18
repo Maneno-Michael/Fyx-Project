@@ -3,7 +3,7 @@ import {Button,Row,Container} from 'react-bootstrap';
  import 'bootstrap/dist/css/bootstrap.min.css';
  import ruki from "../../Assets/images/welcomeimg.png";
  import khabib from "../../Assets/images/human-sitting.png";
- import './Home.css';
+ import './TechHome.css';
 function Home() {
     return ( 
         <div>
