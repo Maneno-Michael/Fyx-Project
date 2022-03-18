@@ -3,6 +3,8 @@ import { Formik, Form } from 'formik';
 import {Formi} from './Formi';
 import * as Yup from 'yup';
 import { BiMessageRounded } from "react-icons/bi";
+import Sidebar from '../../components/Sidebar';
+import ProfileNav from '../../components/profileNav';
 
 function BookService() {
     const validate = Yup.object({
@@ -39,6 +41,10 @@ function BookService() {
     })
     
         return ( 
+            <div>
+             <Sidebar/>
+            <ProfileNav profile="Nicole" />
+
             <Formik
             
             initialValues={{
@@ -173,6 +179,7 @@ function BookService() {
              )}
     
             </Formik>
+            </div>
          );
 }
 
