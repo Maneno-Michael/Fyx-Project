@@ -1,9 +1,22 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import { BiMessageRounded } from "react-icons/bi";
+import { useState } from "react";
+import "./Jobdashboard.css";
+
+
+
+
+
 
 
 function Newjobs() {
+
+  
+
+
+
+
     return ( 
         <div>
             
@@ -21,7 +34,7 @@ function Newjobs() {
 
             <div className='tables' style={{marginTop:"2%", marginLeft:"20%",width:"60%"}}>
 
-<table class="table table-borderless">
+<table className="table table-borderless">
   <thead>
     <tr style={{color:"gray"}}>
       <th>Order No</th>
@@ -39,8 +52,11 @@ function Newjobs() {
       <td></td>
       <td></td>
       <td>
-          <button style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"white"}}>More Details...</button>
-      </td>
+          <button  style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"white"}}>More Details...</button>
+
+         
+
+    </td>
     </tr>
     <tr>
       <td></td>
