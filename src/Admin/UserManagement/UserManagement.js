@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsDashCircle } from "react-icons/bs";
 
 function UserManagement() {
      return ( 
@@ -43,7 +44,7 @@ function UserManagement() {
 
                <div style={{marginTop:"5%",marginBottom:"3%"}}>
                     <button style={{marginLeft:"45%",marginRight:"7%",borderRadius:"14px",border:"1px solid orange",background:"white"}}>Disable User</button>
-                    <button style={{borderRadius:"14px",border:"1px solid orange",background:"white"}}>Delete</button>
+                    <button style={{borderRadius:"14px",border:"1px solid orange",background:"white"}}> <BsDashCircle style={{marginRight:"10px", color:"red"}}/>Delete</button>
                </div>
                <div>
                <button style={{marginLeft:"50%",borderRadius:"14px",border:"1px solid orange",background:"orange"}}>Save Changes</button>
