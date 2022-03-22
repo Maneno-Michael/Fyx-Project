@@ -93,7 +93,7 @@ axios.post(`api/login`, data) .then(res =>{
                
             }}
             validationSchema={validate}
-            
+           
             >
              {formik => (
 
@@ -115,11 +115,11 @@ axios.post(`api/login`, data) .then(res =>{
     
                                      <p style={{marginLeft:"11.1%", marginTop:"20px"}}>Please enter username and password to log in to your account.</p>
                                     
-                                        <Form onSubmit={loginSubmit} style={{float:"left", marginLeft:"8%"}}>
+                                        <Form  onSubmit={loginSubmit} style={{float:"left", marginLeft:"8%"}}>
                                             < Formi onChange={handleInput} value={loginInput.email} style={{ width:"100%", marginTop:"20px",borderRadius:"15px"}} label="name" name="email" type="email"  placeholder="Email" />
                                             < Formi onChange={handleInput} value={loginInput.password} style={{ width:"100%", marginTop:"20px",borderRadius:"15px"}} label="name" name="password" type="password" placeholder="Password"/>
                                           
-                                           <p style={{marginLeft:"370px"}}>Forgot Password?</p>
+                                           <p style={{marginLeft:"350px"}}>Forgot Password?</p>
 
                                             <button type="submit" style={{width:"500px",borderRadius:"15px", marginTop:"0px", paddingtop:"5px",paddingBottom:"5px"
                                             ,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>Login</button>

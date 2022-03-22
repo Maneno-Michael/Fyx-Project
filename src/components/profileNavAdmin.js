@@ -11,7 +11,7 @@ const ProfileNavAdmin = ({profile})=>{
                 <Card.Body>
                 <Row>
                   <Col lg={1} md={1} >
-                      <a href="/home" ><fa.FaHome  style={{ fontSize:"30px", color:"black"}}/></a>
+                      <a href="admindashboard" ><fa.FaHome  style={{ fontSize:"30px", color:"black"}}/></a>
                   </Col>  
                   <Col lg={8} md={6}></Col>
                   <Col lg={1} md={1}>

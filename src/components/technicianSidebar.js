@@ -2,7 +2,7 @@ import React from "react";
 import './sidebar.css';
 import * as fa from "react-icons/fa";
 import { IoPersonCircle} from "react-icons/io5"; 
-import * as mb from "react-icons/md";
+// import * as mb from "react-icons/md";
 import {MdLogout} from "react-icons/md";
 import {RiLayout2Fill} from "react-icons/ri";
 

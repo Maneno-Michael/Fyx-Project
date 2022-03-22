@@ -1,20 +1,18 @@
 import React from 'react';
-import SidebarAdmin from '../../components/Sidebar'
+import SidebarAdmin from '../../components/sidebarAdmin'
 import ProfileNavAdmin from '../../components/profileNav';
 import Table from 'react-bootstrap/Table'
 import * as fa from "react-icons/fa";   
 function CallRequests() {
      return ( 
           <div>
-             <SidebarAdmin/>
-             <ProfileNavAdmin/>  
-             <div className=''>  
+             
 
 <SidebarAdmin/>
  <ProfileNavAdmin/>
 <div className='container'>
     
- 
+
     <Table borderless hover variant="outline-light">
     <thead>
     <tr>
@@ -53,7 +51,7 @@ function CallRequests() {
 </div>
 
 </div>
-          </div>
+          
       );
 }
 

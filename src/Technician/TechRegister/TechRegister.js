@@ -101,7 +101,7 @@ axios.post(`/api/register`, details ).then(res =>{
         }}
         validationSchema={validate}
 
-        onSubmit={regSubmit}
+      
         >
          {formik => (
                     <div className='whole' style={{marginLeft:"15%", marginTop:"10%"}}>
@@ -123,7 +123,7 @@ axios.post(`/api/register`, details ).then(res =>{
 
                                  <p style={{marginLeft:"55%", marginTop:"20px"}}>Please fill the following details to sign up.</p>
                                 
-                                    <Form style={{float:"left", marginLeft:"8%"}}>
+                                    <Form   onSubmit={regSubmit} style={{float:"left", marginLeft:"8%"}}>
                                         < Formi onChange={handleIput} value={reg.fullName} style={{ width:"400px",borderRadius:"15px"}} label="name" name="fullName" type="text" placeholder="Full Name" />
                                         < Formi  onChange={handleIput} value={reg.email} style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="email" type="email"  placeholder="Email" />
                                         < Formi  onChange={handleIput} value={reg.password} style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="password" type="password" placeholder="Password"/>

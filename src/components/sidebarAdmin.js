@@ -2,6 +2,7 @@ import React from 'react'
 import './sidebarAdmin.css'
 import * as fa from "react-icons/fa";
 import { NavDropdown} from 'react-bootstrap'; 
+import {MdLogout} from "react-icons/md";
 
 function SidebarAdmin(){
 
@@ -10,9 +11,9 @@ function SidebarAdmin(){
         <div className="">
 
         <div className="sidenav ">
-        <div className="py-4 ps-4" >
-        <img src="/Assets/images/Asset 2.svg" alt="fyx logo" className="img-fluid" width="200"/>
-         <a href="/admindashboard"><fa.FaHome style={{ fontSize:"30px", color:"black"}} /> Dashboard</a>   
+        <div className="py-4 ps-4 " >
+        <img src="/Assets/images/Asset 2.svg" alt="fyx logo" className="img-fluid border-bottom border-dark mx-auto d-block" width="150"/>
+         <a href="/admindashboard" className="pt-3"><fa.FaHome style={{ fontSize:"30px", color:"black"}}/> Dashboard</a>   
             </div>
            <hr/>
             <h4 className='py-3'>Modules</h4>
@@ -96,8 +97,14 @@ function SidebarAdmin(){
           <NavDropdown.Divider />
         
         </NavDropdown>
+        <hr/>
+       
+    
+      <a href="/" className='pt-5'> <MdLogout style={{color:"black",fontSize:"35px"}}  className="ms-2" />Log Out</a>
+      
        
       </div>
+
         </div>
     )
 }

@@ -1,14 +1,14 @@
 /* Fixed sidenav, full height */
 .sidenav {
     height: 100%;
-    width: 300px;
-    /* position:relative; */
+    width: 280px;
+    position:fixed;
     z-index: 1;
     top: 0;
     left: 0;
     background-color: #969696;
     overflow-x: hidden;
-    padding-bottom: 380px;
+    /* padding-bottom: 380px; */
     float: left;
     
   }

@@ -1,6 +1,7 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React from "react";
+
 import "./Homepage.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 function Homepage() {
   return (
     <div>
@@ -331,7 +332,7 @@ function Homepage() {
         </div>
       </div><br /><br /><div id="advert3">
         <h3 className="text-center mb-3  font-weight-bold">Why Work with Us</h3>
-        <div id="workWithUs" style="background: url(assets/img/instruments-electrical-repair.jpg);  background-size: cover; ">
+        <div id="workWithUs" style=  {{background: 'url(assets/img/instruments-electrical-repair.jpg)', backgroundSize:'cover'}}  >
           <div className="row">
             <div className="col-md-6">
               <div className="row">
@@ -527,7 +528,7 @@ function Homepage() {
             <h3 className="text-center  font-weight-bold">Technicians spread out in Kenya</h3>
 
           </div>
-        </div><iframe allowFullscreen frameBorder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDhN1a6yNdQbcG4RpN93Iw7Npgvy8M_wCM&amp;q=Nairobi%2CKenya&amp;zoom=15" width="100%" height="450"></iframe>
+        </div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7977208152984!2d36.80523821397037!3d-1.2959791360004282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10ea41b1ef41%3A0x9a28a94dc1b0f665!2sGA%20Insurance%20House!5e0!3m2!1sen!2ske!4v1647669102312!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </section><section id="footer">
         <div className="footer-dark" id="footer">
           <footer>
