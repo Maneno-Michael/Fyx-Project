@@ -8,6 +8,9 @@ import { ArcElement } from "chart.js";
 import Chart from "chart.js/auto";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { render } from 'react-dom';
+import Modal from "../../components/modal";
+import  { useState } from "react";
+import faker from 'faker';
 // arc and faker error solved
 import {
   Chart as ChartJS,
@@ -20,7 +23,7 @@ import {
   Legend,
   
 } from 'chart.js';
-import faker from 'faker';
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -60,7 +63,8 @@ function Wallet() {
   };
     // linegraph function
 
-
+// modal function
+const [modalOpen, setModalOpen] = useState(false);
 
     return ( 
  <div>
@@ -71,7 +75,22 @@ function Wallet() {
               <div className = "card p-3 totalCard"style={{borderRadius:"15px",backgroundColor:""}}>
                 <h5 className = "ml-5 font-weight-bold">Available Cash</h5>
                 <p className = "ml-5 mb-0 availableCash"style={{textDecoration:"underline"}}><span className="mr-2">Ksh.</span>5,000.00</p>
-                <p className="text-right muiz mb-0"><button className="withdrawbtn"style={{marginLeft:"86%",borderRadius:"15px"}} data-toggle="modal" data-target="#withdrawcash">Withdraw</button></p>
+                <p className="text-right muiz mb-0"> </p>
+                
+                
+        {/* modal div */}
+                <button
+        className="openModalBtn"
+        onClick={() => {
+          setModalOpen(true);
+        }}
+      >
+        withdraw
+      </button>
+
+      {modalOpen && <Modal setOpenModal={setModalOpen} />}
+    
+    {/* end of madal div */}
             </div>
             </div>
             <div id = "walletimgcol" className = "col-md-6">
