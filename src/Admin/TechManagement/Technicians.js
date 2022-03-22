@@ -1,11 +1,14 @@
 import React from 'react';
 import { AiFillStar } from "react-icons/ai";
+import SidebarAdmin from '../../components/sidebarAdmin';
+import ProfileNavAdmin from '../../components/profileNavAdmin';
 
 function Technicians() {
     return ( 
         <div>
             
-
+        <SidebarAdmin/>
+             <ProfileNavAdmin/> 
             <div className='tabs' style={{marginTop:"8%", marginLeft:"25%",display:"flex", gap:"5%"}}> 
 
             <div><h3>Technicians</h3></div>

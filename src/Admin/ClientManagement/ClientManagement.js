@@ -1,11 +1,16 @@
 import React from 'react';
-import './ClientManagement.css';
+import SidebarAdmin from '../../components/Sidebar'
+import ProfileNavAdmin from '../../components/profileNav';
+import Table from 'react-bootstrap/Table'
+import * as fa from "react-icons/fa";
+
+
 
 function ClientManagement() {
      return ( 
           <div>
-               
-
+                    <SidebarAdmin/>
+                    <ProfileNavAdmin/>
                <div className="col-9 offset-3 main">
         <h2>Analytics</h2>
          <h6>Dashboard/Analytics</h6>
@@ -165,5 +170,6 @@ function ClientManagement() {
           </div>
       );
 }
+
 
 export default ClientManagement;

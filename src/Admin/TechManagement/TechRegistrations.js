@@ -1,10 +1,12 @@
 import React from 'react';
 import { BiMessageRounded } from "react-icons/bi";
-
+import SidebarAdmin from '../../components/sidebarAdmin';
+import ProfileNavAdmin from '../../components/profileNavAdmin';
 function TechRegistrations() {
     return ( 
         <div>
-            
+        <SidebarAdmin/>
+             <ProfileNavAdmin/> 
 
             <div className='tabs' style={{marginTop:"8%", marginLeft:"25%",display:"flex", gap:"5%"}}> 
 

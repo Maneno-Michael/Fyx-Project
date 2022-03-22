@@ -1,9 +1,13 @@
 import React from 'react';
 import { BsDashCircle } from "react-icons/bs";
+import SidebarAdmin from '../../components/sidebarAdmin';
+import ProfileNavAdmin from '../../components/profileNavAdmin';
 
 function UserManagement() {
      return ( 
           <div>
+          <SidebarAdmin/>
+             <ProfileNavAdmin/>  
                <div className='tabs' style={{marginTop:"5%", marginLeft:"20%",display:"flex", gap:"5%"}}> 
 
                <div><h3><b>User Management</b></h3></div>

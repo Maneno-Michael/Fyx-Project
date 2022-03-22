@@ -1,8 +1,11 @@
 import React from 'react';
-
+import SidebarAdmin from '../../components/sidebarAdmin';
+import ProfileNavAdmin from '../../components/profileNavAdmin';
 function TechManagement() {
      return ( 
           <div>
+               <SidebarAdmin/>
+             <ProfileNavAdmin/>
                
 <div className="col-9 offset-3 main">
         <h2>Analytics</h2>

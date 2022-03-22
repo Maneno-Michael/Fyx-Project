@@ -1,4 +1,6 @@
 import React from 'react';
+import TechnicianSidebar from '../../components/technicianSidebar';
+import ProfileTechNav from '../../components/profileTechNav';
 import  mash from "../../Assets/images/walletbgimage.png";
 import union from "../../Assets/icons/Icon awesome-calendar-week.png";
 import raiz from "../../Assets/icons/Icon material-timelapse.png";
@@ -67,8 +69,12 @@ function Wallet() {
 const [modalOpen, setModalOpen] = useState(false);
 
     return ( 
- <div>
-<section>
+        <div>
+           <TechnicianSidebar/>
+            <ProfileTechNav profile="Fundi" />
+   
+ 
+<section  className='container'>
               <div className = "container mnz">
               <div className = "row wag">
               <div className = "col mnz -md-6"  >
@@ -124,9 +130,9 @@ const [modalOpen, setModalOpen] = useState(false);
                    <div className="tab-content"style={{}} id="myTabContent">
                     
                    <div className="tab-pane fade active show" id="lifetime" role="tabpanel" aria-labelledby="lifetime-tab" >
-                   <div className="card sinax shadow mb-2 chartCard"style={{width:"100%",height:"70%",borderRadius:"20px"}}>
+                   <div className="card sinax shadow mb-2 chartCard img-fliud" style={{borderRadius:"20px",height:"50"}}>
                            {/* linegraph */}
-                       <Line options={options} data={data} />
+                       <Line options={options} data={data}  />
                    </div>
                    </div>
                    </div>
