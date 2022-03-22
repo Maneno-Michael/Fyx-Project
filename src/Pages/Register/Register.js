@@ -67,12 +67,11 @@ function Register() {
 
 
 try {
-    axios.post(`http://fixapi.chengegikonyo.com/api/register`, details). then (res => {
+    axios.post(`/api/customers`, details). then (res => {
         // console.log('res', res)
 
         if (res.status === 200) {
-            localStorage.setItem("auth_token", res.data.token);
-            localStorage.setItem("auth_userName", JSON.stringify(res.data.user));
+
 
             alert("registered successfully")
             navigate('/login');
@@ -131,7 +130,7 @@ try {
 
                             <p style={{ marginLeft: "55%", marginTop: "20px" }}>Please fill the following details to sign up.</p>
 
-                            <Form   onSubmit={regSubmit} style={{ float: "left", marginLeft: "8%" }}>
+                            <Form   onSubmit={regSubmit}  style={{ float: "left", marginLeft: "8%" }}>
                                 < Formi onChange={handleIput} value={reg.name} style={{ width: "400px", borderRadius: "15px" }} label="name" name="name" type="text" placeholder="Full Name" />
                                 < Formi onChange={handleIput} value={reg.email} style={{ width: "400px", marginTop: "20px", borderRadius: "15px" }} label="name" name="email" type="email" placeholder="Email" />
                                 < Formi onChange={handleIput} value={reg.password} style={{ width: "400px", marginTop: "20px", borderRadius: "15px" }} label="name" name="password" type="password" placeholder="Password" />

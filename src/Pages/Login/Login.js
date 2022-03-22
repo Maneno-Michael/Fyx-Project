@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import { Formi } from './Formi';
 import * as Yup from 'yup';
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import back from "../../Assets/images/bgimage.jpeg";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
@@ -29,79 +29,52 @@ function Login() {
 
 
 
-    // post events.
+   
+const navigate = useNavigate();
 
-    const [loginInput, setLogin] = useState({
-        email: '',
-        password: '',
+const [ loginInput, setLogin] = useState ({
+    email: '',
+    password: '',
+   
+});
 
-    });
+const handleInput = (e) =>{
+    e.persist();
 
-    const [email, setEmail] = useState("");
-    const [password, setpassword] = useState("");
+    setLogin({...loginInput, [e.target.name]: e.target.value});
+}
+    
+const loginSubmit = (e) => {
+    e.preventDefault();
 
-    const loginSubmit = (e) => {
-        e.preventDefault();
-        const formData = new FormData();
-
-        formData.append('email', email);
-        formData.append('password', password);
-
-        axios.post(`api/login`, formData).then(res => {
-            if (res.status === 200) {
-                localStorage.setItem("auth_token", res.data.token);
-                localStorage.setItem("auth_userName", JSON.stringify(res.data.user));
-
-
-
-
-                Navigate('/home');
-
-            } else {
-
-            }
-
-        });
-
+    const data ={
+        email: loginInput.email,
+        password: loginInput.password,
     }
 
 
+axios.post(`api/login`, data) .then(res =>{
+    if(res.status === 200)
+    {
+        localStorage.setItem("auth_token", res.data.token);
+        localStorage.setItem("auth_name", JSON.stringify(res.data.user));
 
 
+        alert("logged in successfully");
 
-    // const handleInput = (e) =>{
-    //     e.persist();
+        navigate('/profile');
 
-    //     setLogin({...loginInput, [e.target.name]: e.target.value});
-    // }
+    }else{
+        alert("Invalid credentials");
 
-    // const loginSubmit = (e) => {
-    //     e.preventDefault();
+        navigate('/login');
+    }
 
-    //     const data ={
-    //         email: loginInput.email,
-    //         password: loginInput.password,
-    //     }
+});
 
-
-    // axios.post(`api/login`, data) .then(res =>{
-    //     if(res.status === 200)
-    //     {
-    //         localStorage.setItem("auth_token", res.data.token);
-    //         localStorage.setItem("auth_userName", JSON.stringify(res.data.user));
+}
 
 
-
-
-    //         Navigate('/home');
-
-    //     }else{
-
-    //     }
-
-    // });
-
-    // }
 
 
 
@@ -119,6 +92,7 @@ function Login() {
 
             }}
             validationSchema={validate}
+            
            
         >
             {formik => (
@@ -141,11 +115,11 @@ function Login() {
 
                             <p style={{ marginLeft: "11.1%", marginTop: "20px" }}>Please enter username and password to log in to your account.</p>
 
-                            <Form   onSubmit={loginSubmit} style={{ float: "left", marginLeft: "8%" }}>
+                            <Form  onSubmit={loginSubmit}  style={{ float: "left", marginLeft: "8%" }}>
 
-                                < Formi onChange={(e) => setEmail(e.target.value)} value={email} style={{ width: "100%", marginTop: "20px", borderRadius: "15px" }} label="name" name="email" type="email" placeholder="Email" />
+                                < Formi  onChange={handleInput} value={loginInput.email} style={{ width: "100%", marginTop: "20px", borderRadius: "15px" }} label="name" name="email" type="email" placeholder="Email" />
 
-                                < Formi onChange={(e) => setpassword(e.target.value)} value={password} style={{ width: "100%", marginTop: "20px", borderRadius: "15px" }} label="name" name="password" type="password" placeholder="Password" />
+                                < Formi onChange={handleInput} value={loginInput.password} style={{ width: "100%", marginTop: "20px", borderRadius: "15px" }} label="name" name="password" type="password" placeholder="Password" />
 
                                 <p style={{ marginLeft: "350px" }}>Forgot Password?</p>
 

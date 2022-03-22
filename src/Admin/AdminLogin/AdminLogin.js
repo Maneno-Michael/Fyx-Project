@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import {Formi} from './Formi';
 import * as Yup from 'yup';
-import {Link, Navigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 import icon from "../../Assets/images/Asset 2.svg";
 import { useState } from "react";
@@ -15,6 +15,8 @@ import axios from 'axios';
 
 
 function Login() {
+
+
     const validate = Yup.object({
         email: Yup.string()
         .email("Email is invalid")
@@ -25,7 +27,7 @@ function Login() {
  
     })
 
-
+    const navigate = useNavigate();
 
 // post events.
 
@@ -54,15 +56,17 @@ axios.post(`api/login`, data) .then(res =>{
     if(res.status === 200)
     {
         localStorage.setItem("auth_token", res.data.token);
-        localStorage.setItem("auth_userName", JSON.stringify(res.data.user));
+        localStorage.setItem("auth_name", JSON.stringify(res.data.user));
 
 
+        alert("logged in successfully");
 
-
-        Navigate('/home');
+        navigate('/profile');
 
     }else{
+        alert("Invalid credentials");
 
+        navigate('/login');
     }
 
 });
@@ -85,7 +89,7 @@ axios.post(`api/login`, data) .then(res =>{
                
             }}
             validationSchema={validate}
-            onSubmit={loginSubmit}
+            
             >
              {formik => (
 
@@ -103,7 +107,7 @@ axios.post(`api/login`, data) .then(res =>{
                        
                                      <p style={{marginLeft:"20%", marginTop:"20px"}}>Please enter username and password to log in as an admin.</p>
                                     
-                                        <Form style={{float:"left", marginLeft:"22%"}}>
+                                        <Form onSubmit={loginSubmit} style={{float:"left", marginLeft:"22%"}}>
                                             < Formi onChange={handleInput} value={loginInput.email} style={{ width:"400px", marginTop:"0px",borderRadius:"15px"}} label="name" name="email" type="email"  placeholder="Email" />
                                             < Formi onChange={handleInput} value={loginInput.password} style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="password" type="password" placeholder="Password"/>
                                           
