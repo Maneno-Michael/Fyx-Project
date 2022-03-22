@@ -14,7 +14,7 @@ function Technicians() {
             <hr style={{width:"60%",marginLeft:"25%",border:"1px solid black"}} />
             <div className='tables' style={{marginTop:"2%", marginLeft:"25%",width:"60%"}}>
 
-<table class="table table-borderless">
+<table className="table table-borderless">
   <thead>
     <tr style={{color:"gray"}}>
       <th>Job ID No.</th>

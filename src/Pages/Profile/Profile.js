@@ -5,20 +5,29 @@ import * as Yup from 'yup';
 import { FaCamera } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
-import { BsFillPencilFill } from "react-icons/bs";
+import { useState } from "react";
+// import { BsFillPencilFill } from "react-icons/bs";
 import "./Profile.css";
 import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
+
+
+// const user = JSON.parse(localStorage.getItem('auth_userName'));
 
 
 
 function Profile() {
     const validate = Yup.object({
-        Fname: Yup.string()
+        first_name: Yup.string()
         .required('Field is required'),
-        Sname: Yup.string()
+        surname: Yup.string()
         .required('Field is required'),
-        number: Yup.string()
+        address: Yup.string()
+        .required('Field is required'),
+        phone: Yup.string()
         .required('Field is required'),
         email: Yup.string()
         .email("Email is invalid")
@@ -26,10 +35,74 @@ function Profile() {
         password: Yup.string()
         .min(6, "Password must be atleast 6 characters")
         .required("password field is required"),
-        confirmPassword: Yup.string()
+        password_confirmation: Yup.string()
         .oneOf([Yup.ref('password'), null], 'password must match')
         . required('confirm password is required'),
     })
+
+
+
+    const navigate = useNavigate();
+
+    const [reg, setregInput] = useState({
+        first_name:'',
+        surname:'',
+       
+        phone:'',
+        address:'',
+        email:'',
+       
+        password:'',
+        password_confirmation:'',
+        
+    }); 
+    
+    const handleIput = (e) => {
+        e.persist();
+        setregInput({...reg, [e.target.name]: e.target.value})
+    }
+    
+    const pageSubmit = (e) => {
+    e.preventDefault();
+    
+    const details = {
+        first_name: reg.first_name,
+        surname: reg.surname,
+        phone: reg.phone,
+        email: reg.email,
+      
+        address: reg.address,
+        password: reg.password,
+        password_confirmation: reg.password_confirmation,
+    }
+    //    console.log(errors); 
+    
+    
+    axios.put(`/api/customers/1`, details ).then(res =>{
+        // console.log('res', res)
+    
+        
+        if(res.status === 200)
+        {
+    
+    
+            alert("updated successfully");
+            
+              navigate('/adminlogin');
+    
+    
+         }else
+        {
+    
+            alert("Oops you have entered invalid credentials");
+    
+        }
+    
+    });
+    
+    }
+    
+  
     
         return ( 
             <div>
@@ -39,15 +112,17 @@ function Profile() {
             <Formik
             
             initialValues={{
-                Fname:"",
-                Sname:"",
-                number:"",
+                first_name:"",
+                surname:"",
+                phone:"",
                 email:"",
+                address:"",
                 password:"",
-                confirmPassword:"",
+                password_confirmation:"",
                
             }}
             validationSchema={validate}
+            
             >
              {formik => (
                         
@@ -66,23 +141,28 @@ function Profile() {
                                             </div>
                                         
                                    
-                                        <Form style={{ marginLeft:"25%",marginTop:"15px"}}>
+                                        <Form onSubmit={pageSubmit} style={{ marginLeft:"25%",marginTop:"15px"}}>
 
                                             <div style={{display:"flex", gap:"10%", marginBottom:"20px",overflow:"wrap" }}>
-                                           <Formi label="First name" name="Fname" type="text" style={{background:"#e8e9ed"}}   />
-                                           <Formi label="Surname" name="Sname" type="text" style={{background:"#e8e9ed"}} />
+                                           <Formi  onChange={handleIput} value={reg.first_name} label="First name" name="first_name" type="text" style={{background:"#e8e9ed"}}   />
+                                           <Formi onChange={handleIput} value={reg.surname} label="Surname" name="surname" type="text" style={{background:"#e8e9ed"}} />
                                            
                                             </div>
-                                            <Formi label="Phone number" name="number" type="text" style={{width:"208px", marginBottom:"20px" , background:"#e8e9ed"}} />
-                                            <Formi label="Email address" name="email" type="email" style={{width:"67.5%", marginBottom:"20px",background:"#e8e9ed"}} />
-                                            
+                                            <div style={{display:"flex", gap:"9.7%", marginBottom:"20px",overflow:"wrap" }}>
+                                            <Formi  onChange={handleIput} value={reg.phone} label="Phone number" name="phone" type="text" style={{width:"225px", marginBottom:"20px" , background:"#e8e9ed"}} />
+                                            <Formi onChange={handleIput} value={reg.address} label="Address" name="address" type="text" style={{width:"235px", marginBottom:"20px",background:"#e8e9ed"}} />
+                                         
+                                            </div>
+                                            <Formi onChange={handleIput} value={reg.email} label="Email address" name="email" type="email" style={{width:"530px", marginBottom:"20px",background:"#e8e9ed"}} />
+                                         
+
                                             <div style={{display:"flex", gap:"10%", marginBottom:"20px"}}>
-                                           <Formi label="Password" name="password" type="password" style={{background:"#e8e9ed"}} />
-                                           <Formi label="Confirm Password" name="confirmPassword" type="password" style={{background:"#e8e9ed"}} />
+                                           <Formi onChange={handleIput} value={reg.password} label="Password" name="password" type="password" style={{background:"#e8e9ed"}} />
+                                           <Formi onChange={handleIput} value={reg.password_confirmation} label="Confirm Password" name="password_confirmation" type="password" style={{background:"#e8e9ed"}} />
                                             </div>
 
                                             <button type='submit' style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
-                                             border:"1px solid white",marginLeft:"15%", color:"white",fontSize:"22px", marginBottom:"40px"}}>Update</button>
+                                             border:"1px solid white",marginLeft:"19%", color:"white",fontSize:"22px", marginBottom:"40px"}}>Update</button>
                                          <BiMessageRounded style={{fontSize:"35px", float:"right",background:"green", color:"white", borderRadius:"50%",
                                           padding:"5px", zIndex:"2",marginTop:"55px",marginRight:"-1.5%"}}/>
                                  </Form>

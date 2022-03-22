@@ -5,8 +5,10 @@ import * as Yup from 'yup';
 import { FaCamera } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
-import { BsFillPencilFill } from "react-icons/bs";
+import axios from 'axios';
+
 import "./TechProfile.css";
+import { useState } from "react";
 
 
 
@@ -33,6 +35,57 @@ function Profile() {
         area: Yup.string()
         .required('Field is required'),
     })
+
+
+
+    const [Fname, setFname] = useState("");
+    const [Sname, setSname] = useState("");
+    const [number, setnumber] = useState("");
+    const [email, setemail] = useState("");
+    const [location, setlocation] = useState("");
+    const [area, setarea] = useState("");
+    const [password, setpassword] = useState("");
+    const [password_confirmation, setpassword_confirmation] = useState("");
+
+
+    const pageSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+
+  
+        formData.append('Fname', Fname);
+        formData.append('Sname', Sname);
+        formData.append('number', number);
+        formData.append('email', email);
+        formData.append('location', location);
+        formData.append('area', area);
+        formData.append('password', password);
+        formData.append('password_confirmation', password_confirmation);
+
+
+
+        axios.post(`/api/user/update-profile`, formData).then(res => {
+            // /${user.id}
+            
+            if (res.data.status === 200) {
+      
+              localStorage.setItem('auth_token', res.data.token);
+              localStorage.setItem('auth_name', res.data.firstName);
+      
+            } else {
+      
+      
+      
+            }
+      
+          });
+    }
+
+
+
+
+
+
     
         return ( 
             <Formik
@@ -49,6 +102,8 @@ function Profile() {
                
             }}
             validationSchema={validate}
+
+            onSubmit={pageSubmit}
             >
              {formik => (
                         
@@ -70,8 +125,8 @@ function Profile() {
                                         <Form style={{ marginLeft:"15%",marginTop:"15px"}}>
 
                                             <div style={{display:"flex", gap:"3%", marginBottom:"20px",overflow:"wrap" }}>
-                                           <Formi label="First name" name="Fname" type="text" style={{background:"#e8e9ed"}}   />
-                                           <Formi label="Surname" name="Sname" type="text" style={{background:"#e8e9ed"}} />
+                                           <Formi onChange={(e) => setFname(e.target.value)} label="First name" name="Fname" type="text" style={{background:"#e8e9ed"}}   />
+                                           <Formi onChange={(e) => setSname(e.target.value)} label="Surname" name="Sname" type="text" style={{background:"#e8e9ed"}} />
                                            
                                             </div>
 
@@ -79,16 +134,16 @@ function Profile() {
 
                                             
                                             <div style={{display:"flex", gap:"3%", marginBottom:"20px",overflow:"wrap" }}>
-                                            <Formi label="Phone number" name="number" type="text" style={{width:"208px", marginBottom:"20px" , background:"#e8e9ed"}} />
-                                           <Formi label="Location" name="location" type="text" style={{background:"#e8e9ed"}}   />
-                                           <Formi label="Area" name="area" type="text" style={{background:"#e8e9ed"}} />
+                                            <Formi onChange={(e) => setnumber(e.target.value)} label="Phone number" name="number" type="text" style={{width:"208px", marginBottom:"20px" , background:"#e8e9ed"}} />
+                                           <Formi onChange={(e) => setlocation(e.target.value)} label="Location" name="location" type="text" style={{background:"#e8e9ed"}}   />
+                                           <Formi onChange={(e) => setarea(e.target.value)} label="Area" name="area" type="text" style={{background:"#e8e9ed"}} />
                                            
                                             </div>
-                                           <Formi label="Email address" name="email" type="email" style={{width:"61%", marginBottom:"20px",background:"#e8e9ed"}} />
+                                           <Formi onChange={(e) => setemail(e.target.value)} label="Email address" name="email" type="email" style={{width:"61%", marginBottom:"20px",background:"#e8e9ed"}} />
                                             
                                             <div style={{display:"flex", gap:"3%", marginBottom:"20px"}}>
-                                           <Formi label="Password" name="password" type="password" style={{background:"#e8e9ed"}} />
-                                           <Formi label="Confirm Password" name="confirmPassword" type="password" style={{background:"#e8e9ed"}} />
+                                           <Formi onChange={(e) => setpassword(e.target.value)} label="Password" name="password" type="password" style={{background:"#e8e9ed"}} />
+                                           <Formi onChange={(e) => setpassword_confirmation(e.target.value)} label="Confirm Password" name="confirmPassword" type="password" style={{background:"#e8e9ed"}} />
                                             </div>
 
                                             <button type='submit' style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
