@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@coreui/icons": "^2.1.0",
+    "@coreui/icons-react": "^2.0.1",
+    "@coreui/react": "^4.1.2",
     "@mui/material": "^5.5.1",
     "@mui/styled-engine-sc": "^5.4.2",
     "@testing-library/jest-dom": "^5.16.2",
@@ -18,8 +21,10 @@
     "react-burger-menu": "^3.0.6",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
+    "react-sidebar": "^3.0.2",
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"

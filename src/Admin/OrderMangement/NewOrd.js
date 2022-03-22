@@ -1,13 +1,13 @@
 import React from 'react';
 import SidebarAdmin from '../../components/sidebarAdmin';
 import ProfileNavAdmin from '../../components/profileNavAdmin';
-function Advertisements() {
+function NewOrderr() {
      return ( 
           <div>
-             <SidebarAdmin/>
-             <ProfileNavAdmin/>  
+            <SidebarAdmin/>
+             <ProfileNavAdmin/>   
           </div>
       );
 }
 
-export default Advertisements;
+export default NewOrderr;

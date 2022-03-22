@@ -4,9 +4,16 @@ import {Button,Row,Container} from 'react-bootstrap';
  import ruki from "../../Assets/images/welcomeimg.png";
  import khabib from "../../Assets/images/human-sitting.png";
  import './TechHome.css';
+ import TechnicianSidebar from '../../components/technicianSidebar';
+import ProfileTechNav from '../../components/profileTechNav';
+
+
 function Home() {
     return ( 
         <div>
+        <TechnicianSidebar/>
+            <ProfileTechNav profile="Fundi" />
+
         <section >
         <div className = "container">
     <div className = "card mb-4 shadow-sm"style={{maxWidth:"80%",marginLeft:"10%",borderRadius:"15px"}}>

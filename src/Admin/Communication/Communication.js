@@ -1,9 +1,11 @@
 import React from 'react';
-
+import SidebarAdmin from '../../components/sidebarAdmin';
+import ProfileNavAdmin from '../../components/profileNavAdmin';
 function Communication() {
      return ( 
           <div>
-               hey there
+              <SidebarAdmin/>
+             <ProfileNavAdmin/>
           </div>
       );
 }

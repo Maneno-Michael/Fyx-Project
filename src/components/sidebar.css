@@ -47,7 +47,7 @@ a:focus {
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
-.wrapper {
+.wrappers {
     display: flex;
     width: 100%;
 }
@@ -65,7 +65,7 @@ a:focus {
     
     /* width: 20%; */
     background-color: #969696;
-    border-radius: 10px;
+    border-radius: 20px;
     /* padding: 0 20px; */
     margin-right: 20px;
     display: flex;

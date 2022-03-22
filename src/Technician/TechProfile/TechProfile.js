@@ -7,6 +7,8 @@ import { FaWindowClose } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import "./TechProfile.css";
+import TechnicianSidebar from '../../components/technicianSidebar';
+import ProfileTechNav from '../../components/profileTechNav';
 
 
 
@@ -35,74 +37,79 @@ function Profile() {
     })
     
         return ( 
-            <Formik
+            <div>
+            <TechnicianSidebar/>
+            <ProfileTechNav profile="Fundi" />
+
+        <Formik
+        
+        initialValues={{
+            Fname:"",
+            Sname:"",
+            number:"",
+            email:"",
+            password:"",
+            area:"",
+            location:"",
+            confirmPassword:"",
             
-            initialValues={{
-                Fname:"",
-                Sname:"",
-                number:"",
-                email:"",
-                password:"",
-                area:"",
-                location:"",
-                confirmPassword:"",
-               
-            }}
-            validationSchema={validate}
-            >
-             {formik => (
+        }}
+        validationSchema={validate}
+        >
+            {formik => (
+                    
+                <div className="page">
+                    <div className="conte" style={{marginLeft:"25%",marginTop:"7%",background:"white", width:"53%", boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)" }}>
                         
-                    <div className="page">
-                        <div className="conte" style={{marginLeft:"25%",marginTop:"7%",background:"white", width:"53%", boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)" }}>
-                           
-                        <FaWindowClose style={{float:"right", fontSize:"25px",borderRadius:"50px",marginTop:"10px", marginRight:"5px"}}/>
+                    <FaWindowClose style={{float:"right", fontSize:"25px",borderRadius:"50px",marginTop:"10px", marginRight:"5px"}}/>
 
-                            <h3 style={{marginLeft:"20px", paddingTop:"10px", marginBottom:"4%"}}>Edit Profile</h3>
-                            
-                                         
-                                         <div className="wrapper">
-
-                                            <input type="file" className="input" />
-                                            <FaCamera style={{fontSize:"20px",borderRadius:"5px", marginTop:"65px",marginLeft:"55px", background:"black",color:"white", zIndex:"2"}}/>
-                                            </div>
+                        <h3 style={{marginLeft:"20px", paddingTop:"10px", marginBottom:"4%"}}>Edit Profile</h3>
+                        
                                         
-                                   
-                                        <Form style={{ marginLeft:"15%",marginTop:"15px"}}>
+                                        <div className="wrapper">
 
-                                            <div style={{display:"flex", gap:"3%", marginBottom:"20px",overflow:"wrap" }}>
-                                           <Formi label="First name" name="Fname" type="text" style={{background:"#e8e9ed"}}   />
-                                           <Formi label="Surname" name="Sname" type="text" style={{background:"#e8e9ed"}} />
-                                           
-                                            </div>
+                                        <input type="file" className="input" />
+                                        <FaCamera style={{fontSize:"20px",borderRadius:"5px", marginTop:"65px",marginLeft:"55px", background:"black",color:"white", zIndex:"2"}}/>
+                                        </div>
+                                    
+                                
+                                    <Form style={{ marginLeft:"15%",marginTop:"15px"}}>
 
-
-
-                                            
-                                            <div style={{display:"flex", gap:"3%", marginBottom:"20px",overflow:"wrap" }}>
-                                            <Formi label="Phone number" name="number" type="text" style={{width:"208px", marginBottom:"20px" , background:"#e8e9ed"}} />
-                                           <Formi label="Location" name="location" type="text" style={{background:"#e8e9ed"}}   />
-                                           <Formi label="Area" name="area" type="text" style={{background:"#e8e9ed"}} />
-                                           
-                                            </div>
-                                           <Formi label="Email address" name="email" type="email" style={{width:"61%", marginBottom:"20px",background:"#e8e9ed"}} />
-                                            
-                                            <div style={{display:"flex", gap:"3%", marginBottom:"20px"}}>
-                                           <Formi label="Password" name="password" type="password" style={{background:"#e8e9ed"}} />
-                                           <Formi label="Confirm Password" name="confirmPassword" type="password" style={{background:"#e8e9ed"}} />
-                                            </div>
-
-                                            <button type='submit' style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
-                                             border:"1px solid white",marginLeft:"15%", color:"white",fontSize:"22px", marginBottom:"40px"}}>Update</button>
-                                         <BiMessageRounded style={{fontSize:"35px", float:"right",background:"green", color:"white", borderRadius:"50%",
-                                          padding:"5px", zIndex:"2",marginTop:"55px",marginRight:"-1.5%"}}/>
-                                 </Form>
+                                        <div style={{display:"flex", gap:"3%", marginBottom:"20px",overflow:"wrap" }}>
+                                        <Formi label="First name" name="Fname" type="text" style={{background:"#e8e9ed"}}   />
+                                        <Formi label="Surname" name="Sname" type="text" style={{background:"#e8e9ed"}} />
                                         
-                        </div>
-                     </div>
-                         
-             )}
-    
-            </Formik>
+                                        </div>
+
+
+
+                                        
+                                        <div style={{display:"flex", gap:"3%", marginBottom:"20px",overflow:"wrap" }}>
+                                        <Formi label="Phone number" name="number" type="text" style={{width:"208px", marginBottom:"20px" , background:"#e8e9ed"}} />
+                                        <Formi label="Location" name="location" type="text" style={{background:"#e8e9ed"}}   />
+                                        <Formi label="Area" name="area" type="text" style={{background:"#e8e9ed"}} />
+                                        
+                                        </div>
+                                        <Formi label="Email address" name="email" type="email" style={{width:"61%", marginBottom:"20px",background:"#e8e9ed"}} />
+                                        
+                                        <div style={{display:"flex", gap:"3%", marginBottom:"20px"}}>
+                                        <Formi label="Password" name="password" type="password" style={{background:"#e8e9ed"}} />
+                                        <Formi label="Confirm Password" name="confirmPassword" type="password" style={{background:"#e8e9ed"}} />
+                                        </div>
+
+                                        <button type='submit' style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
+                                            border:"1px solid white",marginLeft:"15%", color:"white",fontSize:"22px", marginBottom:"40px"}}>Update</button>
+                                        <BiMessageRounded style={{fontSize:"35px", float:"right",background:"green", color:"white", borderRadius:"50%",
+                                        padding:"5px", zIndex:"2",marginTop:"55px",marginRight:"-1.5%"}}/>
+                                </Form>
+                                    
+                    </div>
+                    </div>
+                        
+            )}
+
+        </Formik>
+            </div>
          );
 }
 
