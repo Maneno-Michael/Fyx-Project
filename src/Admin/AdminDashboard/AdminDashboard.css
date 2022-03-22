@@ -1,5 +1,5 @@
 /* Cards */
-    #contentdivider {
+    /* #contentdivider {
       height: 5px;
       border-color: #000;
       width: 100%;
@@ -68,7 +68,7 @@
  
     /* FXY policy */
     
-    
+/*     
     @media (max-width: 1439px) {
         .main {
         padding: 0 40px;
@@ -180,4 +180,4 @@
         border-radius: 20px;
         margin-top: 20px;
         margin-left: 70px;
-    } 
+    }  */ 
