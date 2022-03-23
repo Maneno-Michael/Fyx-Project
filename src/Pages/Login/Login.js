@@ -57,7 +57,7 @@ axios.post(`api/login`, data) .then(res =>{
     if(res.status === 200)
     {
         localStorage.setItem("auth_token", res.data.token);
-        localStorage.setItem("auth_name", JSON.stringify(res.data.user));
+        localStorage.setItem("auth_name", JSON.stringify(res.data));
 
 
         alert("logged in successfully");

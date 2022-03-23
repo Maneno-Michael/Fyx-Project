@@ -108,7 +108,7 @@ function Profile() {
             <div>
 
             <Sidebar/>
-            <ProfileNav profile="Nicole" />
+            <ProfileNav />
             <Formik
             
             initialValues={{

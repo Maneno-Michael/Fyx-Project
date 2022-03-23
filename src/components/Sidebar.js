@@ -4,9 +4,39 @@ import * as fa from "react-icons/fa";
 import { IoPersonCircle} from "react-icons/io5"; 
 import * as mb from "react-icons/md";
 import {MdLogout} from "react-icons/md";
-
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const Sidebar=()=>{
+
+    const navigate = useNavigate();
+    const logoutSubmit = (e) => {
+        e.preventDefault();
+
+        axios.post(`/api/logout`) .then(res =>{
+           
+
+            if (res.status === 200) {
+
+                localStorage.removeItem("auth_token");
+                localStorage.removeItem("auth_name", JSON.stringify(res.data.user));
+        
+        
+                alert("Logged out successfully")
+                navigate('/login');
+    
+    
+            } else {
+    
+                alert("Log out Incomplete")
+    
+            }
+        })
+    }
+
+
+
+
     
     let li = document.querySelectorAll(".nav-link");
     
@@ -39,7 +69,8 @@ const Sidebar=()=>{
             <div className="settings" >
                 <ul>
                     <li>  <a href="/about" className="text-black"><fa.FaInfoCircle style={{color:"black",fontSize:"30px"}}  className="ms-2" />About us</a></li>
-                    <li>  <a href="/"> <MdLogout style={{color:"black",fontSize:"35px"}}  className="ms-2" />Log Out</a></li>
+   
+                    <li><button onClick={logoutSubmit} style={{fontSize:"18px",background:"transparent",color:"black",border:"none",marginLeft:"28px"}}> <MdLogout style={{color:"black",fontSize:"35px"}}  className="ms-2" />Log Out</button></li>
                 </ul>
             </div>
         </nav>

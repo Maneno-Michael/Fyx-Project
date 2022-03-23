@@ -9,6 +9,7 @@ import Chart from "chart.js/auto";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { render } from 'react-dom';
 // arc and faker error solved
+import faker from 'faker';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -20,7 +21,7 @@ import {
   Legend,
   
 } from 'chart.js';
-import faker from 'faker';
+
 ChartJS.register(
   CategoryScale,
   LinearScale,

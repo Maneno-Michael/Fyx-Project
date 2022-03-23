@@ -155,8 +155,8 @@ function BookService() {
                                           
 
                                             <div style={{marginLeft:"19.5%",marginBottom:"20px"}}>
-                                            <label for="comment"><b>Exact problem</b></label>
-                                           <textarea class="form-control" rows="2" name="text" style={{background:"#e8e9ed", width:"700px"}}></textarea>
+                                            <label htmlFor="comment"><b>Exact problem</b></label>
+                                           <textarea className="form-control" rows="2" name="text" style={{background:"#e8e9ed", width:"700px"}}></textarea>
 
                                             </div>
 
