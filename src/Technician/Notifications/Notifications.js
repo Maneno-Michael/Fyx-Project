@@ -2,10 +2,15 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { BiMessageRounded } from "react-icons/bi";
+import TechnicianSidebar from '../../components/technicianSidebar';
+import ProfileTechNav from '../../components/profileTechNav';
 
 function Notifications() {
     return ( 
         <div>
+        <TechnicianSidebar/>
+            <ProfileTechNav profile="Fundi" />
+
             <div className='tabs' style={{marginTop:"8%", marginLeft:"20%",display:"flex", gap:"5%"}}> 
 
 <h5 style={{textDecoration:'none', border:"1px solid #e8e9ed", paddingTop:"10px", paddingBottom:"10px",

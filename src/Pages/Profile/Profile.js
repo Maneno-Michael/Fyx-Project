@@ -20,6 +20,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function Profile() {
+
     const validate = Yup.object({
         first_name: Yup.string()
         .required('Field is required'),
@@ -105,10 +106,12 @@ function Profile() {
   
     
         return ( 
-            <div>
+            <div className=''>
 
             <Sidebar/>
-            <ProfileNav />
+           
+            <ProfileNav profile="Nicole" />
+            
             <Formik
             
             initialValues={{
@@ -164,8 +167,8 @@ function Profile() {
                                             <button type='submit' style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
                                              border:"1px solid white",marginLeft:"19%", color:"white",fontSize:"22px", marginBottom:"40px"}}>Update</button>
                                          <BiMessageRounded style={{fontSize:"35px", float:"right",background:"green", color:"white", borderRadius:"50%",
-                                          padding:"5px", zIndex:"2",marginTop:"55px",marginRight:"-1.5%"}}/>
-                                 </Form>
+                                        padding:"5px", zIndex:"2",marginTop:"55px",marginRight:"-1.5%"}}/>
+                                </Form>
                                         
                         </div>
                      </div>

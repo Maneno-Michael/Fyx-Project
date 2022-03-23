@@ -8,6 +8,8 @@ import { ArcElement } from "chart.js";
 import Chart from "chart.js/auto";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { render } from 'react-dom';
+import TechnicianSidebar from '../../components/technicianSidebar';
+import ProfileTechNav from '../../components/profileTechNav';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -81,6 +83,8 @@ function TechHome() {
     return ( 
         <section>
        <div>
+       <TechnicianSidebar/>
+            <ProfileTechNav profile="Fundi" />
        <div className = "container">
        <div id = "welcomecard"style={{marginLeft:"10%",maxWidth:"80%",borderRadius:"10px"}} className = "card mb-2 shadow-sm">
           <div className="card-body">

@@ -1,4 +1,8 @@
 import React from 'react';
+// import { Container } from 'react-bootstrap';
+import ProfileNavAdmin from '../../components/profileNavAdmin';
+import SidebarAdmin from '../../components/sidebarAdmin'             
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AdminDashboard.css';
 import { Doughnut,Line } from 'react-chartjs-2';
@@ -18,6 +22,7 @@ import {
   
 } from 'chart.js';
 import faker from 'faker';
+import { Container } from 'react-bootstrap';
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -56,11 +61,14 @@ function AdminDashboard() {
  
      return ( 
           <div>
+             <SidebarAdmin/>
+             <ProfileNavAdmin/>
+             
+         
 
 
-
-
-
+<Container>
+   
 <div className="col-9 offset-3 main">
         <h2>Analytics</h2>
          <h6>Dashboard/Analytics</h6>
@@ -68,7 +76,7 @@ function AdminDashboard() {
 
     <a href = "neworders"><button type = "button" className = "btnNewOrder mb-2"><img src = "assets/icons/icons8-purchase-order-50.png" width="20px" height="20px"/> New Orders</button></a>
   <div className = "row">
-    <div className = "col-md-6">
+    <div className = "col-md-6 col-lg-6">
         <h4 className="secondary-heading mb-1">
             Orders
           </h4>
@@ -124,17 +132,36 @@ function AdminDashboard() {
     
           </section>
     </div>
-    <div className = "col-md-3 mt-5">
+    <div className = "col-md-3 col-lg-3 mt-5">
        <div id = "orderscard" className = "card shadow-sm">
            <h5 className = "text-center mt-2">Monthly Orders</h5>
         <div className="card-body">
           <div className="chart-area">
-            <canvas id="monthlyorders" height="350" width="455"></canvas>
+            <canvas id="monthlyorders"  width="455"></canvas>
         </div>
         </div>
        </div> 
     </div>
+    <div className = "col-md-3 col-lg-3" id = "revenue">
+        <h4>Website</h4>
+        <div className = "card">
+           <h6 className = "text-center font-weight-bold mt-4">Total Amount of Money made in</h6>
+           <select>
+            <option id = "yr21">2021</option>
+            <option id = "yr20">2020</option>
+            <option id = "yr19">2020</option>
+          </select>
+
+          <p id = "yr21-earn" className = "text-center">ksh.50,000</p>
+          <p id = "yr20-earn" className = "text-center">ksh.170,000</p>
+          <p id = "yr19-earn" className = "text-center">ksh.200,000</p>
+          <hr>
+          </hr>
+          
+        </div>
+    </div>
 </div>
+
 
 
 <div className = "row">
@@ -223,13 +250,14 @@ function AdminDashboard() {
             <h5 className = "text-center mt-2">Number of Technicians</h5>
          <div className="card-body">
            <div className="chart-area">
-             <canvas id="numberoftechnicians" height="350" width="455"></canvas>
+             <canvas id="numberoftechnicians" width="455"></canvas>
          </div>
          </div>
         </div>  
     </div>
 </div>
 </div>
+</Container>
 
 
 </div>
@@ -239,5 +267,4 @@ function AdminDashboard() {
           
       );
 }
-
 export default AdminDashboard;

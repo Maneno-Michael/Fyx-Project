@@ -2,16 +2,8 @@ import React from "react";
 import { Card,Container,Row,Col } from "react-bootstrap";
 import * as fa from "react-icons/fa";
 import { IoPersonCircle} from "react-icons/io5"; 
-const ProfileNav = ({profile})=>{
-
-
-    let user = JSON.parse (localStorage.getItem('auth_name'));
-    
-
-    // return(
-    return(
-    
-    <div className="">
+const ProfileNavAdmin = ({profile})=>{
+    return(<div className="">
 
     <Container>
         
@@ -19,13 +11,13 @@ const ProfileNav = ({profile})=>{
                 <Card.Body>
                 <Row>
                   <Col lg={1} md={1} >
-                      <a href="/home" ><fa.FaHome  style={{ fontSize:"30px", color:"black"}}/></a>
+                      <a href="admindashboard" ><fa.FaHome  style={{ fontSize:"30px", color:"black"}}/></a>
                   </Col>  
                   <Col lg={8} md={6}></Col>
                   <Col lg={1} md={1}>
                   <IoPersonCircle  style={{ fontSize:"30px", color:"black"}}/>
                   </Col>
-                  <Col lg={2} md={3}>Hi {user.data.name} </Col>
+                  <Col lg={2} md={3}>Hi {profile} </Col>
                 </Row>
                 </Card.Body>
         </Card>
@@ -33,4 +25,5 @@ const ProfileNav = ({profile})=>{
     </div>
     )
 }
-export default ProfileNav; 
+
+export default ProfileNavAdmin;

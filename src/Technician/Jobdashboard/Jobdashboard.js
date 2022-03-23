@@ -1,10 +1,15 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import { BiMessageRounded } from "react-icons/bi";
+import TechnicianSidebar from '../../components/technicianSidebar';
+import ProfileTechNav from '../../components/profileTechNav';
+
 
 function Jobdashboard() {
     return ( 
         <div>
+         <TechnicianSidebar/>
+            <ProfileTechNav profile="Fundi" />
             <div className='tabs' style={{marginTop:"8%", marginLeft:"20%",display:"flex", gap:"5%"}}> 
 
 

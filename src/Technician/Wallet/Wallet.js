@@ -1,13 +1,15 @@
 import React from 'react';
+import TechnicianSidebar from '../../components/technicianSidebar';
+import ProfileTechNav from '../../components/profileTechNav';
 import  mash from "../../Assets/images/walletbgimage.png";
 import union from "../../Assets/icons/Icon awesome-calendar-week.png";
 import raiz from "../../Assets/icons/Icon material-timelapse.png";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Doughnut,Line } from 'react-chartjs-2';
-import { ArcElement } from "chart.js";
-import Chart from "chart.js/auto";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { render } from 'react-dom';
+import { Line } from 'react-chartjs-2';
+// import { ArcElement } from "chart.js";
+// import Chart from "chart.js/auto";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { render } from 'react-dom';
 // arc and faker error solved
 import faker from 'faker';
 import {
@@ -64,8 +66,12 @@ function Wallet() {
 
 
     return ( 
- <div>
-<section>
+        <div>
+           <TechnicianSidebar/>
+            <ProfileTechNav profile="Fundi" />
+   
+ 
+<section  className='container'>
               <div className = "container mnz">
               <div className = "row wag">
               <div className = "col mnz -md-6"  >
@@ -106,9 +112,9 @@ function Wallet() {
                    <div className="tab-content"style={{}} id="myTabContent">
                     
                    <div className="tab-pane fade active show" id="lifetime" role="tabpanel" aria-labelledby="lifetime-tab" >
-                   <div className="card sinax shadow mb-2 chartCard"style={{width:"100%",height:"70%",borderRadius:"20px"}}>
+                   <div className="card sinax shadow mb-2 chartCard img-fliud" style={{borderRadius:"20px",height:"50"}}>
                            {/* linegraph */}
-                       <Line options={options} data={data} />
+                       <Line options={options} data={data}  />
                    </div>
                    </div>
                    </div>
