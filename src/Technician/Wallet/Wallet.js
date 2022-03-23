@@ -14,6 +14,7 @@ import Modal from "../../components/modal";
 import  { useState } from "react";
 
 // arc and faker error solved
+import faker from 'faker';
 import {
   Chart as ChartJS,
   CategoryScale,

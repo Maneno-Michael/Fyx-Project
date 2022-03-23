@@ -8,7 +8,11 @@ import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
 import { Link,} from "react-router-dom";
 
+
 function Home() {
+
+    let user = JSON.parse (localStorage.getItem('auth_name'));
+
     return ( 
         <div>
         <Sidebar/>
@@ -19,7 +23,7 @@ function Home() {
         <div className="card-body"style={{}}>
             <div className = "row">
                 <div id = "welcomewords"style={{marginLeft:"20%"}} className = "col">
-                    <h2 className = "text-center">Welcome Nicole!</h2>
+                    <h2 className = "text-center">Welcome {user.data.name}</h2>
                     <p className = "text-center">Book a Technician with us</p>
                    {/* book service link */}
                     <Link to="/BookService"> <button style={{borderRadius:"15px",marginLeft:"25%",backgroundColor:"white",borderColor:"yellow"}}>
