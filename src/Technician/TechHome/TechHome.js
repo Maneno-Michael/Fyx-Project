@@ -21,7 +21,7 @@ import {
   Legend,
   
 } from 'chart.js';
-import faker from 'faker';
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -51,7 +51,7 @@ function TechHome() {
     datasets: [
       {
         label: 'Dataset 1',
-        data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+        data: [100,25,30,65,25,25,40],
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },

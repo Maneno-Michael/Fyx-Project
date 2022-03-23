@@ -6,7 +6,8 @@ import { FaCamera } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
 import axios from 'axios';
-
+import TechnicianSidebar from '../../components/technicianSidebar';
+import ProfileTechNav from '../../components/profileTechNav';
 import "./TechProfile.css";
 import { useState } from "react";
 
@@ -88,6 +89,10 @@ function Profile() {
 
     
         return ( 
+            <section>
+            <TechnicianSidebar/>
+            <ProfileTechNav profile="Fundi" />
+            
             <Formik
             
             initialValues={{
@@ -158,6 +163,8 @@ function Profile() {
              )}
     
             </Formik>
+
+            </section>
          );
 }
 
