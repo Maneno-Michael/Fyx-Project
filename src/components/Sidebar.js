@@ -57,7 +57,7 @@ const Sidebar=()=>{
         <div className="logo">
                 <img src="/Assets/images/Asset 2.svg" alt="fyx logo" className="img-fluid"/>
             </div>
-            <ul class="list-unstyled components">
+            <ul className="list-unstyled components">
             <li className="nav-link"><a href="/profile" className=" menu-item"> <IoPersonCircle  style={{ fontSize:"30px", color:"black"}}/> Profile</a></li>
                     <li className="nav-link"><a href="/history" className=" menu-item"><fa.FaHistory style={{color:"black",fontSize:"350x"}} className="ms-2"/> History</a></li>
                     <li className="nav-link">  <a href="/bookservice" className=" menu-item"> <fa.FaBookMedical style={{color:"black",fontSize:"20px"}} className="ms-2" />Book Service</a></li>               
