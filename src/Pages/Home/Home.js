@@ -6,6 +6,8 @@ import {Button,Row,Container} from 'react-bootstrap';
  import './Home.css';
 import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
+import { Link,} from "react-router-dom";
+
 function Home() {
     return ( 
         <div>
@@ -19,7 +21,15 @@ function Home() {
                 <div id = "welcomewords"style={{marginLeft:"20%"}} className = "col">
                     <h2 className = "text-center">Welcome Nicole!</h2>
                     <p className = "text-center">Book a Technician with us</p>
-                    <Button variant="outline-primary"style={{marginLeft:"30%",borderRadius:"20px",maxHeight:"26px",marginBottom:"10px"}}>Book Service</Button>
+                   {/* book service link */}
+                    <Link to="/BookService"> <button style={{borderRadius:"15px",marginLeft:"25%",backgroundColor:"white",borderColor:"yellow"}}>
+                      Book Service
+                    </button>
+                    </Link>
+                   
+                 {/* end link */}
+                  
+            
                 </div>
                  <div id = "welcomeimg" className = "col">
                     <img className = "ml-0"  src={ruki} height="200px" width="150px"/>
