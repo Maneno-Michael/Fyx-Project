@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form } from 'formik';
 import {Formi} from './Formi';
 import * as Yup from 'yup';
-import {Link, Navigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import back from "../../Assets/images/bgimage.jpeg";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
@@ -32,7 +32,7 @@ function Login() {
 
 
 // post events.
-
+const navigate = useNavigate();
 const [ loginInput, setLogin] = useState ({
     email: '',
     password: '',
@@ -54,24 +54,34 @@ const loginSubmit = (e) => {
     }
 
 
-axios.post(`api/login`, data) .then(res =>{
-    if(res.status === 200)
-    {
-        localStorage.setItem("auth_token", res.data.token);
-        localStorage.setItem("auth_userName", JSON.stringify(res.data.user));
+    try {
+        axios.post(`/api/technician/login`, data). then (res => {
+            // console.log('res', res)
+    
+            if (res.status === 200) {
+    
+    
+                localStorage.setItem("auth_token", res.data.token);
+                localStorage.setItem("auth_name", JSON.stringify(res.data));
 
-
-
-
-        Navigate('/home');
-
-    }else{
-
+                alert("registered successfully")
+                navigate('/techhome');
+    
+    
+            } else {
+    
+    
+    
+            }
+    
+        });
+    } catch (error) {
+        
+        alert("oops, invalid credentials")
     }
-
-});
-
-}
+           
+    
+        }
 
 
 

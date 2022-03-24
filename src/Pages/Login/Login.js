@@ -62,7 +62,7 @@ axios.post(`api/login`, data) .then(res =>{
 
         alert("logged in successfully");
 
-        navigate('/profile');
+        navigate('/home');
 
     }else{
         alert("Invalid credentials");

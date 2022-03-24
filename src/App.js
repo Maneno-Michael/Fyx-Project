@@ -14,8 +14,6 @@ import Order from './Pages/Order/Order';
 import ScheduledOrder from './Pages/Order/scheduledOrder';
 import HistoryError from './Pages/History/historyError';
 import Homepage from './Pages/Homepage/Homepage';
-
-
 import TechHome from './Technician/TechHome/TechHome';
 import TechLogin from './Technician/TechLogin/TechLogin';
 import TechRegister from './Technician/TechRegister/TechRegister';
@@ -91,8 +89,6 @@ function App() {
 
             <Route exact path="/login" element={<Login />}></Route>
             <Route exact path="/register" element={<Register />}></Route>
-
-            
             {/* <Route exact path="/login">
               {localStorage.getItem( `auth_token`) ? <Navigate to='/' /> : <Login/>}
 
@@ -101,9 +97,6 @@ function App() {
               {localStorage.getItem( `auth_token`) ? <Navigate to='/' /> : <Register/>}
 
             </Route> */}
-
-
-
             <Route exact path="/profile" element={<Profile />}></Route>
             <Route exact path="/about" element={<About />}></Route>
             <Route exact path="/rating" element={<Ratings />}></Route>

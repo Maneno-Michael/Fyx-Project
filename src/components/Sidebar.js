@@ -23,7 +23,7 @@ const Sidebar=()=>{
         
         
                 alert("Logged out successfully")
-                navigate('/login');
+                navigate('/');
     
     
             } else {

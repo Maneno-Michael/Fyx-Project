@@ -1,826 +1,496 @@
-html,body
-{
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden; 
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,900;1,400;1,700;1,900&family=Luckiest+Guy&family=Poppins:ital,wght@0,600;0,700;0,900;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.masthead .carousel-item:after {
-  content:"";
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  background:rgba(0,0,0,0.5);
-}
-@media(max-width:600px){
-  #arrow-shaped {
-    width: 0;
-    height: 0;
-    background-color: #58595b;
-    border-top: 40px solid transparent;
-    border-left: 200px solid #58595b;
-    border-bottom: 40px solid transparent;
-  }
-}
-@media(min-width:600px){
-  #arrow-shaped {
-    width: 0;
-    height: 0;
-    background-color: #58595b;
-    border-top: 40px solid transparent;
-    border-left: 200px solid #58595b;
-    border-bottom: 40px solid transparent;
-  }
-}
-@media(min-width:800px){
-  #arrow-shaped {
-    width: 0;
-    height: 0;
-    background-color: #58595b;
-    border-top: 40px solid transparent;
-    border-left: 380px solid #58595b;
-    border-bottom: 40px solid transparent;
-  }
-}
-@media(max-width:600px){
-  .logo-nav{
-    max-height: 31px;
-    max-width: 70x;
-    margin-left: 10px;
-  }
-  h3{
-    font: 18px;
-  }
-  .bg-secondary {
-    background-color: #ffffff!important;
-  }
-  #form-header{
-    font-size: 1.5rem;
-  }
-  #form-holder p{
-    font-size: small;
-  }
-  
-  #mainNav .navbar-nav li.nav-item a.nav-link {
-    color: #000;
-    font-size: large;
-    border-bottom: 5px solid transparent;
-  }
-  #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-    color: #f8b609;
-    border-bottom:5px solid #f8b609;
-  }
-  .advert{
-    background-color: #f8b609;
-    padding-bottom: 0;
-  }
-  #servicesform{
-    border-radius: 15px;
-    width: 71%;
-    margin: auto;
-    background-color: #58595b; 
-    opacity:0.9; 
-    padding:20px 40px 20px 40px;
-  }
-  .masthead form select{
-      width:150px;
-  }
-  @media (max-width:320px){
-    #servicesform{
-      width: 100%;
-    }
-    .masthead form select{
-      width:80%;
-    }
-    .masthead .btnProceed{
-      width: 80%;
-    }
-  }
-  .masthead .btnProceed{
-      background-color: #f8b609;
-      color: white;
-      border:none;
-      border-radius: 20px;
-      padding-left:40px; padding-right: 40px; 
-  }
-  .carousel .carousel-item.c-header {
-    height: 82vh;
-    
-  }
-  
-  .carousel-item.c-header img {
-      position: absolute;
-      object-fit:cover;
-      top: 0;
-      left: 0;
-      min-height: 88vh
-  }
-  .main-text
-  {
-      position: absolute;
-      top: 18vh;
-      left:30px;
-      width: 100%;
-      color: #FFF;
-  }
-  .btn-min-block
-  {
-      min-width: 170px;
-      line-height: 26px;
-  }
-  #close{
-    float:right;
-  }
-  #formholder h1{
-    font-size: 15px;
-  }
-  #registertechnician{
-   display:none;
-  }
-  #advert1{
-    margin-bottom: 30px;
-  }
-  #advert2{
-    margin-bottom: 30px; 
-  }
-  #workWithUs{
-    color: white; 
-    padding:250px 50px 50px 50px;
-  }
-  #brands{
-    margin: 100px 50px 100px 50px;
-  }
-  #clientreviews{
-   margin-bottom: 30px;
-  }
-  #contactUs{
-    margin-top: 20px;
-    margin-bottom:20px;
-  }
-  #iconPhone{
-    margin-left: -5px;
-    margin-right: 10px;
-  }
-  #iconEmail{
-    margin-left: -5px;
-    margin-right: 10px;
-  }
-  #newsletter{
-    margin-top: 20px; 
-    margin-bottom:30px;
-  }
-  #fyxCall{
-    margin-top: 10px; 
-    margin-bottom:10px;
-  }
-  .footerForm input {
-    border: 0;
-    outline: 0;
-    margin-bottom: 30px;
-    width: 250px;
-    background: transparent;
-    border-bottom: 1px solid #e8e9ed;
-  }
-  .footerForm input:focus{
-    border-color: #f8b609;
-  }
-  .footerForm ::placeholder { 
-   color: white;
-   opacity: 1; 
-  }
-  
-  .footerForm :-ms-input-placeholder {
-   color: white;
-  }
-  
-  .footerForm ::-ms-input-placeholder { 
-   color: white ;
-  }
-  .arrows{
-    color: #000;
-  }
-  #footerDivider{
-    height:2px;
-    border-width:0;
-    background-color:white;
+/* body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: #f4f4f4;
+} */
+.advert{
+    display: flex;
     width: 100%;
-  }
-  .float{
-    position:fixed;
-    width:40px;
-    height:40px;
-    bottom:40px;
-    right:20px;
-    background-color:#03aB4e;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    box-shadow: 1px 1px 0px #999;
 }
-.my-float{
-    margin-top:11px;
+
+.advert-container{
+    height: 30px;
+    width: 50%;
+    background-color: #39393B;
+
 }
-  .servicesimgs{
-    margin-left: 7px;
-  }
-  .slidearrow{
-    color:#fff;
-  }
-  .footerFormPhone input {
-    border: 0;
-    outline: 0;
-    margin-bottom: 30px;
-    width: 250px;
-    background: transparent;
-    border-bottom: 1px solid #e8e9ed;
-  }
-  .footerFormPhone input:focus{
-    border-color: #f8b609;
-  }
-  .footerFormPhone ::placeholder { 
-   color: white;
-   opacity: 1; 
-  }
-  
-  .footerFormPhone :-ms-input-placeholder {
-   color: white;
-  }
-  
-  .footerFormPhone ::-ms-input-placeholder { 
-   color: white ;
-  }
-  .footerFormPhone .fa{
-    top: 180px;
-    left: 270px;
-  }
-  .advert h3{
-    margin-top: -65px;
-    padding-bottom: 10px;
-  }
-  .servicecards{
-    width: 105px;
-    height: 100px;
-  }
-  .col-md-2{
-    width: 40%;
-    margin-bottom: 10px;
-  }
-  #arrow-shaped {
-    display: none;
-  }
-  .footerForm .fa{
-     top:82px;
-    left: 270px;
-   }
-  .col-md-4, .col {
-     width:100%
-   }
+.advert-container-2{
+    height: 30px;
+    width: 50%;
+    background-color: #fca311;
+   
 }
-@media(min-width: 600px) {
-  .logo-nav{
-    max-height: 51px;
-    max-width: 90x;
-    margin-left: 10px;
-  }
-  h3{
-    font: 24px;
-  }
-  .bg-secondary {
-    background-color: #ffffff!important;
-  }
-  #form-header{
-    font-size: 2.0rem;
-  }
-  #form-holder p{
-    font-size: medium;
-  }
-  
-  #mainNav .navbar-nav li.nav-item a.nav-link {
-    color: #000;
-    font-size: large;
-    border-bottom: 5px solid transparent;
-  }
-  #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-    color: #f8b609;
-    border-bottom:5px solid #f8b609;
-  }
-  .advert{
-    background-color: #f8b609;
-    padding-bottom: 0;
-  }
-  #servicesform{
-    border-radius: 15px;
-    width: 71%;
-    margin: auto;
-    background-color: #58595b; 
-    opacity:0.9; 
-    padding:20px 40px 20px 40px;
-  }
-  .masthead form select{
-      width:150px;
-  }
-  .masthead .btnProceed{
-      background-color: #f8b609;
-      color: white;
-      border:none;
-      border-radius: 20px;
-      padding-left:40px; padding-right: 40px; 
-  }
-  .carousel .carousel-item.c-header {
-    height: 85vh;
+.advert-container-2 h3{
+    padding: 5px 0 5px 40px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+
+#nav nav{
     
-  }
-  
-  .carousel-item.c-header img {
-      position: absolute;
-      object-fit:cover;
-      top: 0;
-      left: 0;
-      min-height: 88vh
-  }
-  .main-text
-  {
-      position: absolute;
-      top: 18vh;
-      left:30px;
-      width: 100%;
-      color: #FFF;
-  }
-  .btn-min-block
-  {
-      min-width: 170px;
-      line-height: 26px;
-  }
-  #close{
-    float:right;
-  }
-  #formholder h1{
+    display: flex;
+    justify-content: space-around;
+    /* margin: 5px 0; */
+
+}
+.logo img{
+    height: 80px; 
+    width: 150px; 
+    object-fit: cover;
+}
+ #nav nav ul{
+    display: block;
+    list-style: none;
+}
+#nav  nav ul li{
+    display: inline;
+    margin-left: 20px;
+    
+}
+ #nav nav ul li a{
+    text-decoration: none;
+    color: #000;
+    line-height: 90px;
     font-size: 15px;
-  }
-  #registertechnician{
-    height: 230px;
-    width: 250px; 
-    left: 15px;
-    top:320px;
-    position: absolute;
+    
+}
+.landing-image{
+    
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.overlay h2{
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+    font-weight: 500;
+    
+
+}
+.overlay p{
+    color: #fca311;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    text-align: center;
+}
+#forms{
+    display: flex;
+    height: 70px;
+    background: #39393B;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+    
+}
+.form-group h3{
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
     text-align: left;
-    color: black;
-    background: rgba(0,0,0,0.3);
-  }
-  #registertechnician img{
-    margin-left: -50px;
-  }
-  #registertechnician i{
-    color: #fff;
-    background: rgba(0,0,0,0.2);
-  }
-  .text-centered {
-    position: absolute;
-    top: 38%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  #registertech {
-    background-color: #f8b609;
-    color: #fff;
-    border: none;
-    margin-left: 5px;
-    border-radius: 20px;
-    padding:2px 5px 2px 5px;
-  }
-  #advert1{
-    margin-bottom: 30px;
-  }
-  #advert2{
-    margin-bottom: 30px; 
-  }
-  #workWithUs{
-    color: white; 
-    padding:250px 50px 50px 50px;
-  }
-  #brands{
-    margin: 100px 50px 100px 50px;
-  }
-  #clientreviews{
-   margin-bottom: 30px;
-  }
-  #contactUs{
-    margin-top: 20px;
-    margin-bottom:20px;
-  }
-  #iconPhone{
-    margin-left: -5px;
-    margin-right: 30px;
-  }
-  #iconEmail{
-    margin-left: -5px;
-    margin-right: 30px;
-  }
-  #newsletter{
-    margin-top: 20px; 
-    margin-bottom:30px;
-  }
-  #fyxCall{
-    margin-top: 10px; 
-    margin-bottom:10px;
-  }
-  .footerForm input {
-    border: 0;
-    outline: 0;
-    margin-bottom: 30px;
-    width: 250px;
-    background: transparent;
-    border-bottom: 1px solid #e8e9ed;
-  }
-  .footerForm input:focus{
-    border-color: #f8b609;
-  }
-  .footerForm ::placeholder { 
-   color: white;
-   opacity: 1; 
-  }
-  
-  .footerForm :-ms-input-placeholder {
-   color: white;
-  }
-  
-  .footerForm ::-ms-input-placeholder { 
-   color: white ;
-  }
-  .arrows{
-    color: #000;
-  }
-  #footerDivider{
-    height:2px;
-    border-width:0;
-    background-color:white;
-    width: 100%;
-  }
-  .float{
-    position:fixed;
-    width:60px;
-    height:60px;
-    bottom:40px;
-    right:20px;
-    background-color:#03aB4e;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    box-shadow: 1px 1px 0px #999;
+    margin-left: 10px;
 }
-.my-float{
-    margin-top:20px;
-}
-  .servicesimgs{
-    margin-left: 7px;
-  }
-  #phonearrow{
-    top: 5rem;
-    left: 15.5em;
-  }
-  .slidearrow{
-    color:#fff;
-  }
-  .footerFormPhone input {
-    border: 0;
-    outline: 0;
-    margin-bottom: 30px;
-    width: 250px;
-    background: transparent;
-    border-bottom: 1px solid #e8e9ed;
-  }
-  .footerFormPhone input:focus{
-    border-color: #f8b609;
-  }
-  .footerFormPhone ::placeholder { 
-   color: white;
-   opacity: 1; 
-  }
-  
-  .footerFormPhone :-ms-input-placeholder {
-   color: white;
-  }
-  
-  .footerFormPhone ::-ms-input-placeholder { 
-   color: white ;
-  }
-  .footerFormPhone .fa{
-    top: 200px;
-    left: 250px;
-  }
-  .advert h3{
-    margin-top: -65px;
-    padding-bottom: 10px;
-  }
-  .servicecards{
-    width: 105px;
-    height: 100px;
-  }
-  .col-md-2{
-    width: 30%;
-    margin-bottom: 10px;
-  }
-  .footerForm .fa{
-    top: 100px;
-    left: 250px;
-}
-.col-md-4 {
-  width:100%
-}
-
-}
-
-@media(min-width: 1200px) {
-  .logo-nav{
-    max-height: 81px;
-    max-width: 110x;
-    margin-left: 50px;
-  }
-  .bg-secondary {
-    background-color: #ffffff!important;
-  }
-  
-  #mainNav .navbar-nav li.nav-item a.nav-link {
-    color: #000;
-    font-size: large;
-    border-bottom: 5px solid transparent;
-  }
-  #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-    color: #f8b609;
-    border-bottom:5px solid #f8b609;
-  }
-  .advert{
-    background-color: #f8b609;
-    padding-bottom: 0;
-  }
-  .map-clean {
-    color: #313437;
+select{
+    width: 120px;
+    margin-left: 10px;
+    outline: none;
+    border-radius:3px;
     background-color: #fff;
-    padding-bottom: 10px; 
-    margin:100px 0px 50px 0px;
-    
-  }
-  @media (max-width: 767px) { 
-    .navbar{
-       margin-top:0px;
-       top:-65px;
-        position:relative;
-     }
-     .advert{
-       background-color: #f8b609;
-     }
-  }
-  #servicesform{
-    border-radius: 15px;
-    width: 71%;
-    margin: auto;
-    background-color: #58595b; 
-    opacity:0.9; 
-    padding:20px 40px 20px 40px;
-  }
-  .masthead form select{
-      width:150px;
-  }
-  .masthead .btnProceed{
-      background-color: #f8b609;
-      color: white;
-      border:none;
-      border-radius: 20px;
-      padding-left:40px; padding-right: 40px; 
-  }
-  #marketing{
-    padding-bottom: 0px; 
-    margin-left: 100px; 
-    margin-right: 100px; 
-    margin-top: 80px; 
-    margin-bottom: 100px;
-  }
-  #advert1{
-    margin-bottom: 50px;
-  }
-  #advert2{
-    margin:50px 100px 100px 100px; 
-  }
-  #advert3{
-    margin-right: 100px;
-    margin-left: 100px;
-  }
-  #workWithUs{
-    color: white; 
-    padding:250px 50px 0px 50px;
-  }
-  #brands{
-    margin: 100px 50px 100px 50px;
-  }
-  #clientreviews{
-    margin: 100px 100px 50px 100px;
-  }
-  .cardItem{
-    float:left;
-  }
-  #contactUs{
-    margin-top: 20px;
-    margin-bottom:15px;
-  }
-  #iconPhone{
-    margin-left: -5px;
-    margin-right: 10px;
-  }
-  #iconEmail{
-    margin-left: -5px;
-    margin-right: 10px;
-  }
-  #newsletter{
-    margin-top: 20px; 
-    margin-bottom:30px;
-  }
-  #fyxCall{
-    margin-top: 10px; 
-    margin-bottom:10px;
-  }
-  .footerForm input {
-    border: 0;
-    outline: 0;
-    margin-bottom: 30px;
-    width: 250px;
-    background: transparent;
-    border-bottom: 1px solid #e8e9ed;
-  }
-  .footerForm input:focus{
-    border-color: #f8b609;
-  }
-  .footerForm ::placeholder { 
-   color: white;
-   opacity: 1; 
-  }
-  
-  .footerForm :-ms-input-placeholder {
-   color: white;
-  }
-  
-  .footerForm ::-ms-input-placeholder { 
-   color: white ;
-  }
-  .arrows{
-    color: #000;
-  }
-  #footerDivider{
-    height:2px;
-    border-width:0;
-    background-color:white;
-    width: 100%;
-  }
-  .float{
-    position:fixed;
-    width:60px;
-    height:60px;
-    bottom:40px;
-    right:110px;
-    background-color:#03aB4e;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    box-shadow: 1px 1px 0px #999;
-  }
-  
-  .my-float{
-    margin-top:22px;
-  }
-  .servicesimgs{
-    margin-left: 7px;
-  }
-  #registertechnician{
-    height: 230px;
-    width: 250px; 
-    left: 130px;
-    top:200px;
-    position: absolute;
-    text-align: left;
-    color: black;
-    background: rgba(0,0,0,0.3);
-  }
-  #registertechnician img{
-    margin-left: -40px;
-  }
-  #registertechnician i{
-    color: #fff;
-    background: rgba(0,0,0,0.2);
-  }
-  .text-centered {
-    position: absolute;
-    top: 35%;
-    left: 56%;
-    transform: translate(-60%, -40%);
-  }
-  #registertech {
-    background-color: #f8b609;
-    color: #fff;
-    border: none;
-    margin-left: 5px;
-    border-radius: 20px;
-    padding:2px 5px 2px 5px;
-  }
-  .main-text
-  {
-      position: absolute;
-      top: 40vh;
-      left:30px;
-      width: 100%;
-      color: #FFF;
-  }
-  .btn-min-block
-  {
-      min-width: 170px;
-      line-height: 26px;
-  }
-  #close{
-    float:right;
-  }
-  
-  .carousel .carousel-item.c-header {
-    height: 82vh;
-    
-  }
-  
-  .carousel-item.c-header img {
-      position: absolute;
-      object-fit:cover;
-      top: 0;
-      left: 0;
-      min-height: 88vh
-  }
-  .servicecards{
-    height: 100px;
-    width: 100px;
-  }
-  
-  .servicerow{
-    margin-left:200px;
-  }
-  .footerForm .fa{
-      top: 5rem;
-      left: 250px;
-  }
-  #phonearrow{
-    top: 5rem;
-    left: 15.5em;
-  }
-  .slidearrow{
-    color:#fff;
-  }
-  .footerFormPhone input {
-    border: 0;
-    outline: 0;
-    margin-bottom: 30px;
-    width: 250px;
-    background: transparent;
-    border-bottom: 1px solid #e8e9ed;
-  }
-  .footerFormPhone input:focus{
-    border-color: #f8b609;
-  }
-  .footerFormPhone ::placeholder { 
-   color: white;
-   opacity: 1; 
-  }
-  
-  .footerFormPhone :-ms-input-placeholder {
-   color: white;
-  }
-  
-  .footerFormPhone ::-ms-input-placeholder { 
-   color: white ;
-  }
-  .footerFormPhone .fa{
-    top: 11.2rem;
-    left: 250px;
-  }
-  .advert h3{
-    margin-top: -65px;
-    padding-bottom: 10px;
-  }
 }
-@media(min-width:1300px) {
-  #arrow-shaped {
-    width: 0;
-    height: 0;
-    background-color: #58595b;
-    border-top: 40px solid transparent;
-    border-left: 500px solid #58595b;
-    border-bottom: 40px solid transparent;
-  }
+.btn{
+    margin-left: 10px;
+    padding: 2px 20px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #fca311;
+    margin-top: 20px;
+}
+.services h2{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 25px;
+}
+.services p{
+    text-align: center;
+    color: #fca311;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 30px;
+    
+}
+.service-icons{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.service{
+    background-color: #fff;
+    margin-left: 60px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 3px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.service:nth-child(3){
+    margin-left: 0;
+    margin-right: 0;
+}
+.service:nth-child(2){
+    margin-right: 60px;
+    margin-left: 0;
+}
+.service:nth-child(1){
+    margin-right: 60px;
+    margin-left: 0;
+}
+.service:nth-child(4){
+    margin-left: 60px;
+}
+/* .service:nth-child(4){
+    margin-right: 60px;
+} */
+.service img{
+    height: 40px;
+    object-fit: cover;
+
+    
+}
+.service h3{
+    font-size: 10px;
+    font-weight: 400;
+    margin-top: 3px;
+}
+.ad-container{
+    display: flex;
+    justify-content: center;
+    margin: 160px 0;
+}
+.ad{
+    position: relative; 
+}
+.image{
+    height: 250px;
+    width: 320px;
+    margin-right: 20px;
+    
 }
 
-@media(min-width:1450px) {
-  #arrow-shaped {
-    width: 0;
-    height: 0;
-    background-color: #58595b;
-    border-top: 40px solid transparent;
-    border-left: 600px solid #58595b;
-    border-bottom: 40px solid transparent;
-  }
+.image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
+}
+.ad-details {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    text-align: center;
+}
+.main-container{
+    margin-top: 160px;
+}
+.main-container h2{
+    text-align: center;
+    font-size: 25px;
+}
+#container{
+   
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: none;
+    margin:30px 140px;
+    display: grid;
+    grid-template-columns: repeat(2,40%);
+    /* grid-template-rows: repeat(400px); */
+    padding: 200px 0 20px;
+    grid-column-gap: 30px;
+    justify-content: center;
+    /* align-items: center; */
+    /* flex-direction: column; */
+    row-gap: 10px;
+}
+
+
+.container-details{
+    display: flex;
+  
+}
+
+.icon{
+    color: #fff;
+    font-size: 55px;
+    margin-right: 20px;
+    /* font-weight: 700; */
+}
+.detail h3{
+    margin-bottom: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 18px;
+
+}
+/* .container-details:nth-child(2){
+    margin-bottom: 20px;
+}
+.container-details:nth-child(3){
+    margin-bottom: 20px;
+} */
+.detail p{
+    color: #fff;
+    font-size: 15px;
+}
+#wrapper h2{
+    text-align: center;
+    font-size: 25px;
+    margin-top: 160px;
+}
+.brands{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+}
+.brand{
+    height: 50px;
+    width: 200px;
+}
+.brand img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+.testimonials{
+    margin-top: 160px;
+}
+.testimonials h2{
+    margin-bottom: 30px;
+    font-size: 25px;
+    text-align: center;
+}
+.wrapper-container{
+    margin: 0 140px;
+    display: flex;
+    justify-content: center;
+   
+}
+.testimonial{
+    background-color: #fff;
+    height: 150px;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+    font-size: 15px;
+    border-radius: 5px;
+    
+    
+}
+.testimonial:first-child{
+    margin-right: 20px;
+    height: 100px;
+    width: 250px;
+    font-size: 13px;
+    margin-top: 20px;
+
+}
+.testimonial:nth-child(3){
+    margin-left: 20px;
+    height: 100px;
+    width: 250px;
+    font-size: 13px;
+    margin-top: 20px;
+}
+.testimonial:nth-child(2){
+    /* margin-bottom: 20px; */
+    /* padding: 10px; */
+}
+.fa-quote-left{
+    float: left;
+    color: #fca311;
+    /* margin-bottom: 5px; */
+
+}
+.fa-quote-right{
+    float: right;
+    color: #fca311;
+}
+.testimonials blockquote{
+    margin: 10px;
+    text-align: center;
+}
+
+.technicians {
+    margin-top: 160px;
+}
+.technicians h2{
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+.map{
+    height: 80vh;
+    margin:0 5px; 
+}
+footer{
+    background-color: #969696;
+    margin-top: 30px;
+    padding: 20px;
+    color: #fff;
+}
+.footer{
+    display: flex;
+    justify-content: space-around;
+
+}
+.contacts h3{
+    font-size: 16px;
+    font-weight: 400;
+   
+    
+}
+.contacts ul{
+    display: block;
+    list-style: none;
+    margin-top: 10px;
+}
+.contacts ul li{
+    margin-top: 10px;
+    font-size: 15px;
+}
+.contacts ul li .fas{
+    margin-right: 10px;
+}
+.social{
+    margin-top: 50px;
+    font-size: 16px;
+    font-weight: 400;
+}
+.social-links{
+    display: block;
+}
+.social-links li{
+    display: inline;
+}
+.social-links li:nth-child(2){
+    margin-left: 10px;
+}
+.social-links li:nth-child(3){
+    margin-left: 10px;
+}
+.social-links li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    
+}
+.footer-logo{
+    height: 90px;
+    width: 150px;
+    
+    
+}
+.footer-logo img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.footer-links ul{
+    display: block;
+    list-style: none;
+}
+.footer-links ul li{
+    margin-top: 5px;
+    
+}
+.footer-links ul li a{
+    text-decoration: none;
+    color: #fff;
+    margin-left: 50px;
+    font-size: 15px;
+    
+    
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.form-group label{
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+.form-group .form-control{
+    background-color: #969696;
+    border-bottom: 1px solid #fff;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    color: #fff;
+    font-size: 15px;
+
+}
+.form-group .form-control::placeholder{
+    color: #fff;
+    font-size: 14px;
+}
+.email{
+    position: relative;
+}
+.email-btn{
+    color: #39393B;
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+}
+.phone{
+    position: relative;
+    margin-top: 50px;
+}
+.phone-btn{
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+    color: #39393B;
+}
+.btn-btn{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+hr{
+    margin-top: 20px;
+}
+.copyright{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
 }

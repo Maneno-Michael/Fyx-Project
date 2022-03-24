@@ -78,13 +78,15 @@ function TechHome() {
     ],
   };
 
+  let user = JSON.parse (localStorage.getItem('auth_name'));
+
   
 
     return ( 
         <section>
        <div>
        <TechnicianSidebar/>
-            <ProfileTechNav profile="Fundi" />
+            <ProfileTechNav profile={user.data.name} />
        <div className = "container">
        <div id = "welcomecard"style={{marginLeft:"10%",maxWidth:"80%",borderRadius:"10px"}} className = "card mb-2 shadow-sm">
           <div className="card-body">
@@ -93,7 +95,7 @@ function TechHome() {
                 <img className = "ml-0 "  src={barak} height="150px" width="150px"/>
                  </div>
                 <div id="welcomewords"  className = "col" >
-                    <h2 className = "text-center">WELCOME Fundi!</h2>
+                    <h2 className = "text-center">WELCOME {user.data.name}!</h2>
                 </div>
                    
        </div>    
@@ -108,12 +110,12 @@ function TechHome() {
             <div className= "col col-md-9 p-0" >
                 <a href = "activejobs.js"><button id = "activejobs"style={{marginLeft:"20%",borderRadius:"15px",borderColor:"yellow",backgroundColor:"white"}}><img src = {mtaa}/>  <span>New Jobs</span></button></a>
                 <h6 id = "chartheader" style={{marginLeft:"20%"}}>Jobs done per week</h6>
-                <div id = "chartCard"style={{marginRight:"5%",marginLeft:"15%",maxWidth:"70%",maxHeight:"80%",borderRadius:"15px"}} class="card shadow mt-2">        
-                    <div class="card-body">
+                <div id = "chartCard"style={{marginRight:"5%",marginLeft:"15%",maxWidth:"70%",maxHeight:"80%",borderRadius:"15px"}} className="card shadow mt-2">        
+                    <div className="card-body">
                     <Line options={options} data={data} />
                    {/* linegraph */}
                 
-                       <div class="chart-area" >
+                       <div className="chart-area" >
                        </div>
                        </div>
                 </div>          
@@ -121,13 +123,13 @@ function TechHome() {
                
             <div className= "col col-md-3 p-0">
                 <div id = "ratingcard" style={{marginRight:"10%",marginTop:"20%",borderRadius:"15px"}} className= "card">
-                    <div class="card-body">
-                        <div class="chart-area">
+                    <div className="card-body">
+                        <div className="chart-area">
                         <Doughnut data={mlembe} />
                           <canvas id="technicianratings" ></canvas>
                       </div>
                       </div> 
-                      <p id = "ratingparagraph" className= "text-center">Customer Rating <FontAwesomeIcon icon="fa-solid fa-star" /><i className= "fa fa-star fa-2x"></i><i className= "fa fa-star fa-2x"></i><i className= "fa fa-star fa-2x"></i><i className= "fas fa-star-half-alt fa-2x"></i></p> 
+                      {/* <p id = "ratingparagraph" className= "text-center">Customer Rating <FontAwesomeIcon icon="fa-solid fa-star" /><i className= "fa fa-star fa-2x"></i><i className= "fa fa-star fa-2x"></i><i className= "fa fa-star fa-2x"></i><i className= "fas fa-star-half-alt fa-2x"></i></p>  */}
                 </div>
               
                 </div> 
