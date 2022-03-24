@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../../components/Sidebar'
-import IfOrdered from '../Order/ifOrdered';
+import IfOrdered from './ifOrdered';
 import ProfileNav from '../../components/profileNav';
 
 function ScheduledOrder() {               
