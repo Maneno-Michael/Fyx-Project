@@ -31,10 +31,6 @@ function Register() {
             .required('confirm password is required'),
     })
 
-
-
-
-
     // Handle the input events
 
     const navigate = useNavigate();
