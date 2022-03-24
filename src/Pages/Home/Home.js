@@ -6,7 +6,7 @@ import {Button,Row,Container} from 'react-bootstrap';
  import './Home.css';
 import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
-import { Link,} from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 function Home() {
