@@ -28,7 +28,7 @@ const TechnicianSidebar=()=>{
         
         
                 alert("Logged out successfully")
-                navigate('/techlogin');
+                navigate('/');
     
     
             } else {
