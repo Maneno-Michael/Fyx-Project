@@ -5,40 +5,133 @@ import * as Yup from 'yup';
 import { BiMessageRounded } from "react-icons/bi";
 import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
+import axios from 'axios';
+import { useState } from "react";
 
 function BookService() {
     const validate = Yup.object({
-        Fname: Yup.string()
+        first_name: Yup.string()
         .required('Field is required'),
-        Sname: Yup.string()
+        surname: Yup.string()
         .required('Field is required'),
-        number: Yup.string()
+        phone: Yup.string()
         .required('Field is required'),
 
-        Mnumber: Yup.string(),
-        other: Yup.string(),
+        mpesa_number: Yup.string()
+        .required('Field is required'),
+        service_id: Yup.string()
+        .required('Field is required'),
+        category_id: Yup.string()
+        .required('Field is required'),
 
+        brand_id: Yup.string( )
+        .required('Field is required'),
+        service_extra_details: Yup.string( )
+        .required('Field is required'),
         area: Yup.string( )
         .required('Field is required'),
-        street: Yup.string( )
+        street_building: Yup.string( )
         .required('Field is required'),
-        model: Yup.string( )
+        location_extra_details: Yup.string( )
         .required('Field is required'),
-        date: Yup.string( )
+        model_number: Yup.string( )
         .required('Field is required'),
-        time: Yup.string( )
+        date_available: Yup.string( )
         .required('Field is required'),
-        
-        email: Yup.string()
-        .email("Email is invalid")
-        .required('Email field is required'),
-        password: Yup.string()
-        .min(6, "Password must be atleast 6 characters")
-        .required("password field is required"),
-        confirmPassword: Yup.string()
-        .oneOf([Yup.ref('password'), null], 'password must match')
-        . required('confirm password is required'),
+        time_available: Yup.string( )
+        .required('Field is required'),
+
     })
+
+
+
+    const [booking, setbooking] = useState({
+        first_name:"",
+        surname:"",
+        phone:"",
+        mpesa_number:"",
+
+        location_id:"",
+        area:"",
+        street_building:"",
+        location_extra_details:"",
+
+        service_id:"",
+        brand_id:"",
+        model_number:"",
+        service_extra_details:"",
+        category_id:"",
+       
+       
+        date_available:"",
+        time_available:"",
+        
+    }); 
+    
+    const handleIput = (e) => {
+        e.persist();
+        setbooking({...booking, [e.target.name]: e.target.value})
+    }
+    
+    const bookingSubmit = (e) => {
+    e.preventDefault();
+    
+    const details = {
+        first_name: booking.first_name,
+        surname: booking.surname,
+        phone: booking.phone,
+        mpesa_number: booking.mpesa_number,
+      
+        location_id: booking.location_id,
+        area: booking.area,
+        street_building: booking.street_building,
+        location_extra_details: booking.location_extra_details,
+
+        service_id: booking.service_id,
+        brand_id: booking.brand_id,
+        model_number: booking.model_number,
+        service_extra_details: booking.service_extra_details,
+        category_id: booking.category_id,
+
+        date_available: booking.date_available,
+        time_available: booking.time_available,
+        request_callback: 0,
+
+    }
+    //    console.log(errors); 
+    
+    
+    axios.post(`/api/customer/orders`, details ).then(res =>{
+        // console.log('res', res)
+    
+        
+        if(res.status === 201)
+        {
+    
+    
+            alert("created successfully");
+            
+    
+    
+         }else
+        {
+    
+            alert("Oops you have entered invalid credentials");
+    
+        }
+    
+    });
+    
+    }
+    
+
+
+
+
+
+
+
+
     
         return ( 
             <div>
@@ -48,19 +141,25 @@ function BookService() {
             <Formik
             
             initialValues={{
-                Fname:"",
-                Sname:"",
-                number:"",
-                Mnumber:"",
-                email:"",
-                password:"",
-                confirmPassword:"",
+                first_name:"",
+                surname:"",
+                phone:"",
+                mpesa_number:"",
+
+                location_id:"",
                 area:"",
-                street:"",
-                other:"",
-                model:"",
-                date:"",
-                time:"",
+                street_building:"",
+                location_extra_details:"",
+
+                service_id:"",
+                brand_id:"",
+                model_number:"",
+                service_extra_details:"",
+                category_id:"",
+               
+               
+                date_available:"",
+                time_available:"",
                
             }}
             validationSchema={validate}
@@ -75,24 +174,24 @@ function BookService() {
                                          
    
                                    
-                                        <Form style={{ marginLeft:"2%",marginTop:"15px"}}>
+                                        <Form  style={{ marginLeft:"2%",marginTop:"15px"}}>
 
-                                            <div style={{display:"flex", gap:"5%", marginBottom:"20px",overflow:"wrap" }}>
+                                            <div style={{display:"flex", gap:"2%", marginBottom:"20px",overflow:"wrap" }}>
                                                 <b>Personal details</b>
-                                           <Formi  name="Fname" type="text" placeholder="First name" style={{background:"#e8e9ed", marginLeft:"7.5%"}}   />
-                                           <Formi  name="Sname" type="text" placeholder="Surname" style={{background:"#e8e9ed"}} />
-                                           <Formi  name="Sname" type="text" placeholder="Phone Number" style={{background:"#e8e9ed"}} />
+                                           <Formi onChange={handleIput} value={booking.first_name}  name="first_name" type="text" placeholder="First name" style={{background:"#e8e9ed", marginLeft:"3%"}}   />
+                                           <Formi onChange={handleIput} value={booking.surname}   name="surname" type="text" placeholder="Surname" style={{background:"#e8e9ed"}} />
+                                           <Formi onChange={handleIput} value={booking.phone}  name="phone" type="text" placeholder="Phone Number" style={{background:"#e8e9ed"}} />
                                            
                                             </div>
 
                                             
-                                            <Formi label="Phone number" name="Mnumber" type="text" placeholder="Enter your M-pesa number." style={{width:"445px", marginBottom:"20px" , background:"#e8e9ed", marginLeft:"19.5%"}} />
+                                            <Formi onChange={handleIput} value={booking.mpesa_number}  label="Phone number" name="mpesa_number" type="text" placeholder="Enter your M-pesa number." style={{width:"50.5%", marginBottom:"20px" , background:"#e8e9ed", marginLeft:"16.8%"}} />
                                            
-                                            <div style={{display:"flex", gap:"5%", marginBottom:"20px",overflow:"wrap" }}>
+                                            <div style={{display:"flex", gap:"2%", marginBottom:"20px",overflow:"wrap" }}>
                                                 <b>Location</b>
 
                                                 <div className='select'>
-               <select  name='citizenship'  style={{background:"#e8e9ed",border:"0px solid white", marginLeft:"32.5%",fontSize:"16px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"200px", marginBottom: "20px" }} id=" " >
+               <select onChange={handleIput} value={booking.location_id}   name='location_id'  style={{background:"#e8e9ed",border:"0px solid white", marginLeft:"28.5%",fontSize:"16px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"230px", marginBottom: "20px" }} id=" " >
                     <option value="selected">Location</option>
                     <option value="Kenya">Kenya</option>
                     <option value="Tanzania">Tanzania</option>
@@ -104,16 +203,16 @@ function BookService() {
                     </select> <br/>
                     
                </div>
-                                         <Formi  name="area" type="text" placeholder="Area e.g Kileleshwa" style={{background:"#e8e9ed", marginLeft:"24.5%"}} />
-                                           <Formi  name="street" type="text" placeholder="Street/building" style={{background:"#e8e9ed", marginLeft:"28.5%"}} />
+                                         <Formi onChange={handleIput} value={booking.area}   name="area" type="text" placeholder="Area e.g Kileleshwa" style={{background:"#e8e9ed", marginLeft:"25.5%"}} />
+                                           <Formi onChange={handleIput} value={booking.street_building}  name="street_building" type="text" placeholder="Street/building" style={{background:"#e8e9ed", marginLeft:"24.5%"}} />
                                            </div>
 
-                                           <Formi  name="other" type="text" placeholder="Other location details" style={{width:"445px", marginBottom:"20px" , background:"#e8e9ed", marginLeft:"19.5%"}} />
+                                           <Formi onChange={handleIput} value={booking.location_extra_details}  name="location_extra_details" type="text" placeholder="Other location details" style={{width:"50.5%", marginBottom:"20px" , background:"#e8e9ed", marginLeft:"16.5%"}} />
                                           
-                                           <div style={{display:"flex", gap:"5%", marginBottom:"20px",overflow:"wrap" }}>
+                                           <div style={{display:"flex", gap:"2%", marginBottom:"20px",overflow:"wrap" }}>
                                                 <b>Problem <br /> description</b>
                                                 <div className='select'>
-               <select  name='citizenship'  style={{background:"#e8e9ed",border:"0px solid white", marginLeft:"25.5%",fontSize:"16px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"200px", marginBottom: "20px" }} id=" " >
+               <select onChange={handleIput} value={booking.service_id}   name='service_id'  style={{background:"#e8e9ed",border:"0px solid white", marginLeft:"17%",fontSize:"16px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"230px", marginBottom: "20px" }} id=" " >
                     <option value="selected">Choose service</option>
                     <option value="Kenya">Kenya</option>
                     <option value="Tanzania">Tanzania</option>
@@ -126,7 +225,7 @@ function BookService() {
                     
                </div>
                <div className='select'>
-               <select  name='citizenship'  style={{background:"#e8e9ed",border:"0px solid white", marginLeft:"25.5%",fontSize:"16px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"200px", marginBottom: "20px" }} id=" " >
+               <select onChange={handleIput} value={booking.brand_id}  name='brand_id'  style={{background:"#e8e9ed",border:"0px solid white", marginLeft:"15%",fontSize:"16px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"230px", marginBottom: "20px" }} id=" " >
                     <option value="selected">Description</option>
                     <option value="Kenya">Kenya</option>
                     <option value="Tanzania">Tanzania</option>
@@ -138,7 +237,7 @@ function BookService() {
                     </select> <br/>
                     
                </div>                                                                   <div className='select'>
-               <select  name='citizenship'  style={{background:"#e8e9ed",border:"0px solid white", marginLeft:"25.5%",fontSize:"16px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"200px", marginBottom: "20px" }} id=" " >
+               <select onChange={handleIput} value={booking.model_number}   name='model_number'  style={{background:"#e8e9ed",border:"0px solid white", marginLeft:"15%",fontSize:"16px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"230px", marginBottom: "20px" }} id=" " >
                     <option value="selected">Model</option>
                     <option value="Kenya">Kenya</option>
                     <option value="Tanzania">Tanzania</option>
@@ -151,19 +250,19 @@ function BookService() {
                     
                </div>  </div>
 
-                                           <Formi  name="model" type="text" placeholder="Model decription" style={{width:"445px", marginBottom:"20px" , background:"#e8e9ed", marginLeft:"19.5%"}} />
+                                           <Formi onChange={handleIput} value={booking.category_id}  name="category_id" type="text" placeholder="Model decription" style={{width:"51%", marginBottom:"20px" , background:"#e8e9ed", marginLeft:"16%"}} />
                                           
 
-                                            <div style={{marginLeft:"19.5%",marginBottom:"20px"}}>
+                                            <div style={{marginLeft:"16%",marginBottom:"20px"}}>
                                             <label htmlFor="comment"><b>Exact problem</b></label>
-                                           <textarea className="form-control" rows="2" name="text" style={{background:"#e8e9ed", width:"700px"}}></textarea>
+                                           <textarea  onChange={handleIput} value={booking.service_extra_details} className="form-control" rows="2" name="service_extra_details" style={{background:"#e8e9ed", width:"93%"}}></textarea>
 
                                             </div>
 
                                            <div style={{display:"flex", gap:"5%", marginBottom:"20px",overflow:"wrap" }}>
                                                 <b>Date and time to <br /> receive technician</b>
-                                           <Formi  name="date" type="date" placeholder="Select prefered date" style={{background:"#e8e9ed"}}   />
-                                           <Formi  name="time" type="time" placeholder="Select prefered time" style={{background:"#e8e9ed"}} />
+                                           <Formi onChange={handleIput} value={booking.date_available}  name="date_available" type="date" placeholder="Select prefered date" style={{background:"#e8e9ed"}}   />
+                                           <Formi onChange={handleIput} value={booking.time_available}  name="time_available" type="time" placeholder="Select prefered time" style={{background:"#e8e9ed"}} />
                                           </div>
 
                                            <BiMessageRounded style={{fontSize:"35px", float:"right",background:"green", color:"white", borderRadius:"50%",
@@ -171,7 +270,7 @@ function BookService() {
                                  </Form>
                                         
                         </div>
-                        <button style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
+                        <button onClick={bookingSubmit} style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
                                              border:"1px solid white",marginLeft:"50%", color:"white",fontSize:"22px"}}>Book technician</button>
                                          
                      </div>
