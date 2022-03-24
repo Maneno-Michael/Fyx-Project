@@ -163,7 +163,7 @@ function Wallet() {
                          <div className="card pt-3">
                          <div className = "row">
                          <div className = "col-md-3">
-                            <img className = "cardimgs pending" src  width="45px" height="45px"/>
+                            <img className = "cardimgs pending" src = {union}   width="45px" height="45px"/>
                         </div>
                         <div className = "col-md-9">
                             <h6 className = "text-left ml-3">Pending Payments</h6>

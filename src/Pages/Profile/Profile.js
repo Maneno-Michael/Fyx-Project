@@ -107,6 +107,9 @@ function Profile() {
     
         return ( 
             <div className=''>
+{/* 
+            <TechnicianSidebar/>
+            <ProfileTechNav profile={user.data.name} /> */}
 
             <Sidebar/>
            
