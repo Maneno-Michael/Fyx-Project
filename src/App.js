@@ -60,6 +60,7 @@ import ContentTechnicians from './Admin/ContentManagement/ContentTechnicians';
 import Technicians from './Admin/TechManagement/Technicians';
 import TechNotifications from './Admin/TechManagement/TechNotifications';
 import TechRegistrations from './Admin/TechManagement/TechRegistrations';
+import Admin from './Admin/Admin';
 
 
 
@@ -149,6 +150,7 @@ function App() {
             <Route exact path="/technicians" element={<Technicians />}></Route>
             <Route exact path="/technotifications" element={<TechNotifications />}></Route>
             <Route exact path="/techregistrations" element={<TechRegistrations />}></Route>
+            <Route exact path='/admin' element={<Admin />}></Route>
             
            
         </Routes>   

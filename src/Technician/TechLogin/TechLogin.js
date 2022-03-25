@@ -58,7 +58,7 @@ const loginSubmit = (e) => {
         axios.post(`/api/technician/login`, data). then (res => {
             // console.log('res', res)
     
-            if (res.status === 200) {
+            if (res.data) {
     
     
                 localStorage.setItem("auth_token", res.data.token);

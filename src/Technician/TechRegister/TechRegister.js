@@ -37,9 +37,9 @@ const validate = Yup.object({
 const navigate = useNavigate();
 
 const [reg, setregInput] = useState({
-    name:'',
+    first_name:'',
     email:'',
-  
+   
     password:'',
     password_confirmation:'',
     
@@ -54,21 +54,28 @@ const regSubmit = (e) => {
 e.preventDefault();
 
 const details = {
-    name: reg.name,
+    first_name: reg.first_name,
     email: reg.email,
-    
+    surname:' jonte',
+    phone:"1234567",
     password: reg.password,
     password_confirmation: reg.password_confirmation,
+
+    
+
+
 }
 //    console.log(errors); 
 
 
 try {
-    axios.post(`/api/register`, details). then (res => {
+    axios.post(`/api/technicians`, details). then (res => {
         // console.log('res', res)
 
-        if (res.status === 200) {
+        if ((res.data)) {
 
+            // localStorage.setItem("auth_token", res.data.token);
+            // localStorage.setItem("auth_name", JSON.stringify(res.data));
 
             alert("registered successfully")
             navigate('/techlogin');
@@ -126,7 +133,7 @@ try {
                                  <p style={{marginLeft:"55%", marginTop:"20px"}}>Please fill the following details to sign up.</p>
                                 
                                     <Form   onSubmit={regSubmit} style={{float:"left", marginLeft:"8%"}}>
-                                        < Formi onChange={handleIput} value={reg.name} style={{ width:"400px",borderRadius:"15px"}} label="name" name="name" type="text" placeholder="Full Name" />
+                                        < Formi onChange={handleIput} value={reg.first_name} style={{ width:"400px",borderRadius:"15px"}} label="name" name="first_name" type="text" placeholder="Full Name" />
                                         < Formi  onChange={handleIput} value={reg.email} style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="email" type="email"  placeholder="Email" />
                                         < Formi  onChange={handleIput} value={reg.password} style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="password" type="password" placeholder="Password"/>
                                         < Formi onChange={handleIput} value={reg.password_confirmation} style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="password_confirmation" type="password" placeholder="Confirm Password"/>

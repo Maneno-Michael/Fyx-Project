@@ -72,7 +72,7 @@ function AdminDashboard() {
 <div className="col-9 offset-3 main">
         <h2>Analytics</h2>
          <h6>Dashboard/Analytics</h6>
-      <kilz id = "contentdivider"/>
+      {/* <kilz id = "contentdivider"/> */}
 
     <a href = "neworders"><button type = "button" className = "btnNewOrder mb-2"><img src = "assets/icons/icons8-purchase-order-50.png" width="20px" height="20px"/> New Orders</button></a>
   <div className = "row">
