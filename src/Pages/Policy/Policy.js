@@ -11,17 +11,17 @@ function Policy() {
         <ProfileNav  />
         <div>
 
-        <div className = "container-fluidz">
-        <div className = "card mb-5 shadow-sm"style={{maxHeight:"0%",marginLeft:"10%",borderRadius:"15px",backgroundColor:"white"}}>
-    <div id = "fyxpolicyz" style={{}}>
-        <h1 className = "text-center"style={{}}>Fyx Policy to be Stated here</h1>
-        </div>
-    </div>
+<div className = "container lg ">
+<div className = "card mb-10 shadow-sm">
+<div id = "fyxpolicy" >
+<h1 className = "text-center" style={{paddingRight:"190px"}}>Fyx Policy to be Stated here</h1>
+</div>
+</div>
 </div>
 
-            
-        </div>
-        </section>
+    
+</div>
+</section>
      );
 }
 
