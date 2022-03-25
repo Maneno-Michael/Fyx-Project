@@ -113,13 +113,18 @@ function Wallet() {
                   Summary Earnings
                  </h3>
                  <section>
-          
-                  < div className="nav nav-tabs">
+                 <div id="nav">
+                 <nav className="navigation" style={{marginLeft:"-85%",}}>
                    
-                      <a className ="nav-link"  >Life Time</a>
-                      <a className="nav-link" >Monthly</a>
-                     <a    div className="nav-link" >Weekly</a>  
-                    </div>
+                  <ul>
+                <li><a href="lifetime"> lifetime <i className="fas fa-caret-right"></i></a></li>
+                <li><a href="/weekly ">weekly <i className="fas fa-caret-right"></i></a></li>
+                <li><a href="/Monthly">Monthly <i className="fas fa-caret-right"></i></a></li>
+                </ul>
+                </nav>
+                </div>
+                
+                    
                   {/* graph content */}
                 
                    
