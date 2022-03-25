@@ -102,6 +102,8 @@ function SidebarAdmin(){
           title="Communication"
           menuVariant="dark"
         >
+          
+          <NavDropdown.Item href="/communication">Communications</NavDropdown.Item>
           <NavDropdown.Item href="/livechats">Live Chats</NavDropdown.Item>
           <NavDropdown.Item href="/newsletters">Newsletters</NavDropdown.Item>
           
@@ -112,7 +114,7 @@ function SidebarAdmin(){
           title="User Managment"
           menuVariant="dark"
         >
-          <NavDropdown.Item href="#action/3.1">User Management</NavDropdown.Item>
+          <NavDropdown.Item href="/usermanagement">User Management</NavDropdown.Item>
           
         </NavDropdown>
         
@@ -126,7 +128,8 @@ function SidebarAdmin(){
           <NavDropdown.Item href="/miniForm">Mini form</NavDropdown.Item>
           <NavDropdown.Item href="/advertisements">Advertisements</NavDropdown.Item>
           <NavDropdown.Item href="/technicians">Technician</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.4">Fyx policy</NavDropdown.Item>
+          <NavDropdown.Item href="/comments">Comments</NavDropdown.Item>
+          <NavDropdown.Item href="contentPolicy">Fyx policy</NavDropdown.Item>
           <NavDropdown.Divider />
         
         </NavDropdown>

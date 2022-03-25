@@ -1,11 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SidebarAdmin from '../../components/sidebarAdmin';
 import ProfileNavAdmin from '../../components/profileNavAdmin';
 import Table from 'react-bootstrap/Table'
 import * as fa from "react-icons/fa";
+import axios from 'axios';
 
 
 function Clients() {
+
+
+
+
+
+  const [loading, setLoading] = useState(true);
+  const [techData, setTechdata] = useState([]);
+
+useEffect (() =>{
+
+    
+  axios.get(`/api/admin/customers`).then(res=>{
+    
+    
+    if(res.status === 200)
+    {
+        console.log('hey there');
+      setTechdata(res.data)
+    }
+    setLoading(false);
+  });
+
+}, []);
+
+// if(loading){
+//   return <h3 style={{marginLeft:"25%"}}>Loading ...</h3>
+// }
+
+
+
+
     return ( 
         <div className=''>        
             <SidebarAdmin/>

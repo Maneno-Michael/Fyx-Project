@@ -91,6 +91,7 @@ try {
 } catch (error) {
     
     alert("oops, invalid credentials")
+    navigate('/techregister');
 }
        
 
