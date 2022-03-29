@@ -24,12 +24,12 @@ axios.post(`api/admin/Super-Admin/technician/${details}/approve`) .then(res =>{
   
       alert("approved technician successfully");
 
-      navigate('/home');
+      navigate('/techregistrations');
 
   }else{
       alert("Not approved");
 
-      navigate('/login');
+      navigate('/techregistrations');
   }
 
 });
@@ -47,11 +47,35 @@ axios.post(`api/admin/Super-Admin/technician/${details}/reject`) .then(res =>{
   
       alert("Rejected technician successfully");
 
-      navigate('/techregistration');
+      navigate('/techregistrations');
 
   }else{
       alert(" Rejection not approved");
-      navigate('/techregistration');
+      navigate('/techregistrations');
+      
+  }
+
+});
+
+}
+  
+
+  
+const recomend = (d) => {
+  d.preventDefault();
+
+  
+axios.post(`api/admin/Super-Admin/technician/${details}/recommend`) .then(res =>{
+  if(res.status === 200)
+  {
+  
+      alert("Recommended the technician successfully");
+
+      navigate('/techregistrations');
+
+  }else{
+      alert(" Recommendation not approved");
+      navigate('/techregistrations');
       
   }
 
@@ -99,6 +123,31 @@ axios.post(`api/admin/Super-Admin/technician/${details}/reject`) .then(res =>{
       </td>
       <td><button onClick={approve} style={{borderRadius:"15px",paddingLeft:"20px", paddingRight:"20px", border:"0px solid", background:"orange"}}>Add Technician</button></td>
       <td><button onClick={reject} style={{borderRadius:"15px",paddingLeft:"20px", paddingRight:"20px", border:"0px solid", background:"transparent",boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)"}}>Reject Technician</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td></td>
+
+      <td></td>
+    </tr>
+  </tbody>
+
+  <tbody style={{boxShadow: "0px 3px 5px rgba(139, 137, 137, 0.5)"}}>
+    <tr>
+      <td><input name='date' type="date" /></td>
+      <td>
+        <input onChange={(handleInput)=>{
+        const val = handleInput.target.value;
+        setDetails(val);
+         }} name='reg_Id' type="text" />
+         
+         </td>
+
+      <td>
+          <button style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"transparent"}}>More Details...</button>
+      </td>
+      <td><button onClick={recomend} style={{borderRadius:"15px",paddingLeft:"20px", paddingRight:"20px", border:"0px solid", background:"transparent",boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)"}}>Recommend Technician</button></td>
     </tr>
 
     <tr>

@@ -1,7 +1,65 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Card,Col,Row,Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function FeedbackForm({orderNo,servedBy}){
+
+
+const navigate = useNavigate();
+
+    const [ comment, setComment] = useState ({
+        technician_feedback: '',
+        agent_feedback: '',
+       
+    });
+    
+    const handleInput = (e) =>{
+        e.persist();
+    
+        setComment({...comment, [e.target.name]: e.target.value});
+        console.log(comment);
+    };
+        
+    const commentSubmit = (e) => {
+        e.preventDefault();
+    
+        const data ={
+            technician_feedback: comment.technician_feedback,
+            agent_feedback: comment.agent_feedback,
+        }
+    
+    
+    
+  const dar =  axios.post(`http://fixapi.chengegikonyo.com/api/customer/feedbacks`, data) .then(res =>{
+        console.log(dar);
+        if(res.data)
+        {
+
+            alert("Commented successfully");
+    
+            navigate('/home');
+    
+        }else{
+            alert("Comment not sent");
+    
+            navigate('/login');
+        }
+    
+    });
+    
+    }
+    
+    useEffect(()=>{
+        // console.log(errors);
+      
+            // console.log(comment);
+          
+        },[])
+
+
+
+
     const date = new Date();
     return (
         <div>
@@ -35,13 +93,13 @@ function FeedbackForm({orderNo,servedBy}){
                                 </Col>
                             </Row>
                             <div className='pt-5'>Fyx Technician:</div>
-                            <form className="form-floating container">
-                                <textarea className="form-control" placeholder="Comment on your experience" id="floatingTextarea2" style={{height: "100px"}}></textarea>
+                            <form onSubmit={commentSubmit} className="form-floating container" >
+                                <textarea onChange={handleInput} value={comment.technician_feedback} name="technician_feedback"  className="form-control" placeholder="Comment on your experience" id="floatingTextarea2" style={{height: "100px"}}></textarea>
                                 <input value="submit" type="submit" className="btn btn-warning text-center mt-3"/>
                             </form>
                             <div className='pt-5'>Fyx Website:</div>
-                            <form className="form-floating container ">
-                                <textarea className="form-control" placeholder="Comment on your experience" id="floatingTextarea2" style={{height: "100px"}}></textarea>
+                            <form onSubmit={commentSubmit} className="form-floating container " >
+                                <textarea onChange={handleInput} value={comment.agent_feedback} name="agent_feedback" className="form-control" placeholder="Comment on your experience" id="floatingTextarea2" style={{height: "100px"}}></textarea>
                                 <input value="submit" type="submit" className="btn btn-warning text-center mt-3"/>
                             </form>
                             

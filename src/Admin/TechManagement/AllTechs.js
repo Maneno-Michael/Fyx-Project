@@ -7,24 +7,6 @@ import custom from "./useCustom";
 function AllTechs() {
 
 
-// const{ data, loading, error } = custom("http://fixapi.chengegikonyo.com/api/admin/Super-Admin/new_technicians");
-// console.log(data.data)
-
-// if(loading) {
-//     <h1>LOARDING...</h1>
-// }
-// if(error){
-//     console.log(error);
-// }
-
-
-
-
-// useEffect(() =>{
-//     fetch("http://fixapi.chengegikonyo.com/api/admin/Super Admin/new_technicians")
-//     .then(res =>console.log(res))
-// }, [])
-
 const [details, getDetails] = useState([]);
 const getData = async () => {
     try {
@@ -91,19 +73,10 @@ console.log('deta',details);
 
                 </tr>
                                        ) )}
-                   
-                    
 
-
-                    
-
-                   {/* ))} */}
-                    
-                  {/* ))}   */}
          
                     </tbody>
                     </table>
-
 
                     </div>
 
