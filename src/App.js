@@ -57,11 +57,12 @@ import MiniForm from './Admin/ContentManagement/MiniForm';
 import ContentPolicy from './Admin/ContentManagement/ContentPolicy';
 import ContentTechnicians from './Admin/ContentManagement/ContentTechnicians';
 // import NewOrderr from './Admin/OrderManagment/NewOrd';
-// import NewOrderr from './Admin/OrderManagement/NewOrd';
+import NewOrderr from "./Admin/OrderMangement/NewOrd";
 // import OrderHistory from './Admin/OrderManagement/OrderHistory';
 // import SchedOrder from './Admin/OrderManagement/SchedOrder';
 
 import Technicians from './Admin/TechManagement/Technicians';
+import AllTechs from './Admin/TechManagement/AllTechs';
 import TechNotifications from './Admin/TechManagement/TechNotifications';
 import TechRegistrations from './Admin/TechManagement/TechRegistrations';
 import Admin from './Admin/Admin';
@@ -149,10 +150,11 @@ function App() {
             <Route exact path="/miniForm" element={<MiniForm />}></Route>
             <Route exact path="/contentPolicy" element={<ContentPolicy />}></Route>
             <Route exact path="/contenttechnicians" element={<ContentTechnicians />}></Route>
-            {/* <Route exact path="/neworder" element={<NewOrderr />}></Route> */}
+            <Route exact path="/neworder" element={<NewOrderr />}></Route>
             {/* <Route exact path="/orderhistory" element={<OrderHistory />}></Route> */}
             {/* <Route exact path="/schedorder" element={<SchedOrder />}></Route> */}
             <Route exact path="/technicians" element={<Technicians />}></Route>
+            <Route exact path="/alltechs" element={<AllTechs />}></Route>
             <Route exact path="/technotifications" element={<TechNotifications />}></Route>
             <Route exact path="/techregistrations" element={<TechRegistrations />}></Route>
             <Route exact path='/admin' element={<Admin />}></Route>

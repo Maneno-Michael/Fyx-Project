@@ -14,9 +14,9 @@ function ActiveOrder() {
        <div>
        <div className = "container"style={{}}>
        <div className="nav orderz" style={{marginLeft:"2%",marginBottom:"5%"}}>
-       <Link to="/ActiveOrders"> <button style={{borderRadius:"15px"}}>Active Orders</button>
-       </Link>
-      <button style={{marginLeft:"4%",borderRadius:"15px",backgroundColor:"white"}}>Sheduled orders</button>
+       <a  href='/ActiveOrders' className='btn btn-outline-warning rounded-pill ms-1 text-black'> Active orders</a>
+       <a  href='/scheduledorder' className='btn btn-outline-warning rounded-pill ms-2 text-black'>Sheduled orders</a>
+
 
       </div>
       <div className = "card mb-4 shadow-sm"style={{maxWidth:"80%",marginLeft:"10%",borderRadius:"15px"}}>
@@ -25,10 +25,9 @@ function ActiveOrder() {
 
         <h4>You don't have an Active Order</h4>
         {/* book service link */}
-        <Link to="/BookService"> <button style={{borderRadius:"15px",marginLeft:"5%",backgroundColor:"white",borderColor:"yellow"}}>
-                      Book Service
-                    </button>
-                    </Link>
+        <a href='/bookservice' className='btn btn-outline-warning rounded-pill text-black text-center mb-5 mt-5'> Book Service</a>
+                   
+                   
                    
                  {/* end link */}
     </div>

@@ -19,6 +19,7 @@
     height: 30px;
     width: 50%;
     background-color: #39393B;
+    
 
 }
 .advert-container-2{
@@ -62,6 +63,11 @@
     font-size: 15px;
     
 }
+#nav ul li a:hover, #nav a:hover {
+    color: #f1f1f1;
+    background: #fca311;
+    border-radius: 2px solid #fca311;
+  }
 .landing-image{
     
     height: 80vh;
@@ -109,7 +115,7 @@ select{
     border-radius:3px;
     background-color: #fff;
 }
-.btn{
+#btn{
     margin-left: 10px;
     padding: 2px 20px;
     border-radius: 20px;
