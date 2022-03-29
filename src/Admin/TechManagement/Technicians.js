@@ -65,7 +65,7 @@ function Technicians() {
           
 
         </div>
-     );
+     )
     }
 
 export default Technicians;

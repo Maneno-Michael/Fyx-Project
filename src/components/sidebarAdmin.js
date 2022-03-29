@@ -74,6 +74,7 @@ function SidebarAdmin(){
           <NavDropdown.Item href="/technicians">Technicians</NavDropdown.Item>
           <NavDropdown.Item href="/techregistrations">Registrations</NavDropdown.Item>
           <NavDropdown.Item href="/technotifications">Notification</NavDropdown.Item>
+          <NavDropdown.Item href="/alltechs">All technicialns</NavDropdown.Item>
           <NavDropdown.Divider />
           
         </NavDropdown>

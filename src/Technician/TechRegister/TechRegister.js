@@ -46,6 +46,7 @@ const details = {
     location_id:" Ngong Road",
     area:"Upper-hill",
     passport:"none",
+    resume:"",
     password: reg.password,
     password_confirmation: reg.password_confirmation,
 
@@ -53,8 +54,7 @@ const details = {
 
 try {
     axios.post(`/api/technicians`, details). then (res => {
-       
-
+     
         if ((res.data)) {
 
             alert("registered successfully")

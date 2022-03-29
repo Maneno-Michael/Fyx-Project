@@ -151,6 +151,7 @@ function Profile() {
                                         <Form onSubmit={pageSubmit} style={{ marginLeft:"25%",marginTop:"15px"}}>
 
                                             <div style={{display:"flex", gap:"10%", marginBottom:"20px",overflow:"wrap" }}>
+ 
                                            <Formi  onChange={handleIput} value={reg.first_name} label="First name" name="first_name" type="text" style={{background:"#e8e9ed"}}   />
                                            <Formi onChange={handleIput} value={reg.surname} label="Surname" name="surname" type="text" style={{background:"#e8e9ed"}} />
                                            

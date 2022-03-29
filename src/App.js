@@ -58,6 +58,7 @@ import NewOrderr from "./Admin/OrderMangement/NewOrd";
 // import SchedOrder from './Admin/OrderManagement/SchedOrder';
 
 import Technicians from './Admin/TechManagement/Technicians';
+import AllTechs from './Admin/TechManagement/AllTechs';
 import TechNotifications from './Admin/TechManagement/TechNotifications';
 import TechRegistrations from './Admin/TechManagement/TechRegistrations';
 import Admin from './Admin/Admin';
@@ -148,6 +149,7 @@ function App() {
             {/* <Route exact path="/orderhistory" element={<OrderHistory />}></Route> */}
             {/* <Route exact path="/schedorder" element={<SchedOrder />}></Route> */}
             <Route exact path="/technicians" element={<Technicians />}></Route>
+            <Route exact path="/alltechs" element={<AllTechs />}></Route>
             <Route exact path="/technotifications" element={<TechNotifications />}></Route>
             <Route exact path="/techregistrations" element={<TechRegistrations />}></Route>
             <Route exact path='/admin' element={<Admin />}></Route>
