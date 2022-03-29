@@ -214,38 +214,32 @@ function BookService() {
                                                 <div className='select'>
                <select onChange={handleIput} value={booking.service_id}   name='service_id'  style={{background:"#e8e9ed",border:"0px solid white", marginLeft:"17%",fontSize:"16px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"230px", marginBottom: "20px" }} id=" " >
                     <option value="selected">Choose service</option>
-                    <option value="Kenya">Kenya</option>
-                    <option value="Tanzania">Tanzania</option>
-                    <option value="Uganda">Uganda</option>
-                    <option value="Rwanda">Rwanda</option>
-                    <option value="Ethiopia">Etiopia</option>
-                    <option value="Somalia">Somalia</option>
-                    <option value="Burundi">Burundi</option>
+                    <option value="Kenya">Repair</option>
+                    <option value="Tanzania">Maintainance</option>
+                    <option value="Uganda">Installation</option>
+            
                     </select> <br/>
                     
                </div>
                <div className='select'>
                <select onChange={handleIput} value={booking.brand_id}  name='brand_id'  style={{background:"#e8e9ed",border:"0px solid white", marginLeft:"15%",fontSize:"16px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"230px", marginBottom: "20px" }} id=" " >
                     <option value="selected">Description</option>
-                    <option value="Kenya">Kenya</option>
-                    <option value="Tanzania">Tanzania</option>
-                    <option value="Uganda">Uganda</option>
-                    <option value="Rwanda">Rwanda</option>
-                    <option value="Ethiopia">Etiopia</option>
-                    <option value="Somalia">Somalia</option>
-                    <option value="Burundi">Burundi</option>
+                    <option value="Kenya">Tv</option>
+                    <option value="Tanzania">Microwave</option>
+                    <option value="Uganda">Fridge</option>
+                    <option value="Rwanda">Washing Machine</option>
+                 
                     </select> <br/>
                     
                </div>                                                                   <div className='select'>
                <select onChange={handleIput} value={booking.model_number}   name='model_number'  style={{background:"#e8e9ed",border:"0px solid white", marginLeft:"15%",fontSize:"16px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"230px", marginBottom: "20px" }} id=" " >
                     <option value="selected">Model</option>
-                    <option value="Kenya">Kenya</option>
-                    <option value="Tanzania">Tanzania</option>
-                    <option value="Uganda">Uganda</option>
-                    <option value="Rwanda">Rwanda</option>
-                    <option value="Ethiopia">Etiopia</option>
-                    <option value="Somalia">Somalia</option>
-                    <option value="Burundi">Burundi</option>
+                    <option value="Kenya">Sumsung-45-G3</option>
+                    <option value="Tanzania">LG-345</option>
+                    <option value="Uganda">Sayona-23-gray</option>
+                    <option value="Rwanda">Sony12-NXT</option>
+                    <option value="Ethiopia">Peak-Tech3</option>
+                 
                     </select> <br/>
                     
                </div>  </div>

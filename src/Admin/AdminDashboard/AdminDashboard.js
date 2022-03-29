@@ -1,8 +1,7 @@
 import React from 'react';
 // import { Container } from 'react-bootstrap';
 import ProfileNavAdmin from '../../components/profileNavAdmin';
-import SidebarAdmin from '../../components/sidebarAdmin'             
-
+import SidebarAdmin from '../../components/sidebarAdmin'              
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AdminDashboard.css';
 import { Doughnut,Line } from 'react-chartjs-2';
@@ -53,7 +52,7 @@ function AdminDashboard() {
         label: 'Dataset 1',
         data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
         borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: 'rgba(blue)',
       },
      
     ],
@@ -72,7 +71,7 @@ function AdminDashboard() {
 <div className="col-9 offset-3 main">
         <h2>Analytics</h2>
          <h6>Dashboard/Analytics</h6>
-      <kilz id = "contentdivider"/>
+      {/* <kilz id = "contentdivider"/> */}
 
     <a href = "neworders"><button type = "button" className = "btnNewOrder mb-2"><img src = "assets/icons/icons8-purchase-order-50.png" width="20px" height="20px"/> New Orders</button></a>
   <div className = "row">
@@ -84,17 +83,7 @@ function AdminDashboard() {
           
         <section>
           
-            <ul className="nav nav-tabs" id="myTab" role="tablist">
-          
-             <a className="nav-link" id="lifetime-tab" data-toggle="tab" href="#daily" role="tab" aria-controls="home" aria-selected="false">Daily</a>
-              
-             
-                <a className="nav-link" id="monthly-tab" data-toggle="tab" href="#weekly" role="tab" aria-controls="profile" aria-selected="false">Weekly</a>
-            
-              <li className="nav-item waves-effect waves-light">
-                <a className="nav-link active" id="weekly-tab" data-toggle="tab" href="#monthly" role="tab" aria-controls="contact" aria-selected="true">Monthly</a>
-              </li>
-            </ul>
+           
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade active show" id="daily" role="tabpanel" aria-labelledby="lifetime-tab" >
                   <div className="card shadow moneycard mb-4">
@@ -137,6 +126,8 @@ function AdminDashboard() {
            <h5 className = "text-center mt-2">Monthly Orders</h5>
         <div className="card-body">
           <div className="chart-area">
+
+            
             <canvas id="monthlyorders"  width="455"></canvas>
         </div>
         </div>
@@ -187,17 +178,9 @@ function AdminDashboard() {
     <div className = "col-md-6 mt-4">
         <section>
           
-            <ul className="nav nav-tabs" id="myTab" role="tablist">
-              <li className="nav-item waves-effect waves-light">
-                <a className="nav-link" id="lifetime-tab" data-toggle="tab" href="#daily" role="tab" aria-controls="home" aria-selected="false">Daily</a>
-              </li>
-              <li className="nav-item waves-effect waves-light">
-                <a className="nav-link" id="monthly-tab" data-toggle="tab" href="#weekly" role="tab" aria-controls="profile" aria-selected="false">Weekly</a>
-              </li>
-              <li className="nav-item waves-effect waves-light">
-                <a className="nav-link active" id="weekly-tab" data-toggle="tab" href="#monthly" role="tab" aria-controls="contact" aria-selected="true">Monthly</a>
-              </li>
-            </ul>
+
+          
+            
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade active show" id="daily" role="tabpanel" aria-labelledby="lifetime-tab" >
                   <div className="card shadow moneycard mb-4">

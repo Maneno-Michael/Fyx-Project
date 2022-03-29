@@ -3,6 +3,9 @@ import { Card,Container,Row,Col } from "react-bootstrap";
 import * as fa from "react-icons/fa";
 import { IoPersonCircle} from "react-icons/io5"; 
 const ProfileTechNav = ({profile})=>{
+
+    let user = JSON.parse (localStorage.getItem('auth_name'));
+
     return(<div className="">
 
     <Container>
@@ -17,7 +20,7 @@ const ProfileTechNav = ({profile})=>{
                   <Col lg={1} md={1}>
                   <IoPersonCircle  style={{ fontSize:"30px", color:"black"}}/>
                   </Col>
-                  <Col lg={2} md={3}>Hi {profile} </Col>
+                  <Col lg={2} md={3}>Hi {user.data.name} </Col>
                 </Row>
                 </Card.Body>
         </Card>

@@ -3,8 +3,41 @@ import './sidebarAdmin.css'
 import * as fa from "react-icons/fa";
 import { NavDropdown} from 'react-bootstrap'; 
 import {MdLogout} from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 function SidebarAdmin(){
+
+
+
+
+  
+  const navigate = useNavigate();
+  const logoutSubmit = (e) => {
+      e.preventDefault();
+
+      axios.post(`/api/logout`) .then(res =>{
+         
+
+          if (res.status === 200) {
+
+              localStorage.removeItem("auth_token");
+              localStorage.removeItem("auth_name", JSON.stringify(res.data.user));
+      
+      
+              alert("Logged out successfully")
+              navigate('/admin');
+  
+  
+          } else {
+  
+              alert("Log out Incomplete")
+  
+          }
+      })
+  }
+
+
 
 
     return (
@@ -69,6 +102,8 @@ function SidebarAdmin(){
           title="Communication"
           menuVariant="dark"
         >
+          
+          <NavDropdown.Item href="/communication">Communications</NavDropdown.Item>
           <NavDropdown.Item href="/livechats">Live Chats</NavDropdown.Item>
           <NavDropdown.Item href="/newsletters">Newsletters</NavDropdown.Item>
           
@@ -79,7 +114,7 @@ function SidebarAdmin(){
           title="User Managment"
           menuVariant="dark"
         >
-          <NavDropdown.Item href="#action/3.1">User Management</NavDropdown.Item>
+          <NavDropdown.Item href="/usermanagement">User Management</NavDropdown.Item>
           
         </NavDropdown>
         
@@ -93,15 +128,16 @@ function SidebarAdmin(){
           <NavDropdown.Item href="/miniForm">Mini form</NavDropdown.Item>
           <NavDropdown.Item href="/advertisements">Advertisements</NavDropdown.Item>
           <NavDropdown.Item href="/technicians">Technician</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.4">Fyx policy</NavDropdown.Item>
+          <NavDropdown.Item href="/comments">Comments</NavDropdown.Item>
+          <NavDropdown.Item href="contentPolicy">Fyx policy</NavDropdown.Item>
           <NavDropdown.Divider />
         
         </NavDropdown>
         <hr/>
        
     
-      <a href="/" className='pt-5'> <MdLogout style={{color:"black",fontSize:"35px"}}  className="ms-2" />Log Out</a>
-      
+   <button onClick={logoutSubmit} style={{fontSize:"18px",background:"transparent",color:"black",border:"none",marginLeft:"28px"}}> <MdLogout style={{color:"black",fontSize:"35px"}}  className="ms-2" />Log Out</button>
+               
        
       </div>
 

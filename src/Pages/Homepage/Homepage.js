@@ -218,7 +218,10 @@ function Homepage() {
     </div>
     <div className="technicians">
         <h2>Technicians spreadout in kenya</h2>
-        <div className="map"></div>
+        <div className="map">
+
+            
+        </div>
     </div>
     <footer>
         <div className="footer">

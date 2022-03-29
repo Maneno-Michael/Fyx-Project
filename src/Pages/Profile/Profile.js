@@ -80,7 +80,7 @@ function Profile() {
     
     
     axios.put(`/api/customers/1`, details ).then(res =>{
-        // console.log('res', res)
+        
     
         
         if(res.status === 200)
@@ -103,10 +103,14 @@ function Profile() {
     
     }
     
+    
   
     
         return ( 
             <div className=''>
+{/* 
+            <TechnicianSidebar/>
+            <ProfileTechNav profile={user.data.name} /> */}
 
             <Sidebar/>
            

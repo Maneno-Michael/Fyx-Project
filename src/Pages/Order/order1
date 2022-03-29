@@ -5,7 +5,7 @@ import zlatan from "../../Assets/images/successimage.png";
 import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
 import { Link,} from "react-router-dom";
-function ActiveOrder() {
+function Order1() {
     return ( 
        
         <section>
@@ -59,4 +59,4 @@ function ActiveOrder() {
      );
 }
 
-export default ActiveOrder;
+export default Order1;

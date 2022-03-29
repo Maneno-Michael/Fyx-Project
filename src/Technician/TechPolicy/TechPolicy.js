@@ -6,18 +6,19 @@ import TechnicianSidebar from '../../components/technicianSidebar';
 import ProfileTechNav from '../../components/profileTechNav';
 
 function TechPolicy() {
+    let user = JSON.parse (localStorage.getItem('auth_name'));
     return ( 
         <section>
         
         <TechnicianSidebar/>
-            <ProfileTechNav profile="Fundi" />
+            <ProfileTechNav profile={user.data.name} />
 
             <div>
 
-<div class = "container lg ">
+<div className = "container lg ">
 <div className = "card mb-10 shadow-sm">
 <div id = "fyxpolicy" >
-<h1 class = "text-center">Fyx Policy to be Stated here</h1>
+<h1 className = "text-center" style={{paddingRight:"190px"}}>Fyx Policy to be Stated here</h1>
 </div>
 </div>
 </div>

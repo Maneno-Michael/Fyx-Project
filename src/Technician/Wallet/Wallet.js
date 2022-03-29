@@ -13,6 +13,7 @@ import { render } from 'react-dom';
 import Modal from "../../components/modal";
 import  { useState } from "react";
 
+
 // arc and faker error solved
 import faker from 'faker';
 import {
@@ -39,6 +40,19 @@ ChartJS.register(
 
 
 function Wallet() {
+  const [show, setShow] = useState(false);
+
+  const submitModalHandler = () => setShow(false);
+
+
+
+
+
+
+
+
+
+
   const options = {
     responsive: true,
     plugins: {
@@ -59,7 +73,7 @@ function Wallet() {
         label: 'Dataset 1',
         data: [50,50,60,60,80,25,30],
         borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: 'rgba(blue)',
       },
      
     ],
@@ -76,28 +90,19 @@ function Wallet() {
    
  
 <section  className='container'>
-              <div className = "container mnz">
-              <div className = "row wag">
+              <div className = "container ">
+              <div className = "row ">
               <div className = "col mnz -md-6"  >
               <div className = "card p-3 totalCard"style={{borderRadius:"15px"}}>
                 <h5 className = "ml-5 font-weight-bold">Available Cash</h5>
                 <p className = "ml-5 mb-0 availableCash"style={{textDecoration:"underline"}}><span className="mr-2">Ksh.</span>5,000.00</p>
-                <p className="text-right muiz mb-0"> </p>
+                <p className="text-right  mb-0"> </p>
+                <button  onClick={() => setShow(true)}  style={{width:"20%",marginLeft:"83%",}}>Withdraw</button>
                 
                 
-        {/* modal div */}
-                {/* <button
-        className="openModalBtn"
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        withdraw
-      </button>
-
-      {modalOpen && <Modal setOpenModal={setModalOpen} />} */}
-    
-    {/* end of madal div */}
+        {/* modal event */}
+                
+   
             </div>
             </div>
             <div id = "walletimgcol" className = "col-md-6">
@@ -106,36 +111,37 @@ function Wallet() {
             </div>
             </div>
             </div>
+{/* modal */}
+            <Modal show={show} submit={submitModalHandler}
+             />
+             { show ? <div onClick={submitModalHandler} className="back-drop"></div> : null }
    
                  <div className="chart-holder">
-
                  <h3 className="secondary-heading mb-4">
                   Summary Earnings
                  </h3>
                  <section>
-          
-                  <ul className="nav nav-tabs" id="myTab">
+                 <div id="nav">
+                 <nav className="navigation" style={{marginLeft:"-85%",}}>
                    
-                      <a className="nav-link" id="lifetime-tab" data-toggle="tab" href="#lifetime" role="tab" aria-controls="home" aria-selected="false">Life Time</a>
-                  
-    
-                      <a className="nav-link" id="monthly-tab" data-toggle="tab" href="#monthly" role="tab" aria-controls="profile" aria-selected="false">Monthly</a>
-                   
+                  <ul>
+                <li><a href="#lifetime"> lifetime <i className="fas fa-caret-right"></i></a></li>
+                <li><a href="/weekly ">weekly <i className="fas fa-caret-right"></i></a></li>
+                <li><a href="/Monthly">Monthly <i className="fas fa-caret-right"></i></a></li>
+                </ul>
+                </nav>
+                </div>
+                
                     
-                     <a className="nav-link active" id="weekly-tab" data-toggle="tab" href="#weekly" role="tab" aria-controls="contact" aria-selected="true">Weekly</a>
-                   
-                    </ul>
                   {/* graph content */}
                 
-                
-                   <div className="tab-content"style={{}} id="myTabContent">
-                    
-                   <div className="tab-pane fade active show" id="lifetime" role="tabpanel" aria-labelledby="lifetime-tab" >
-                   <div className="card shadow mb-2 chartCard img-fliud" >
+                   
+                   <div className="card new " style={{maxWidth:"80%"}} >
                            {/* linegraph */}
-                       <Line options={options} data={data}  />
+                           <div className="card graph" style={{maxWidth:"80%",maxHeight:"30%",marginLeft:"5%",borderColor:"black",marginTop:"2%",marginBottom:"2%"}}>
+                       <Line options={options} data={data} style={{maxWidth:"100%"}} />
                    </div>
-                   </div>
+                   
                    </div>
           
                   </section>
@@ -144,36 +150,38 @@ function Wallet() {
           
                           
      
-                        <div id = "lowercards pt-3">
+                        {/* <div id = "lowercards pt-4">
                         <div className = "row ">
-                        <div className="col">
-                        <div className="card pt-3">
-                        <div className = "row">
+                        <div className="col pt-3" >
+                        <div className="card pt-3 ">
+                        <div className = "row ">
+                        
+                        
                         <div className = "col-md-3 align-items-center" >
-                           <img className = "cardimgs weekly" src = {union} width="45px"/>
+                           <img className = "cardimgs weekly pt-3" src = {union} width="40px"/>
                         </div>
-                        <div className = "col-md-9">
+                        <div className = "col-md-9 " >
                             <h6 className = "text-left ml-3">Weekly Earnings</h6>
                             <p className = "ml-3">Ksh 1,500.00</p>
                         </div>
                         </div> 
             </div>
             </div>
-                         <div className="col">
-                         <div className="card pt-3">
+                         <div className="col ">
+                         <div className="card ">
                          <div className = "row">
-                         <div className = "col-md-3">
-                            <img className = "cardimgs pending" src  width="45px" height="45px"/>
+                         <div className = "col-md-3 ">
+                            <img className = "cardimgs pending" src = {union}   width="45px" height="45px"/>
                         </div>
-                        <div className = "col-md-9">
+                        <div className = "col-md-9 ">
                             <h6 className = "text-left ml-3">Pending Payments</h6>
                             <p className = "ml-3">Ksh 3,000.00</p>
                         </div>
                         </div> 
             </div>
             </div>
-                       <div className="col">
-                       <div className="card pt-3">
+                       <div className="col pt-3 ">
+                       <div className="card ">
                        <div className = "row">
                         <div className = "col-md-3">
                            <img className = "cardimgs due" src ={raiz} width="45px" height="45px"/>
@@ -182,11 +190,11 @@ function Wallet() {
                             <h6 className = "text-left ml-3">Total Money Made</h6>
                             <p className = "ml-3">Ksh 3,000.00</p>
                      </div>
-                     </div> 
-        </div>
-        </div>
-        </div>
-       </div>
+                     </div>  */}
+    
+      
+        
+    
 
       
 </div>

@@ -1,7 +1,4 @@
-import React from 'react';
-import { Formik, Form } from 'formik';
-import {Formi} from './Formi';
-import * as Yup from 'yup';
+import React, { useEffect } from 'react';
 import {Link} from "react-router-dom";
 import back from "../../Assets/images/bgimage.jpeg";
 import { FaArrowLeft } from "react-icons/fa";
@@ -13,33 +10,17 @@ import './TechRegister.css';
 import axios from 'axios';
 
 
-function Register() {
+function TechRegister() {
 
-
-const validate = Yup.object({
-    fullName: Yup.string()
-    .required('Field is required'),
-    email: Yup.string()
-    .email("Email is invalid")
-    .required('Email field is required'),
-    password: Yup.string()
-    .min(6, "Password must be atleast 6 characters")
-    .required("password field is required"),
-    confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'password must match')
-    . required('confirm password is required'),
-})
-
-
-
-// Handle the input events
 
 const navigate = useNavigate();
 
+const [errors, seterrors] = useState({});
+const [isSub, setsub] = useState(false);
 const [reg, setregInput] = useState({
-    name:'',
+    first_name:'',
     email:'',
-    phone_number:'',
+   
     password:'',
     password_confirmation:'',
     
@@ -53,57 +34,83 @@ const handleIput = (e) => {
 const regSubmit = (e) => {
 e.preventDefault();
 
+seterrors(validate(reg));
+setsub(true);
+
 const details = {
-    name: reg.name,
+    first_name: reg.first_name,
     email: reg.email,
-    phone_number: reg.phone_number,
+    surname:' jonte',
+    phone:"1234567",
+    ID_Number:"123456789",
+    location_id:" Ngong Road",
+    area:"Upper-hill",
+    passport:"none",
     password: reg.password,
     password_confirmation: reg.password_confirmation,
+
 }
-//    console.log(errors); 
 
+try {
+    axios.post(`/api/technicians`, details). then (res => {
+       
 
-axios.post(`/api/register`, details ).then(res =>{
-    // console.log('res', res)
+        if ((res.data)) {
 
-    alert("register")
-    if(res.status === 200)
-    {
-        localStorage.setItem("auth_token", res.data.token);
-        localStorage.setItem("auth_userName", JSON.stringify(res.data.user));
+            alert("registered successfully")
+            navigate('/techlogin');
 
+        } else {
 
-          navigate('/login');
+        }
 
-
-     }else
-    {
-
-
+    });
+} catch (error) {
+    
+    alert("oops, invalid credentials")
+    navigate('/techregister');
+}
+       
 
     }
 
-});
+    useEffect(()=>{
+        // console.log(errors);
+          if(Object.keys(errors).length === 0 && isSub){
+            // console.log(reg);
+          }
+        },[errors])
+        
+        
+        const validate = ( x  ) =>{ 
+        
+          const err = {};
+          const regrex =  /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ ;
 
-}
-
-
-
+          if(!x.first_name){
+            err.first_name =" Name field is required"
+          }
+          if(!x.password_confirmation){
+            err.password_confirmation =" Confirm password field is required"
+          }
+          if(!x.email){
+            err.email =" Email is required"
+          }else if( !regrex.test(x.email) )
+          {
+            err.email =" Not a valid email" 
+          }
+          if(!x.password){
+            err.password =" password is required";
+          }else if(x.password.length < 4 )
+          {
+            err.password =" Must be more than 4 characters"
+          }
+        
+          return err; 
+        }
 
     return ( 
-        <Formik
-        
-        initialValues={{
-            fullName:"",
-            email:"",
-            password:"",
-            confirmPassword:"",
-        }}
-        validationSchema={validate}
 
-      
-        >
-         {formik => (
                     <div className='whole' style={{marginLeft:"15%", marginTop:"10%"}}>
                          <div className='pic' style={{}}>
                             <img src={back} alt="" style={{width:"600px", float:"left", height:"480px", marginTop:"40px", borderRadius:"15px"}} />
@@ -121,26 +128,43 @@ axios.post(`/api/register`, details ).then(res =>{
                                      </div>
                                  <span style={{marginLeft:"20%"}}>Or</span>
 
-                                 <p style={{marginLeft:"55%", marginTop:"20px"}}>Please fill the following details to sign up.</p>
+                                 <p style={{marginLeft:"46%", marginTop:"20px"}}>Please fill the following details to sign up.</p>
                                 
-                                    <Form   onSubmit={regSubmit} style={{float:"left", marginLeft:"8%"}}>
-                                        < Formi onChange={handleIput} value={reg.fullName} style={{ width:"400px",borderRadius:"15px"}} label="name" name="fullName" type="text" placeholder="Full Name" />
-                                        < Formi  onChange={handleIput} value={reg.email} style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="email" type="email"  placeholder="Email" />
-                                        < Formi  onChange={handleIput} value={reg.password} style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="password" type="password" placeholder="Password"/>
-                                        < Formi onChange={handleIput} value={reg.confirmPassword} style={{ width:"400px", marginTop:"20px",borderRadius:"15px"}} label="name" name="confirmPassword" type="password" placeholder="Confirm Password"/>
-                                    
-                                        <button text="submit" style={{width:"400px",borderRadius:"15px", marginTop:"20px", paddingtop:"5px",paddingBottom:"5px"
+
+
+                         <form action="" onSubmit={regSubmit}  style={{ float: "left", marginLeft: "8%" }}>
+                            <div>
+                            <input onChange={handleIput} value={reg.first_name} name='first_name' style={{ width: "400px", marginTop: "20px", borderRadius: "15px", paddingTop:"6px",paddingBottom:"6px",paddingLeft:"10px",border:"1px solid lightgray" }} placeholder="Full name" type="text" />
+                            </div>
+                            <p style={{color:"red"}}>{errors.first_name}</p>
+                            <div>
+                            <input onChange={handleIput} value={reg.email} name='email' style={{ width: "400px", borderRadius: "15px", paddingTop:"6px",paddingBottom:"6px",paddingLeft:"10px",border:"1px solid lightgray" }} placeholder="Email" type="email" />
+                            </div>
+                            <p style={{color:"red"}}>{errors.email}</p>
+                            <div>
+                            <input onChange={handleIput} value={reg.password} name='password' style={{ width: "400px", borderRadius: "15px", paddingTop:"6px",paddingBottom:"6px",paddingLeft:"10px",border:"1px solid lightgray" }} placeholder="password" type="password" />
+                            </div>
+                            <p style={{color:"red"}}>{errors.password}</p>
+                            <div>
+                            <input onChange={handleIput} value={reg.password_confirmation} name='password_confirmation' style={{ width: "400px", borderRadius: "15px", paddingTop:"6px",paddingBottom:"6px",paddingLeft:"10px",border:"1px solid lightgray" }} placeholder="Confirm password" type="password" />
+                            </div>
+                            <p style={{color:"red"}}>{errors.password_confirmation}</p>
+
+                            <p style={{ marginLeft: "250px" }}>Forgot Password?</p>
+
+                            <button text="submit" style={{width:"400px",borderRadius:"15px",  paddingtop:"5px",paddingBottom:"5px"
                                         ,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>Signup</button>
 
                                         <p>Do you have an account?<Link style={{textDecoration:'none', color:"red", marginLeft:"10px"}} to={"/Techlogin"}>Log In </Link></p>
-                                    </Form>
+                                   
+                        </form>
+
+
                              </div>
                          </div>
                      </div>
-         )}
 
-        </Formik>
      );
 }
 
-export default Register;
+export default TechRegister;

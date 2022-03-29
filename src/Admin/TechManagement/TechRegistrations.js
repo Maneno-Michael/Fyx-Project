@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiMessageRounded } from "react-icons/bi";
 import SidebarAdmin from '../../components/sidebarAdmin';
 import ProfileNavAdmin from '../../components/profileNavAdmin';
+import axios from 'axios';
+
+
+
 function TechRegistrations() {
+
+
+//   const [loading, setLoading] = useState(true);
+//   const [techData, setTechdata] = useState([]);
+
+// useEffect (() =>{
+
+//   axios.get(`/api/technicians`).then(res=>{
+    
+//     if(res.status === 200)
+//     {
+//       setTechdata(res.data)
+//     }
+//     setLoading(false);
+//   });
+
+// }, []);
+
+// if(loading){
+//   return <h3 style={{marginLeft:"25%"}}>Loading ...</h3>
+// }
+
+  
     return ( 
         <div>
         <SidebarAdmin/>
@@ -16,7 +43,7 @@ function TechRegistrations() {
             <hr style={{width:"60%",marginLeft:"25%",border:"1px solid black"}} />
             <div className='tables' style={{marginTop:"2%", marginLeft:"25%",width:"60%"}}>
 
-<table class="table table-borderless">
+<table className="table table-borderless">
   <thead>
     <tr style={{color:"gray"}}>
       <th>Date</th>

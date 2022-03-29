@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button,Row,Container} from 'react-bootstrap';
+
  import 'bootstrap/dist/css/bootstrap.min.css';
  import ruki from "../../Assets/images/welcomeimg.png";
  import khabib from "../../Assets/images/human-sitting.png";
@@ -39,15 +39,15 @@ function Home() {
                     <img className = "ml-0"  src={ruki} height="200px" width="150px"/>
                  </div>  
             </div>    
-        </div>
-    </div>
-     <div className = "card shadow-sm"style={{maxWidth:"80%",marginLeft:"10%",borderRadius:"15px"}}>
-        <div className = "card-body">
-            <div className = "row">
-                <div id = "womanSitting"className = "col">
-                    <img src = {khabib} height="200px" width="150px"/>
-                </div>
-                <div id = "requestfyx" style={{marginLeft:"-40%"}}className = "col mt-5">
+             </div>
+            </div>
+             <div className = "card shadow-sm"style={{maxWidth:"80%",marginLeft:"10%",borderRadius:"15px"}}>
+                <div className = "card-body">
+                 <div className = "row">
+                 <div id = "womanSitting"className = "col">
+                 <img src = {khabib} height="200px" width="150px"/>
+                 </div>
+                 <div id = "requestfyx" style={{marginLeft:"-40%"}}className = "col mt-5">
                     <h5 className = "text-center">Request for a technician to come <strong className ="text-warning">fyx</strong> your item at the comfort of your home.</h5> 
                     <p className = "text-center"style={{marginLeft:"-40%"}}>We are reliable and your safety is our priority.</p>
                 </div>
@@ -64,7 +64,7 @@ function Home() {
                        Outsourcing of a technician will cause him/her to be let go.</>
                    </>
                    </p>
-                </div>
+             </div>
             </div>
         </div> 
         
