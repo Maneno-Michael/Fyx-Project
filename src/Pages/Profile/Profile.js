@@ -89,7 +89,7 @@ function Profile() {
     
             alert("updated successfully");
             
-              navigate('/adminlogin');
+              navigate('/home');
     
     
          }else
