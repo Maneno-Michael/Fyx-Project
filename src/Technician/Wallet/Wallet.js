@@ -13,6 +13,7 @@ import { render } from 'react-dom';
 import Modal from "../../components/modal";
 import  { useState } from "react";
 
+
 // arc and faker error solved
 import faker from 'faker';
 import {
@@ -39,6 +40,19 @@ ChartJS.register(
 
 
 function Wallet() {
+  const [show, setShow] = useState(false);
+
+  const submitModalHandler = () => setShow(false);
+
+
+
+
+
+
+
+
+
+
   const options = {
     responsive: true,
     plugins: {
@@ -59,7 +73,7 @@ function Wallet() {
         label: 'Dataset 1',
         data: [50,50,60,60,80,25,30],
         borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        backgroundColor: 'rgba(blue)',
       },
      
     ],
@@ -83,22 +97,12 @@ function Wallet() {
                 <h5 className = "ml-5 font-weight-bold">Available Cash</h5>
                 <p className = "ml-5 mb-0 availableCash"style={{textDecoration:"underline"}}><span className="mr-2">Ksh.</span>5,000.00</p>
                 <p className="text-right  mb-0"> </p>
-                <button style={{width:"20%",marginLeft:"83%",}}>Withdraw</button>
+                <button  onClick={() => setShow(true)}  style={{width:"20%",marginLeft:"83%",}}>Withdraw</button>
                 
                 
-        {/* modal div */}
-                {/* <button
-        className="openModalBtn"
-        onClick={() => {
-          setModalOpen(true);
-        }}
-      >
-        withdraw
-      </button>
-
-      {modalOpen && <Modal setOpenModal={setModalOpen} />} */}
-    
-    {/* end of madal div */}
+        {/* modal event */}
+                
+   
             </div>
             </div>
             <div id = "walletimgcol" className = "col-md-6">
@@ -107,6 +111,10 @@ function Wallet() {
             </div>
             </div>
             </div>
+{/* modal */}
+            <Modal show={show} submit={submitModalHandler}
+             />
+             { show ? <div onClick={submitModalHandler} className="back-drop"></div> : null }
    
                  <div className="chart-holder">
                  <h3 className="secondary-heading mb-4">
@@ -117,7 +125,7 @@ function Wallet() {
                  <nav className="navigation" style={{marginLeft:"-85%",}}>
                    
                   <ul>
-                <li><a href="lifetime"> lifetime <i className="fas fa-caret-right"></i></a></li>
+                <li><a href="#lifetime"> lifetime <i className="fas fa-caret-right"></i></a></li>
                 <li><a href="/weekly ">weekly <i className="fas fa-caret-right"></i></a></li>
                 <li><a href="/Monthly">Monthly <i className="fas fa-caret-right"></i></a></li>
                 </ul>
