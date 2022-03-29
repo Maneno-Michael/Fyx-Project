@@ -7,11 +7,7 @@ import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
 import axios from 'axios';
 import { useState } from "react";
-<<<<<<< HEAD
-import { Navigate } from 'react-router-dom';
-=======
 import { useNavigate } from 'react-router-dom';
->>>>>>> 773cee22468edcc0d3a6d2e7590bf6a5e642d4bf
 
 function BookService() {
 
