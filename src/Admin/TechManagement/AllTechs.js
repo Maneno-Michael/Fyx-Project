@@ -7,26 +7,42 @@ import custom from "./useCustom";
 function AllTechs() {
 
 
-const{ data, loading, error } = custom("http://fixapi.chengegikonyo.com/api/admin/Super-Admin/new_technicians");
-// const [del, setdata] = useState(data);
-// const[newData,setNewData]=useState([])
-// console.log('tdata',data)
-// data.forEach((vc)=>{
-//     console.log(vc);
-// })
-// setNewData(data.data)
-// console.log("new data",newData)
-if(loading) {
-    <h1>LOARDING...</h1>
-}
-if(error){
-    console.log(error);
-}
+// const{ data, loading, error } = custom("http://fixapi.chengegikonyo.com/api/admin/Super-Admin/new_technicians");
+// console.log(data.data)
+
+// if(loading) {
+//     <h1>LOARDING...</h1>
+// }
+// if(error){
+//     console.log(error);
+// }
+
+
+
+
 // useEffect(() =>{
 //     fetch("http://fixapi.chengegikonyo.com/api/admin/Super Admin/new_technicians")
 //     .then(res =>console.log(res))
 // }, [])
 
+const [details, getDetails] = useState([]);
+const getData = async () => {
+    try {
+        const data = await axios.get("http://fixapi.chengegikonyo.com/api/admin/Super-Admin/new_technicians");
+        console.log(data.data.data);
+        getDetails(data.data.data);
+
+    } catch (e) {
+        console.log("no execution");
+       
+    }
+};
+
+useEffect(()=>{
+    getData();
+}, []);
+
+console.log('deta',details);
 
     return ( 
        <div>
@@ -43,6 +59,7 @@ if(error){
                     <table className="table table-borderless">
                     <thead>
                     <tr style={{color:"gray"}}>
+                    <th>ID</th>
                     <th>First Name</th>
                     <th>Surname</th>
                     <th>Phone number</th>
@@ -56,21 +73,31 @@ if(error){
                     </tr>
                     </thead>
                     <tbody style={{boxShadow: "0px 3px 5px rgba(139, 137, 137, 0.5)"}}>
-                   {/* {data.data.map((dell)=>( */}
+                  
+                    {details.map((item,index)=>(
+                    
+   console.log('i',item),
 
-                   {data.map((data, index)=>(
-                    <tr x={index}>
-                     <td>{data.first_name}</td>
-                    <td>{data.surname}</td>
-                    <td>{data.phone}</td>
-                    <td>{data.ID_Number}</td>
-                    <td>{data.location_id}</td>
-                    <td>{data.area}</td>
-                    <td>{data.passport}</td>
-                    <td>{data.resume}</td>
-                    </tr>
+                <tr key={index} >  
+                <td> {item.id} </td>                     
+                    <td> {item.first_name} </td>
+                    <td>{item.surname}</td>
+                    <td>{item.phone}</td>
+                    <td>{item.ID_Number}</td>
+                    <td>{item.location_id}</td>
+                    <td>{item.area}</td>
+                    <td>{item.passport}</td>
+                    <td>{item.resume}</td> 
 
-                   ))}
+                </tr>
+                                       ) )}
+                   
+                    
+
+
+                    
+
+                   {/* ))} */}
                     
                   {/* ))}   */}
          
