@@ -62,6 +62,11 @@
     font-size: 15px;
     
 }
+#nav ul li a:hover, #nav a:hover {
+    color: #f1f1f1;
+    background: #fca311;
+    border-radius: 2px solid #fca311;
+  }
 .landing-image{
     
     height: 80vh;

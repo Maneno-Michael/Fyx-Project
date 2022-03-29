@@ -66,7 +66,7 @@ function Homepage() {
                     </select>
                 </div>
                 <div className="submit">
-                    <button className="btn">Proceed</button>
+                    <a className="btn btn-warning" href="/signup">Proceed</a>
                 </div>
                 
             </form>
