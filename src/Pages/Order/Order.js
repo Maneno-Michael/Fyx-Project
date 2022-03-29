@@ -20,7 +20,7 @@ const Toggle =()=>setModal(!modal);
        <div className = "container"style={{}}>
        <div className="nav orderz" style={{marginLeft:"2%",marginBottom:"5%"}}>
       <button style={{borderRadius:"15px"}}>Active orders</button>
-      <button style={{marginLeft:"4%",borderRadius:"15px",backgroundColor:"white"}}>Sheduled orders</button>
+      <Link to="/scheduledorder"> <button style={{marginLeft:"4%",borderRadius:"15px",backgroundColor:"white"}}>Sheduled orders</button></Link>
 
       </div>
       <div className = "card major mw-100 h-50 border border-warning"style={{marginLeft:"2%",borderRadius:"15px"}}>
@@ -36,11 +36,11 @@ const Toggle =()=>setModal(!modal);
            </div>
          <div className="TrackOrder">
          
-           <button on onClick={()=>Toggle()} style={{marginLeft:"40%",borderRadius:"15px",textDecorationColor:"white"}}>Track order status</button>
-           {modal? <div className="Trackz"style={{marginLeft:"30%"}}>
+           <button on onClick={Toggle} style={{marginLeft:"40%",borderRadius:"15px",textDecorationColor:"white"}}>Track order status</button>
+           {modal && <div className="Trackz"style={{marginLeft:"30%"}}>
              <h1 style={{fontSize:"25px",fontFamily:"sans-serif"}}>Technician has been dispached and is on the way.</h1>
              <h2  style={{fontSize:"20px",fontFamily:"sans-serif",marginLeft:"10%"}}>Fundi is 20 minute away.</h2>
-           </div>:null}
+           </div>}
            {/* </Link> */}
            
          </div>

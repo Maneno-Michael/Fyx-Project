@@ -13,7 +13,7 @@ function NotScheduled () {
                 <Container>
                     <Row>
                         <Col md={4} sm={4} lg={5}></Col>
-                        <Col md={4} sm={4} lg={3}> <a href='/order' className='btn btn-outline-warning rounded-pill text-black text-center mb-5 mt-5'> Book Service</a></Col>
+                        <Col md={4} sm={4} lg={3}> <a href='/bookservice' className='btn btn-outline-warning rounded-pill text-black text-center mb-5 mt-5'> Book Service</a></Col>
                         <Col md={4} sm={4} lg={5}></Col>
                     </Row>
                 </Container>
