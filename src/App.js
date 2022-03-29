@@ -27,6 +27,10 @@ import TechForgot from './Technician/TechLogin/TechForgot';
 import Newjobs from './Technician/Jobdashboard/Newjobs';
 import Scheduled from './Technician/Jobdashboard/Scheduled';
 import Jobhistory from './Technician/Jobdashboard/Jobhistory';
+import ActiveOrders from './Pages/Order/ActiveOrders';
+import Order3 from'./Pages/Order/order3';
+import Order6 from'./Pages/Order/order6';
+import Order5 from'./Pages/Order/order5';
 
 
 
@@ -122,6 +126,7 @@ function App() {
             <Route exact path="/newjobs" element={<Newjobs />}></Route>
             <Route exact path="/scheduled" element={<Scheduled />}></Route>
             <Route exact path="/jobhistory" element={<Jobhistory />}></Route>
+          
             
 
             <Route exact path="/admindashboard" element={<AdminDashboard />}></Route>
@@ -151,11 +156,16 @@ function App() {
             <Route exact path="/technotifications" element={<TechNotifications />}></Route>
             <Route exact path="/techregistrations" element={<TechRegistrations />}></Route>
             <Route exact path='/admin' element={<Admin />}></Route>
-            
+            <Route exact path='/activeorders' element={<ActiveOrders/>}></Route>
+            <Route exact path='/order3' element={<Order3/>}></Route>
+            <Route exact path='/order6' element={<Order6/>}></Route>
+            <Route exact path='/order5' element={<Order5/>}></Route>
            
+            
         </Routes>   
         </Router>
   );
 }
 
 export default App;
+ 

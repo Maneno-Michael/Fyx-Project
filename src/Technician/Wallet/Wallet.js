@@ -99,10 +99,7 @@ function Wallet() {
                 <p className="text-right  mb-0"> </p>
                
                 
-                <div className="squid" >
-                   <button className="bt btn-primary" type="button"data-bs-target="#myModal"data-bs-toggle="modal">open first modal</button>
-                         
-                </div>
+               
         {/* modal event */}
                 
    
@@ -115,16 +112,7 @@ function Wallet() {
             </div>
             </div>
 
-                      <div className="modal">
-                        <h3>hello</h3>
-                      </div>
-                      <div className="modal-body">
-
-                      </div>
-                      <div className="modal-footer">
-
-                      </div>
-
+                      
 
 
 {/* modal */}

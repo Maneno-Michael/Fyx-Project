@@ -19,7 +19,8 @@ const Toggle =()=>setModal(!modal);
        
        <div className = "container"style={{}}>
        <div className="nav orderz" style={{marginLeft:"2%",marginBottom:"5%"}}>
-      <button style={{borderRadius:"15px"}}>Active orders</button>
+       <Link to="/ActiveOrders"> <button style={{borderRadius:"15px"}}>Active Orders</button>
+       </Link>
       <button style={{marginLeft:"4%",borderRadius:"15px",backgroundColor:"white"}}>Sheduled orders</button>
 
       </div>
@@ -50,8 +51,11 @@ const Toggle =()=>setModal(!modal);
          <div className="rieng">
            <button style={{marginLeft:"7%", borderRadius:"10px",backgroundColor:"white",borderColor:" orange"}}>no</button>
           
-           <button style={{marginLeft:"10%", borderRadius:"10px",backgroundColor:"yellow"}}>yes</button>
+          <button style={{marginLeft:"10%", borderRadius:"10px",backgroundColor:"yellow"}}>yes</button>
+          
+          
          </div>
+         
        </div>
 
          
