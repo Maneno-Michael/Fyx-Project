@@ -26,10 +26,10 @@ function Home() {
                     <h2 className = "text-center">Welcome {user.data.name}</h2>
                     <p className = "text-center">Book a Technician with us</p>
                    {/* book service link */}
-                    <Link to="/BookService"> <button style={{borderRadius:"15px",marginLeft:"25%",backgroundColor:"white",borderColor:"yellow"}}>
-                      Book Service
-                    </button>
-                    </Link>
+                   <a href='/bookservice' className='btn btn-outline-warning rounded-pill text-black text-center mb-5 mt-1 ms-5'> Book Service</a>
+                      
+                
+                    
                    
                  {/* end link */}
                   

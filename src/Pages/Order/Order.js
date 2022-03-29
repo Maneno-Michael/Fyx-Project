@@ -47,9 +47,9 @@ const Toggle =()=>setModal(!modal);
 
          <div className="clarification"style={{marginLeft:"36%",fontSize:"20px",marginTop:"4%",marginBottom:"2%"}}>
          <h5 >Has the technician arrived?</h5>
-         <div className="rieng">
-        <div className='btn btn-outline-warning rounded-pill ms-4 text-black'> Yes</div>
-        <div className='btn btn-outline-warning rounded-pill ms-5 text-black'>No</div>
+         <div className="rieng" >
+        <div className='btn btn-outline-warning rounded-pill ms-5 text-black'> no</div>
+        <a  href='/order3' className='btn btn-outline-warning rounded-pill lg ms-3 text-black'>Yes</a>
          </div>
          
        </div>
