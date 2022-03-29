@@ -27,6 +27,10 @@ import TechForgot from './Technician/TechLogin/TechForgot';
 import Newjobs from './Technician/Jobdashboard/Newjobs';
 import Scheduled from './Technician/Jobdashboard/Scheduled';
 import Jobhistory from './Technician/Jobdashboard/Jobhistory';
+import ActiveOrders from './Pages/Order/ActiveOrders';
+import Order3 from'./Pages/Order/order3';
+import Order6 from'./Pages/Order/order6';
+import Order5 from'./Pages/Order/order5';
 
 
 
@@ -53,7 +57,7 @@ import MiniForm from './Admin/ContentManagement/MiniForm';
 import ContentPolicy from './Admin/ContentManagement/ContentPolicy';
 import ContentTechnicians from './Admin/ContentManagement/ContentTechnicians';
 // import NewOrderr from './Admin/OrderManagment/NewOrd';
-// import NewOrderr from './Admin/OrderManagement/NewOrd';
+import NewOrderr from "./Admin/OrderMangement/NewOrd";
 // import OrderHistory from './Admin/OrderManagement/OrderHistory';
 // import SchedOrder from './Admin/OrderManagement/SchedOrder';
 
@@ -123,6 +127,7 @@ function App() {
             <Route exact path="/newjobs" element={<Newjobs />}></Route>
             <Route exact path="/scheduled" element={<Scheduled />}></Route>
             <Route exact path="/jobhistory" element={<Jobhistory />}></Route>
+          
             
 
             <Route exact path="/admindashboard" element={<AdminDashboard />}></Route>
@@ -145,7 +150,7 @@ function App() {
             <Route exact path="/miniForm" element={<MiniForm />}></Route>
             <Route exact path="/contentPolicy" element={<ContentPolicy />}></Route>
             <Route exact path="/contenttechnicians" element={<ContentTechnicians />}></Route>
-            {/* <Route exact path="/neworder" element={<NewOrderr />}></Route> */}
+            <Route exact path="/neworder" element={<NewOrderr />}></Route>
             {/* <Route exact path="/orderhistory" element={<OrderHistory />}></Route> */}
             {/* <Route exact path="/schedorder" element={<SchedOrder />}></Route> */}
             <Route exact path="/technicians" element={<Technicians />}></Route>
@@ -153,11 +158,16 @@ function App() {
             <Route exact path="/technotifications" element={<TechNotifications />}></Route>
             <Route exact path="/techregistrations" element={<TechRegistrations />}></Route>
             <Route exact path='/admin' element={<Admin />}></Route>
-            
+            <Route exact path='/activeorders' element={<ActiveOrders/>}></Route>
+            <Route exact path='/order3' element={<Order3/>}></Route>
+            <Route exact path='/order6' element={<Order6/>}></Route>
+            <Route exact path='/order5' element={<Order5/>}></Route>
            
+            
         </Routes>   
         </Router>
   );
 }
 
 export default App;
+ 

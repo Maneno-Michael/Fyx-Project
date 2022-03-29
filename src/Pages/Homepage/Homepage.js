@@ -10,7 +10,7 @@ function Homepage() {
       <header>
         <div className="advert">
            <div className="advert-container"></div>
-           <div className="advert-container-2">
+           <div className="advert-container-2  ">
                 <h3>Advertisement</h3>
            </div>
         </div>
@@ -66,7 +66,7 @@ function Homepage() {
                     </select>
                 </div>
                 <div className="submit">
-                    <button className="btn">Proceed</button>
+                    <a className=" btn-warning" id="btn" href="/signup">Proceed</a>
                 </div>
                 
             </form>
@@ -110,7 +110,7 @@ function Homepage() {
     <div className="ad-container">
         <div className="ad">
             <div className="image">
-                <img src="/Assets/images/Woman-Cleaning-Refrigerator-At.png" alt="jjjk"/>
+                <img src="/Assets/images/Woman-Cleaning-Refrigerator-At.png" alt="#"/>
             </div>
             <div className="ad-details">
                 <h3>Advert 1</h3>
@@ -119,7 +119,7 @@ function Homepage() {
         </div>
         <div className="ad">
             <div className="image">
-                <img src="/Assets/images/Copy of barman-front-fridge.jpg" alt=""/>
+                <img src="/Assets/images/Copy of barman-front-fridge.jpg" alt="#"/>
             </div>
             <div className="ad-details">
                 <h3>Advert 2</h3>
@@ -176,10 +176,10 @@ function Homepage() {
                 
             </div>
             <div className="brand">
-                <img src="/Assets/images/Copy of synix.png" alt="#/"/>
+                <img src="/Assets/images/Copy of syinix.png" alt="#/"/>
             </div>
             <div className="brand">
-                <img src="/Assets/images/Copy of armco.png" alt="#/"/>
+                <img src="/Assets/images/armco.jpg" alt="#/"/>
             </div>
             <div className="brand">
                 <img src="/Assets/images/Copy of samsung.png" alt="#/"/>

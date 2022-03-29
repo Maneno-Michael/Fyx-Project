@@ -3,9 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import './Order.css';
 import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
-// import { Link,} from "react-router-dom";
+ import { Link,} from "react-router-dom";
 import{useState} from "react";
-function Order() {
+function Order3() {
   const[modal,setModal]=useState(false)
  const Toggle =()=>setModal(!modal);
     return ( 
@@ -17,7 +17,8 @@ function Order() {
        <div className = "container">
     
     <div className="nav order" style={{marginLeft:"2%",marginBottom:"10%"}}>
-      <button style={{borderRadius:"15px"}}>Active orders</button>
+    <Link to="/ActiveOrders"> <button style={{borderRadius:"15px"}}>Active Orders</button>
+       </Link>
       <button style={{marginLeft:"4%",borderRadius:"15px",backgroundColor:"white"}}>Sheduled orders</button>
 
       </div>
@@ -53,7 +54,7 @@ function Order() {
      );
 }
 
-export default Order;
+export default Order3;
 
 
 

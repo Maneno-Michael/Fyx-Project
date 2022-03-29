@@ -136,16 +136,14 @@ function AdminDashboard() {
     <div className = "col-md-3 col-lg-3" id = "revenue">
         <h4>Website</h4>
         <div className = "card">
-           <h6 className = "text-center font-weight-bold mt-4">Total Amount of Money made in</h6>
+           <h6 className = "text-center font-weight-bold mt-4">Website  visit per</h6>
            <select>
-            <option id = "yr21">2021</option>
-            <option id = "yr20">2020</option>
-            <option id = "yr19">2020</option>
+            <option id = "yr21">Day</option>
           </select>
 
-          <p id = "yr21-earn" className = "text-center">ksh.50,000</p>
-          <p id = "yr20-earn" className = "text-center">ksh.170,000</p>
-          <p id = "yr19-earn" className = "text-center">ksh.200,000</p>
+          <p id = "yr21-earn" className = "text-center">10</p>
+          <p id = "yr20-earn" className = "text-center">11</p>
+          <p id = "yr19-earn" className = "text-center">12</p>
           <hr>
           </hr>
           

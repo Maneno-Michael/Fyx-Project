@@ -19,8 +19,8 @@ const Toggle =()=>setModal(!modal);
        
        <div className = "container"style={{}}>
        <div className="nav orderz" style={{marginLeft:"2%",marginBottom:"5%"}}>
-      <button style={{borderRadius:"15px"}}>Active orders</button>
-      <button style={{marginLeft:"4%",borderRadius:"15px",backgroundColor:"white"}}>Sheduled orders</button>
+       <a  href='/ActiveOrders' className='btn btn-outline-warning rounded-pill ms-1 text-black'> Active orders</a>
+       <a  href='/scheduledorder' className='btn btn-outline-warning rounded-pill ms-2 text-black'>Sheduled orders</a>
 
       </div>
       <div className = "card major mw-100 h-50 border border-warning"style={{marginLeft:"2%",borderRadius:"15px"}}>
@@ -34,13 +34,13 @@ const Toggle =()=>setModal(!modal);
 
           
            </div>
-         <div className="TrackOrder">
+         <div className="TrackOrder" style={{marginLeft:"40%"}}>
          
-           <button on onClick={()=>Toggle()} style={{marginLeft:"40%",borderRadius:"15px",textDecorationColor:"white"}}>Track order status</button>
-           {modal? <div className="Trackz"style={{marginLeft:"30%"}}>
+           < div  className='btn btn-outline-warning rounded-pill ms-1 text-black'onClick={Toggle}>Track order status</div>
+           {modal && <div className="Trackz"style={{marginLeft:"-10%"}}>
              <h1 style={{fontSize:"25px",fontFamily:"sans-serif"}}>Technician has been dispached and is on the way.</h1>
              <h2  style={{fontSize:"20px",fontFamily:"sans-serif",marginLeft:"10%"}}>Fundi is 20 minute away.</h2>
-           </div>:null}
+           </div>}
            {/* </Link> */}
            
          </div>
@@ -48,10 +48,10 @@ const Toggle =()=>setModal(!modal);
          <div className="clarification"style={{marginLeft:"36%",fontSize:"20px",marginTop:"4%",marginBottom:"2%"}}>
          <h5 >Has the technician arrived?</h5>
          <div className="rieng">
-           <button style={{marginLeft:"7%", borderRadius:"10px",backgroundColor:"white",borderColor:" orange"}}>no</button>
-          
-           <button style={{marginLeft:"10%", borderRadius:"10px",backgroundColor:"yellow"}}>yes</button>
+        <div className='btn btn-outline-warning rounded-pill ms-4 text-black'> Yes</div>
+        <div className='btn btn-outline-warning rounded-pill ms-5 text-black'>No</div>
          </div>
+         
        </div>
 
          
