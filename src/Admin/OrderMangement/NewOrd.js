@@ -15,7 +15,7 @@ function NewOrderr() {
   const getData = async () => {
       try {
           const data = await axios.get("/api/admin/Super-Admin/orders");
-          console.log(data);
+     
           getDetails(data.data.data);
   
       } catch (e) {
