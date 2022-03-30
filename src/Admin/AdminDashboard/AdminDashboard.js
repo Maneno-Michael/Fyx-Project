@@ -73,7 +73,7 @@ function AdminDashboard() {
          <h6>Dashboard/Analytics</h6>
       {/* <kilz id = "contentdivider"/> */}
 
-    <a href = "neworders"><button type = "button" className = "btnNewOrder mb-2"><img src = "assets/icons/icons8-purchase-order-50.png" width="20px" height="20px"/> New Orders</button></a>
+      <a href='/neworder' className='btn btn-outline-warning rounded-pill text-black text-center mb-5 mt-1 ms-5'> neworder</a>
   <div className = "row">
     <div className = "col-md-6 col-lg-6">
         <h4 className="secondary-heading mb-1">

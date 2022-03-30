@@ -31,7 +31,7 @@ function Order3() {
          <div className="satisfied" style={{marginLeft:"20%"}}>
         
         <div className='btn btn-outline-warning rounded-pill ms-1 text-black'> Yes</div>
-        <div className='btn btn-outline-warning rounded-pill ms-2 text-black'>No</div>
+        <div className='btn btn-outline-warning rounded-pill ms-2 text-black'  >No</div>
          </div>
          </div>
 
