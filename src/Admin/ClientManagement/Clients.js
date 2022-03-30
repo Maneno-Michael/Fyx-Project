@@ -16,7 +16,7 @@ function Clients() {
       try {
           const data = await axios.get("/api/admin/customers");
           console.log(data);
-          // getDetails(data.data.data);
+          getDetails(data.data.data);
   
       } catch (e) {
           console.log("no execution");
@@ -56,17 +56,19 @@ function Clients() {
                     </tr>
                 </thead>
                 <tbody className='border shadow p-3 mb-5 bg-body rounded'>
-                    <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                {details.map((item,index)=>(
+                    <tr key={index}>
+                    <td>{item.date}</td>
+                    <td>{item.service}</td>
+                    <td>{item.description}</td>
+                    <td>{item.technician}</td>
+                    <td>{item.claims}</td>
+                    <td>{item.rating}</td>
+                    <td>{item.feedback}</td>
+                    
                     </tr>
-               
+                ) )}
+
                 </tbody>
                 </Table>
             </div>

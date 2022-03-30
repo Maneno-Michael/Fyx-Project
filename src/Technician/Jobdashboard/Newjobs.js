@@ -1,20 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Link} from "react-router-dom";
 import { BiMessageRounded } from "react-icons/bi";
 import { useState } from "react";
 import "./Jobdashboard.css";
 import TechnicianSidebar from '../../components/technicianSidebar';
 import ProfileTechNav from '../../components/profileTechNav';
-
-
-
-
-
+import axios from 'axios';
 
 
 function Newjobs() {
 
   
+const [details, getDetails] = useState([]);
+const getData = async () => {
+    try {
+        const data = await axios.get("http://fixapi.chengegikonyo.com/api/technician/active");
+        console.log(data.data.data);
+        getDetails(data.data.data);
+
+    } catch (e) {
+        console.log("no execution");
+       
+    }
+};
+
+useEffect(()=>{
+    getData();
+}, []);
+
+console.log('deta',details);
 
 
 
@@ -48,12 +62,15 @@ function Newjobs() {
     </tr>
   </thead>
   <tbody style={{boxShadow: "0px 3px 5px rgba(139, 137, 137, 0.5)"}}>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+  {details.map((item,index)=>(
+                    
+   console.log('i',item),
+    <tr key={index}>
+      <td>{item.order_no}</td>
+      <td>{item.service}</td>
+      <td>{item.description}</td>
+      <td>{item.date}</td>
+      <td>Item.location</td>
       <td>
           <button  style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"white"}}>More Details...</button>
 
@@ -61,24 +78,9 @@ function Newjobs() {
 
     </td>
     </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><button style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"white"}}>More Details...</button>
-      </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><button style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"white"}}>More Details...</button>
-      </td>
-    </tr>
+
+    ) )}
+  
   </tbody>
 </table>
 
