@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SidebarAdmin from '../../components/sidebarAdmin';
 import ProfileNavAdmin from '../../components/profileNavAdmin';
 import Table from 'react-bootstrap/Table'
 import { Link } from 'react-router-dom';
 import * as fa from "react-icons/fa";
 import { Container } from 'react-bootstrap';
+import axios from 'axios';
+
+
 function NewOrderr() {
+
+
+     const [details, getDetails] = useState([]);
+  const getData = async () => {
+      try {
+          const data = await axios.get("/api/admin/Super-Admin/orders");
+          console.log(data);
+          getDetails(data.data.data);
+  
+      } catch (e) {
+          console.log("no execution");
+         
+      }
+  };
+  
+  useEffect(()=>{
+      getData();
+  }, []);
+  
+  console.log('data',details);
+
+
      return ( 
           <div>
           <SidebarAdmin/>
@@ -28,25 +53,17 @@ function NewOrderr() {
                     </tr>
                     </thead>
                     <tbody className='border shadow p-3 mb-5 bg-body rounded'>
-                    <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td style={{color:"#fca311"}}> <Link to="">More details </Link></td>
+               {details.map((item,index)=>(
+                    <tr key={index}>
+                    <td>{item.id}</td>
+                    <td>{item.customer_id}</td>
+                    <td>{item.status}</td>
+                    <td>{item.technician_assigned}</td>
+                    <td>{item.claim} </td>
                    
                     </tr>
-                    <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <td>3</td>
-                    <td colSpan={2}>Larry the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
+                ) )}
+                  
                </tbody>
                </Table>
           </Container> 

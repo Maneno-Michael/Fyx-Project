@@ -10,7 +10,7 @@ function Scheduled() {
         <div>
            <TechnicianSidebar/>
             <ProfileTechNav profile="Fundi" /> 
-            <div className='tabs' style={{marginTop:"8%", marginLeft:"20%",display:"flex", gap:"5%"}}> 
+            <div className='tabs' style={{marginTop:"2%", marginLeft:"20%",display:"flex", gap:"5%"}}> 
 
 
             <Link style={{textDecoration:'none', color:"black",border:"1px solid white", paddingTop:"5px", paddingBottom:"5px",

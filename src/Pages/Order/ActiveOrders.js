@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import mpmba from "../../Assets/images/ordersbgimg.png";
 // import './Order.css';
 import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
 import { Link,} from "react-router-dom";
+import axios from 'axios';
+
+
+
 function ActiveOrder() {
+ 
+const [details, getDetails] = useState([]);
+const getData = async () => {
+    try {
+        const data = await axios.get("http://fixapi.chengegikonyo.com/api/customer/history");
+        console.log(data.data.data);
+        getDetails(data.data.data);
+
+    } catch (e) {
+        console.log("no execution");
+       
+    }
+};
+
+useEffect(()=>{
+    getData();
+}, []);
+
+console.log('deta',details);
+
     return ( 
        
         <section>
@@ -19,19 +43,45 @@ function ActiveOrder() {
 
 
       </div>
-      <div className = "card mb-4 shadow-sm"style={{maxWidth:"80%",marginLeft:"10%",borderRadius:"15px"}}>
-    <div className = "orders text-center">
-        <img id = "ordersimage" src ={mpmba}/>
+      <div className='tables' style={{marginTop:"2%", marginLeft:"2%",width:"100%"}}>
 
-        <h4>You don't have an Active Order</h4>
-        {/* book service link */}
-        <a href='/bookservice' className='btn btn-outline-warning rounded-pill text-black text-center mb-5 mt-5'> Book Service</a>
-                   
-                   
-                   
-                 {/* end link */}
-    </div>
-    </div>
+<table className="table table-borderless">
+<thead>
+<tr style={{color:"gray"}}>
+<th>Order No</th>
+<th> Service</th>
+<th>Description</th>
+<th> Date</th>
+<th> Location</th>
+
+</tr>
+</thead>
+<tbody style={{boxShadow: "0px 3px 5px rgba(139, 137, 137, 0.5)"}}>
+
+{details.map((item,index)=>(
+
+console.log('i',item),
+
+<tr key={index} >  
+<td> {item.id} </td>                     
+<td> {item.first_name} </td>
+<td>{item.surname}</td>
+<td>{item.phone}</td>
+<td>{item.ID_Number}</td>
+<td><button style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"white"}}>More Details...</button>
+       </td>
+<td><button style={{borderRadius:"15px",paddingLeft:"20px", paddingRight:"20px", border:"0px solid", background:"transparent",boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)"}}>Pay</button></td>
+<td><button style={{borderRadius:"15px",paddingLeft:"20px", paddingRight:"20px", border:"0px solid", background:"transparent",boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)"}}>Track</button></td>
+
+
+</tr>
+                   ) )}
+
+
+</tbody>
+</table>
+
+</div>
 </div>
 
 
