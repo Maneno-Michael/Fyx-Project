@@ -24,7 +24,7 @@ function Clients() {
       getData();
   }, []);
   
-  console.log('deta',details);
+  console.log('data',details);
 
 
 
