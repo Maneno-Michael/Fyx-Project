@@ -6,7 +6,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { useState } from "react";
 import axios from 'axios';
-
+import { GoogleLogin } from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
 function Login() {
 

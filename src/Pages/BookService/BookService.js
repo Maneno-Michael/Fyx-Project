@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import {Formi} from './Formi';
+import {Success} from './Success';
 import * as Yup from 'yup';
 import { BiMessageRounded } from "react-icons/bi";
 import Sidebar from '../../components/Sidebar';
