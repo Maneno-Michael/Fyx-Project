@@ -54,8 +54,8 @@ import ContentPolicy from './Admin/ContentManagement/ContentPolicy';
 import ContentTechnicians from './Admin/ContentManagement/ContentTechnicians';
 // import NewOrderr from './Admin/OrderManagment/NewOrd';
 import NewOrderr from "./Admin/OrderMangement/NewOrd";
-// import OrderHistory from './Admin/OrderManagement/OrderHistory';
-// import SchedOrder from './Admin/OrderManagement/SchedOrder';
+import OrderHistory from './Admin/OrderMangement/OrderHistory'
+import SchedOrder from './Admin/OrderMangement/SchedOrder'
 
 import Technicians from './Admin/TechManagement/Technicians';
 import AllTechs from './Admin/TechManagement/AllTechs';
@@ -146,8 +146,8 @@ function App() {
             <Route exact path="/contentPolicy" element={<ContentPolicy />}></Route>
             <Route exact path="/contenttechnicians" element={<ContentTechnicians />}></Route>
             <Route exact path="/neworder" element={<NewOrderr />}></Route>
-            {/* <Route exact path="/orderhistory" element={<OrderHistory />}></Route> */}
-            {/* <Route exact path="/schedorder" element={<SchedOrder />}></Route> */}
+            <Route exact path="/orderhistory" element={<OrderHistory />}></Route>
+            <Route exact path="/schedorder" element={<SchedOrder />}></Route>
             <Route exact path="/technicians" element={<Technicians />}></Route>
             <Route exact path="/alltechs" element={<AllTechs />}></Route>
             <Route exact path="/technotifications" element={<TechNotifications />}></Route>
