@@ -43,7 +43,7 @@ const details = {
     surname:' jonte',
     phone:"1234567",
     ID_Number:"123456789",
-    location_id:" Ngong Road",
+    location_id:" 21",
     area:"Upper-hill",
     passport:"none",
     resume:"",

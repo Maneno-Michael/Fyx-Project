@@ -2,21 +2,17 @@ import React, { useEffect, useState } from 'react';
 import SidebarAdmin from '../../components/sidebarAdmin';
 import ProfileNavAdmin from '../../components/profileNavAdmin';
 import Table from 'react-bootstrap/Table'
-import * as fa from "react-icons/fa";
 import axios from 'axios';
 
 
 function Clients() {
 
-
-
-
   const [details, getDetails] = useState([]);
   const getData = async () => {
       try {
-          const data = await axios.get("/api/admin/customers");
+          const data = await axios.get("/api/admin/Super-Admin/customers");
           console.log(data);
-          // getDetails(data.data.data);
+          getDetails(data.data.data);
   
       } catch (e) {
           console.log("no execution");
@@ -58,17 +54,19 @@ function Clients() {
                     </tr>
                 </thead>
                 <tbody className='border shadow p-3 mb-5 bg-body rounded'>
-                    <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                {details.map((item,index)=>(
+                    <tr key={index}>
+                    <td>{item.date}</td>
+                    <td>{item.service}</td>
+                    <td>{item.description}</td>
+                    <td>{item.technician}</td>
+                    <td>{item.claims}</td>
+                    <td>{item.rating}</td>
+                    <td>{item.feedback}</td>
+                    
                     </tr>
-               
+                ) )}
+
                 </tbody>
                 </Table>
             </div>

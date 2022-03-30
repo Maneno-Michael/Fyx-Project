@@ -1,70 +1,86 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiFillStar } from "react-icons/ai";
 import SidebarAdmin from '../../components/sidebarAdmin';
 import ProfileNavAdmin from '../../components/profileNavAdmin';
+import axios from 'axios';
 
 function Technicians() {
+
+  
+const [details, getDetails] = useState([]);
+const getData = async () => {
+    try {
+        const data = await axios.get("http://fixapi.chengegikonyo.com/api/admin/Super-Admin/technicians");
+        console.log(data.data.data);
+        getDetails(data.data.data);
+
+    } catch (e) {
+        console.log("no execution");
+       
+    }
+};
+
+useEffect(()=>{
+    getData();
+}, []);
+
+console.log('deta',details);
+
     return ( 
-        <div>
-            
-        <SidebarAdmin/>
-             <ProfileNavAdmin/> 
-            <div className='tabs' style={{marginTop:"8%", marginLeft:"25%",display:"flex", gap:"5%"}}> 
+      <div>
+      <SidebarAdmin/>
+    <ProfileNavAdmin/>
+    <div className='tabs' style={{marginTop:"2%", marginLeft:"20%",display:"flex", gap:"5%"}}> 
 
-            <div><h3>Technicians</h3></div>
-            
-            </div>
-            <hr style={{width:"60%",marginLeft:"25%",border:"1px solid black"}} />
-            <div className='tables' style={{marginTop:"2%", marginLeft:"25%",width:"60%"}}>
+           <div><h3>Technicians</h3></div>
 
-<table className="table table-borderless">
-  <thead>
-    <tr style={{color:"gray"}}>
-      <th>Job ID No.</th>
-      <th>Rank</th>
-      <th>Complete jobs</th>
-      <th>Service</th>
-      <th>Full Name</th>
-      <th>Location</th>
-        <th>Area</th>
-      <th>Phone number</th>
-      
+           </div>
+           <hr style={{width:"60%",marginLeft:"20%",border:"1px solid black"}} />
+           <div className='tables' style={{marginTop:"2%", marginLeft:"20%",width:"60%"}}>
 
-    </tr>
-  </thead>
-  <tbody style={{boxShadow: "0px 3px 5px rgba(139, 137, 137, 0.5)"}}>
-    <tr>
-      <td></td>
-      <td>   <AiFillStar style={{fontSize:"10PX",color:"orange"}}/>            <select  name='Rank'  style={{background:"transparent",border:"0px solid" }}  id=" " >
-      <AiFillStar style={{fontSize:"10PX"}}/>  <option  value="selected"> Rank </option>
-                    <option value="Kenya">Gold</option>
-                    <option value="Tanzania">Regular</option>
-                    </select> <br/></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-
-    <tr>
-    <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+           <table className="table table-borderless">
+           <thead>
+           <tr style={{color:"gray"}}>
+           <th>ID</th>
+           <th>First Name</th>
+           <th>Surname</th>
+           <th>Phone number</th>
+           <th>Id number</th>
+           <th>Location Id </th>
+           <th>Area</th>
+           <th>Passport</th>
+           <th>Resume</th>
 
 
-          </div>
+           </tr>
+           </thead>
+           <tbody style={{boxShadow: "0px 3px 5px rgba(139, 137, 137, 0.5)"}}>
+         
+           {details.map((item,index)=>(
+           
+console.log('i',item),
 
-          
+       <tr key={index} >  
+       <td> {item.id} </td>                     
+           <td> {item.first_name} </td>
+           <td>{item.surname}</td>
+           <td>{item.phone}</td>
+           <td>{item.ID_Number}</td>
+           <td>{item.location_id}</td>
+           <td>{item.area}</td>
+           <td>{item.passport}</td>
+           <td>{item.resume}</td> 
 
-        </div>
+       </tr>
+                              ) )}
+
+
+           </tbody>
+           </table>
+
+           </div>
+
+</div>
      )
     }
 
