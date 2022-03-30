@@ -58,9 +58,9 @@ function SidebarAdmin(){
             title="Order managment"
             menuVariant="dark"
             >
-            <NavDropdown.Item href="#action/3.1">New</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">Scheduled</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">History</NavDropdown.Item>
+            <NavDropdown.Item href="/neworder">New</NavDropdown.Item>
+            <NavDropdown.Item href="/schedorder">Scheduled</NavDropdown.Item>
+            <NavDropdown.Item href="/orderhistory">History</NavDropdown.Item>
             <NavDropdown.Divider />
             
             </NavDropdown>

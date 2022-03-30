@@ -10,7 +10,11 @@ function CallRequests() {
 
 <SidebarAdmin/>
  <ProfileNavAdmin/>
+
 <div className='container'>
+<h1>Call Request</h1>
+          <div className='d-flex flex-row '>Dashboard / Client Managment/<h5 style={{color:"#fca311"}}>Call request</h5></div>
+          <hr/>
     
 
     <Table borderless hover variant="outline-light">

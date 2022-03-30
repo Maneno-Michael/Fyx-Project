@@ -33,7 +33,9 @@ function Clients() {
             <SidebarAdmin/>
              <ProfileNavAdmin/>
             <div className='container'>
-                
+            <h1>Clients</h1>
+          <div className='d-flex flex-row '>Dashboard / Client Managment/<h5 style={{color:"#fca311"}}>Clients</h5></div>
+          <hr/>  
   
 
             
