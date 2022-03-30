@@ -3,9 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import './Order.css';
 import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
-// import { Link,} from "react-router-dom";
+ import { Link,} from "react-router-dom";
 import{useState} from "react";
-function Order() {
+function Order3() {
   const[modal,setModal]=useState(false)
  const Toggle =()=>setModal(!modal);
     return ( 
@@ -17,9 +17,8 @@ function Order() {
        <div className = "container">
     
     <div className="nav order" style={{marginLeft:"2%",marginBottom:"10%"}}>
-      <button style={{borderRadius:"15px"}}>Active orders</button>
-      <button style={{marginLeft:"4%",borderRadius:"15px",backgroundColor:"white"}}>Sheduled orders</button>
-
+    <a  href='/ActiveOrders' className='btn btn-outline-warning rounded-pill ms-1 text-black'> Active orders</a>
+       <a  href='/scheduledorder' className='btn btn-outline-warning rounded-pill ms-2 text-black'>Sheduled orders</a>
       </div>
         
         <div className = "card majo border border-warning "style={{maxWidth:"80%",marginLeft:"2%",borderRadius:"15px"}}>
@@ -27,13 +26,12 @@ function Order() {
         
               
 
-       <div className="clarify"style={{marginLeft:"23%",fontSize:"20px",marginTop:"4%",marginBottom:"2%"}}>
+       <div className="clarify"style={{marginLeft:"20%",fontSize:"20px",marginTop:"4%",marginBottom:"2%"}}>
          <h5 >Are you satisfied with the the technician work?</h5>
-         <div className="satisfied">
-           <button style={{marginLeft:"7%", borderRadius:"10px",backgroundColor:"white"}}>no</button>
-          
-           <button onClick={()=>Toggle()} style={{marginLeft:"10%", borderRadius:"10px",backgroundColor:"yellow"}}>yes</button>
-            { modal ? <div className="modal">yes</div> : null}
+         <div className="satisfied" style={{marginLeft:"20%"}}>
+        
+        <div className='btn btn-outline-warning rounded-pill ms-1 text-black'> Yes</div>
+        <div className='btn btn-outline-warning rounded-pill ms-2 text-black'>No</div>
          </div>
          </div>
 
@@ -53,7 +51,7 @@ function Order() {
      );
 }
 
-export default Order;
+export default Order3;
 
 
 

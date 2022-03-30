@@ -7,8 +7,12 @@ import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
 import axios from 'axios';
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function BookService() {
+
+
+    const navigate = useNavigate();
     const validate = Yup.object({
         first_name: Yup.string()
         .required('Field is required'),
@@ -111,7 +115,7 @@ function BookService() {
     
             alert("created successfully");
             
-    
+                navigate('/home');
     
          }else
         {

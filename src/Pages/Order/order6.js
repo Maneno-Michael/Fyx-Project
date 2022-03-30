@@ -6,8 +6,8 @@ import ProfileNav from '../../components/profileNav';
 import mini from "../../Assets/images/balloons.png";
 
 
-import { Link,} from "react-router-dom";
-function ActiveOrder() {
+
+function order6() {
     return ( 
        
         <section>
@@ -57,4 +57,4 @@ function ActiveOrder() {
      );
 }
 
-export default ActiveOrder;
+export default order6;

@@ -11,30 +11,24 @@ function Clients() {
 
 
 
-
-  const [loading, setLoading] = useState(true);
-  const [techData, setTechdata] = useState([]);
-
-useEffect (() =>{
-
-    
-  axios.get(`/api/admin/customers`).then(res=>{
-    
-    
-    if(res.status === 200)
-    {
-        console.log('hey there');
-      setTechdata(res.data)
-    }
-    setLoading(false);
-  });
-
-}, []);
-
-// if(loading){
-//   return <h3 style={{marginLeft:"25%"}}>Loading ...</h3>
-// }
-
+  const [details, getDetails] = useState([]);
+  const getData = async () => {
+      try {
+          const data = await axios.get("/api/admin/customers");
+          console.log(data);
+          // getDetails(data.data.data);
+  
+      } catch (e) {
+          console.log("no execution");
+         
+      }
+  };
+  
+  useEffect(()=>{
+      getData();
+  }, []);
+  
+  console.log('deta',details);
 
 
 
@@ -44,16 +38,21 @@ useEffect (() =>{
              <ProfileNavAdmin/>
             <div className='container'>
                 
+  
+
             
                 <Table borderless hover variant="outline-light">
                 <thead>
                 <tr>
-                        <th>Date</th>
+                        
                         <th>Order No</th>
-                        <th>Service</th>
-                        <th>Technician</th>
-                        <th>Invoice</th>
                         <th>Date</th>
+                        <th>Service</th>
+                        <th>Description</th>
+                        <th>Technician</th>
+                        <th>Claims</th>
+                        <th>Rating and comments</th>
+                        <th>Feedback</th>
                     </tr>
                 </thead>
                 <tbody className='border shadow p-3 mb-5 bg-body rounded'>
@@ -62,22 +61,12 @@ useEffect (() =>{
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>@mdo</td>
-                    <td> <fa.FaFileAlt/></td>
-                    <td> <fa.FaReceipt/></td>
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
                     </tr>
-                    <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td> <fa.FaFileAlt/></td>
-                    <td> <fa.FaReceipt/></td>
-                    </tr>
-                    <tr>
-                    <td>3</td>
-                    <td colSpan={2}>Larry the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
+               
                 </tbody>
                 </Table>
             </div>
