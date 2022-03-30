@@ -2,19 +2,15 @@ import React, { useEffect, useState } from 'react';
 import SidebarAdmin from '../../components/sidebarAdmin';
 import ProfileNavAdmin from '../../components/profileNavAdmin';
 import Table from 'react-bootstrap/Table'
-import * as fa from "react-icons/fa";
 import axios from 'axios';
 
 
 function Clients() {
 
-
-
-
   const [details, getDetails] = useState([]);
   const getData = async () => {
       try {
-          const data = await axios.get("/api/admin/customers");
+          const data = await axios.get("/api/admin/Super-Admin/customers");
           console.log(data);
           getDetails(data.data.data);
   
