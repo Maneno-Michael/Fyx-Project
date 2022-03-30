@@ -151,7 +151,7 @@ try {
            <button text="submit" style={{width:"400px",borderRadius:"15px",  paddingtop:"5px",paddingBottom:"5px"
                        ,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>Signup</button>
 
-                       <p>Do you have an account?<Link style={{textDecoration:'none', color:"red", marginLeft:"10px"}} to={"/Techlogin"}>Log In </Link></p>
+                       <p>Do you have an account?<Link style={{textDecoration:'none', color:"red", marginLeft:"10px"}} to={"/login"}>Log In </Link></p>
                   
        </form>
 
@@ -164,76 +164,4 @@ try {
 }
 
 export default Register;
-
-
-// const validate = Yup.object({
-//     name: Yup.string()
-//         .required('Field is required'),
-//     email: Yup.string()
-//         .email("Email is invalid")
-//         .required('Email field is required'),
-//     password: Yup.string()
-//         .min(6, "Password must be atleast 6 characters")
-//         .required("password field is required"),
-//         password_confirmation: Yup.string()
-//         .oneOf([Yup.ref('password'), null], 'password must match')
-//         .required('confirm password is required'),
-// })
-
-// // Handle the input events
-
-// const navigate = useNavigate();
-
-// const [reg, setregInput] = useState({
-//     name: '',
-//     email: '',
-//     phone_number: '',
-//     password: '',
-//     password_confirmation: '',
-
-// });
-
-// const handleIput = (e) => {
-//     e.persist();
-//     setregInput({ ...reg, [e.target.name]: e.target.value })
-// }
-
-//  const regSubmit = (e) => {
-//     e.preventDefault();
-
-//     const details = {
-//         name: reg.name,
-//         email: reg.email,
-
-//         password: reg.password,
-//         password_confirmation: reg.password_confirmation,
-//     }
-//     //    console.log(errors); 
-
-
-// try {
-// axios.post(`/api/customers`, details). then (res => {
-//     // console.log('res', res)
-
-//     if (res.status === 200) {
-
-
-//         alert("registered successfully")
-//         navigate('/login');
-
-
-//     } else {
-
-
-
-//     }
-
-// });
-// } catch (error) {
-
-// alert("oops, invalid credentials")
-// }
-   
-
-// }
 

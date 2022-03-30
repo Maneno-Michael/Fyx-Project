@@ -25,7 +25,7 @@ function Scheduled() {
 
 <div className='tables' style={{marginTop:"2%", marginLeft:"20%",width:"60%"}}>
 
-  <table class="table table-borderless">
+  <table className="table table-borderless">
     <thead>
       <tr style={{color:"gray"}}>
         <th>Order No</th>

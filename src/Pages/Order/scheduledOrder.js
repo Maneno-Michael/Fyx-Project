@@ -9,7 +9,7 @@ function ScheduledOrder() {
         <Sidebar/>
         <div className='container'>
         <ProfileNav profile="Nicole"/>
-            <IfOrdered schedule={false}/>
+            <IfOrdered schedule={true}/>
         </div>
     </div>
    )

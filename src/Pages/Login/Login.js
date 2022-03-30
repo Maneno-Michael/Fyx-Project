@@ -82,9 +82,9 @@ useEffect(()=>{
       }
       if(!x.password){
         err.password =" password is required";
-      }else if(x.password.length < 4 )
+      }else if(x.password.length < 3 )
       {
-        err.password =" Must be more than 4 characters"
+        err.password =" Must be more than 3 characters"
       }
     
       return err; 
