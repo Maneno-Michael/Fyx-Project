@@ -54,6 +54,12 @@ const loginSubmit = (e) => {
 
             }
     
+        }).catch(res =>{
+
+          alert("Invalid credentials");
+        
+          navigate('/techlogin');
+        
         });
     } catch (error) {
         

@@ -58,6 +58,12 @@ axios.post(`api/login`, data) .then(res =>{
         navigate('/login');
     }
 
+}).catch(res =>{
+
+  alert("Invalid credentials");
+
+  navigate('/login');
+
 });
 
 }

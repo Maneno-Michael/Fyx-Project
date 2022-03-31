@@ -76,6 +76,10 @@ function Profile() {
     
         }
     
+    }).catch(res =>{
+
+      alert("Invalid credentials");
+    
     });
     
     }

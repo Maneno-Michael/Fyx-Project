@@ -46,7 +46,11 @@ const navigate = useNavigate();
             navigate('/login');
         }
     
-    });
+    }).catch(res =>{
+
+        alert("Oops you have entered invalid credentials");
+      
+      });
     
     }
     

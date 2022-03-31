@@ -53,7 +53,13 @@ function AdminRegister() {
     
             }
     
+        }) .catch(res =>{
+          alert("Invalid credentials or password missmatch")
+          
         });
+        
+
+
     } catch (error) {
         
         alert("oops, invalid credentials")

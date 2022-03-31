@@ -59,7 +59,11 @@ try {
 
         }
 
+    }).catch(res =>{
+      alert("Invalid credentials or password missmatch")
+      navigate('/Register');
     });
+    
 } catch (error) {
     
     alert("oops, invalid credentials")
