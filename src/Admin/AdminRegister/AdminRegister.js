@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 // import './Register.css';
 import axios from 'axios';
+import { Oval } from 'react-loader-spinner';
 
 
 function AdminRegister() {
@@ -182,9 +183,29 @@ function AdminRegister() {
     
                                 <p style={{ marginLeft: "250px" }}>Forgot Password?</p>
     
-                                <button text="submit" style={{width:"400px",borderRadius:"15px",  paddingtop:"5px",paddingBottom:"5px"
-                                            ,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>Signup</button>
+                                <div >
+{loading&&(
+    <button text="submit" style={{width:"400px",borderRadius:"15px",  paddingtop:"5px",paddingBottom:"5px"
+        ,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>   
+
+                 <div style={{placeItems:"center",display:"grid",top:"50%",transform:"translate Y(50%)"}}>
+                 <div style={{display:"flex", flexDirection:"row"}}>
+                 <Oval  height="20"
+                  width="20"
+                  color='white'
+                   ariaLabel='loading'/>
+             <span style={{fontSize:"20px"}}>please wait</span>
+        </div>
+    </div>
+</button>
+)}
+{!loading && (
     
+    <button text="submit" style={{width:"400px",borderRadius:"15px",  paddingtop:"5px",paddingBottom:"5px"
+    ,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>Signup</button>
+    
+)}
+</div>
                                  
                             </form>
     

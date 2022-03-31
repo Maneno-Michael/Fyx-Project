@@ -3,6 +3,7 @@ import { useNavigate} from "react-router-dom";
 import icon from "../../Assets/images/Asset 2.svg";
 import { useState } from "react";
 import axios from 'axios';
+import { Oval } from 'react-loader-spinner';
 
 
 function AdminLogin() {
@@ -158,10 +159,33 @@ useEffect(()=>{
                     <p style={{color:"red"}}>{errors.password}</p>
                     <p style={{ marginLeft: "350px" }}>Forgot Password?</p>
 
-                <button type="submit" style={{
-                    width: "500px", borderRadius: "15px", marginTop: "0px", paddingtop: "5px", paddingBottom: "5px"
-                    , border: "1px solid white", background: "#f8b609", color: "white", marginBottom: "10px"
-                }}>Login</button>
+                    <div >
+{loading&&(
+   <button type="submit" style={{
+    width: "500px", borderRadius: "15px", marginTop: "0px", paddingtop: "5px", paddingBottom: "5px"
+    , border: "1px solid white", background: "#f8b609", color: "white", marginBottom: "10px"
+}}>    
+
+                 <div style={{placeItems:"center",display:"grid",top:"50%",transform:"translate Y(50%)"}}>
+                 <div style={{display:"flex", flexDirection:"row"}}>
+                 <Oval  height="20"
+                  width="20"
+                  color='white'
+                   ariaLabel='loading'/>
+             <span style={{fontSize:"20px"}}>please wait</span>
+        </div>
+    </div>
+</button>
+)}
+{!loading && (
+    
+    <button type="submit" style={{
+      width: "500px", borderRadius: "15px", marginTop: "0px", paddingtop: "5px", paddingBottom: "5px"
+      , border: "1px solid white", background: "#f8b609", color: "white", marginBottom: "10px"
+  }}>Login</button>
+
+)}
+</div>
 
                </form>
 
@@ -180,3 +204,4 @@ useEffect(()=>{
 }
 
 export default AdminLogin;
+
