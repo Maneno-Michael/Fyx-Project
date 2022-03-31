@@ -8,6 +8,9 @@ import axios from 'axios';
 function AdminLogin() {
     const navigate = useNavigate();
 
+    const [serverError, setServerError] = useState("")
+    const [loading, setLoading] = useState(false);
+    const [successResponse,setSuccessResponse]=useState("");
     const [errors, seterrors] = useState({});
     const [isSub, setsub] = useState(false);
     const [ loginInput, setLogin] = useState ({
@@ -35,7 +38,7 @@ function AdminLogin() {
             password: loginInput.password,
         }
     
-    
+        setLoading(true);
 
 axios.post(`api/login`, data) .then(res =>{
     if(res.status === 200)
@@ -43,10 +46,14 @@ axios.post(`api/login`, data) .then(res =>{
         localStorage.setItem("auth_token", res.data.token);
         localStorage.setItem("auth_name", JSON.stringify(res.data));
 
+        setSuccessResponse("you have been registered successfully.");
+        setTimeout(() => {
+          setSuccessResponse("")
+        }, 3000);
 
-        alert("logged in successfully");
+        // alert("logged in successfully");
 
-        navigate('/admindashboard');
+        // navigate('/admindashboard');
 
     }else{
         alert("Invalid credentials");
@@ -54,8 +61,15 @@ axios.post(`api/login`, data) .then(res =>{
     }
 
 }).catch(res =>{
+  
+  setLoading(false);
+  setServerError("Invalid credentials plz check them out")
+  setTimeout(()=>{
+    setServerError("")
+  },2000)
 
-  alert("Invalid credentials");
+
+  // alert("Invalid credentials");
 });
 
 }
@@ -97,6 +111,27 @@ useEffect(()=>{
 
         return ( 
 
+<div>
+
+  
+                        <div style={{marginLeft:"30%",marginTop:"-5%",position:"fixed", zIndex:"2"}}>
+                                {successResponse && (
+                                     <div 
+                                     style={{color:"white",fontSize:"15px",width:"120%",right:"0", background:"#28a745",
+                                     borderRadius: "15px", paddingTop:"15px",paddingBottom:"15px",paddingLeft:"6%",border:"1px solid lightgray",opacity:"0.7",transition:"0.5"}}>
+                                     {successResponse}
+                                    </div>
+                                      
+                                 )}
+                                   {serverError && (
+                                     <div 
+                                    style={{color:"white",fontSize:"15px",width:"120%",right:"0", background:"#ED4337",
+                                    borderRadius: "15px", paddingTop:"15px",paddingBottom:"15px",paddingLeft:"6%",border:"1px solid lightgray",opacity:"0.7",transition:"0.5"}}>
+                                    {serverError}
+                                    </div>
+                                      
+                                 )}
+                          </div>       
 
 
             <div className='whole' style={{ marginLeft: "15%", marginTop: "10%" }}>
@@ -140,7 +175,7 @@ useEffect(()=>{
              </div>
 
           </div>
-
+  </div>
          );
 }
 
