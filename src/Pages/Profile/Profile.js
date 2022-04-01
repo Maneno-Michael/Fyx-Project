@@ -119,7 +119,7 @@ function Profile() {
             err.address =" Address field is required"
           }
           if(!x.password_confirmation){
-            err.password_confirmation =" Confirm password field is required"
+            err.password_confirmation =" Confirm password required"
           }
           if(!x.email){
             err.email =" Email is required"
@@ -157,15 +157,15 @@ function Profile() {
                                  )}
                                    {serverError && (
                                      <div 
-                                    style={{color:"white",fontSize:"15px",width:"120%",right:"0", background:"#ED4337",
-                                    borderRadius: "15px", paddingTop:"15px",paddingBottom:"15px",paddingLeft:"6%",border:"1px solid lightgray",opacity:"0.7",transition:"0.5"}}>
+                                    style={{color:"white",fontSize:"18px",width:"120%",right:"0", background:"#ED4337",
+                                    borderRadius: "30px", paddingTop:"15px",paddingBottom:"15px",paddingLeft:"10%",paddingRight:"10%",border:"1px solid lightgray",opacity:"0.7",transition:"0.5"}}>
                                     {serverError}
                                     </div>
                                       
                                  )}
              </div>
                     <div className="page">
-                        <div className="conte" style={{marginLeft:"20%",marginTop:"7%",background:"white", width:"60%", boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)" }}>
+                        <div className="conte" style={{marginLeft:"20%",marginTop:"7%",background:"white", width:"1150px", boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)" }}>
                            
                         <FaWindowClose style={{float:"right", fontSize:"25px",borderRadius:"50px",marginTop:"10px", marginRight:"5px"}}/>
 
@@ -259,7 +259,7 @@ border:"1px solid white",marginLeft:"19%", color:"white",fontSize:"22px", margin
                   width="20"
                   color='white'
                   ariaLabel='loading'/>
-            <span style={{fontSize:"20px"}}>Updating</span>
+            <span style={{fontSize:"20px"}}>Updating...</span>
         </div>
     </div>
 </button>
@@ -273,7 +273,7 @@ border:"1px solid white",marginLeft:"19%", color:"white",fontSize:"22px", margin
 )}
 </div>
                                         <BiMessageRounded style={{fontSize:"35px", float:"right",background:"green", color:"white", borderRadius:"50%",
-                                        padding:"5px", zIndex:"2",marginTop:"55px",marginRight:"-1.5%"}}/>
+                                        padding:"5px", zIndex:"2",marginTop:"-15px",marginRight:"-1.5%"}}/>
                                
                                 </form>          
                         </div>
