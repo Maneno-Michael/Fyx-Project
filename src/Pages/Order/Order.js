@@ -5,7 +5,6 @@ import zlatan from "../../Assets/images/successimage.png";
 // import './Order.css';
 import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
-import { Link,} from "react-router-dom";
 import{useState} from "react";
 
 function ActiveOrder() {
