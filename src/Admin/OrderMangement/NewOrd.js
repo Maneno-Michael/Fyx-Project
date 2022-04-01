@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import SidebarAdmin from '../../components/sidebarAdmin';
 import ProfileNavAdmin from '../../components/profileNavAdmin';
 import Table from 'react-bootstrap/Table'
-import { Link } from 'react-router-dom';
-import * as fa from "react-icons/fa";
 import { Container } from 'react-bootstrap';
 import axios from 'axios';
 
@@ -14,7 +12,7 @@ function NewOrderr() {
      const [details, getDetails] = useState([]);
   const getData = async () => {
       try {
-          const data = await axios.get("/api/admin/Super-Admin/orders");
+          const data = await axios.get("/api/admin/Super-Admin/new_jobs");
      
           getDetails(data.data.data);
   

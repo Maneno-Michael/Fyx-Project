@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import './Register.css';
 import axios from 'axios';
+import { Oval } from 'react-loader-spinner';
 
 
 
@@ -16,6 +17,9 @@ function Register() {
 
 const navigate = useNavigate();
 
+const [serverError, setServerError] = useState("")
+const [loading, setLoading] = useState(false);
+const [successResponse,setSuccessResponse]=useState("");
 const [errors, seterrors] = useState({});
 const [isSub, setsub] = useState(false);
 const [reg, setregInput] = useState({
@@ -46,20 +50,38 @@ const details = {
 
 }
 
+setLoading(true);
 try {
     axios.post(`/api/customers`, details). then (res => {
-       
+      setLoading(false); 
 
         if (res.status === 200) {
 
-            alert("registered successfully")
+
+          setSuccessResponse("you have been registered successfully.");
+          setTimeout(() => {
+            setSuccessResponse("")
+          }, 3000);
+
+            // alert("registered successfully")
             navigate('/login');
 
         } else {
 
         }
 
+    }).catch(res =>{
+
+      setLoading(false);
+      setServerError("Invalid credentials.")
+      setTimeout(()=>{
+        setServerError("")
+      },3000)
+
+      // alert("Invalid credentials or password missmatch")
+      navigate('/Register');
     });
+
 } catch (error) {
     
     alert("oops, invalid credentials")
@@ -107,6 +129,29 @@ try {
 
 
     return (
+
+<div>
+        
+        
+                          <div style={{marginLeft:"30%",marginTop:"-5%",position:"fixed", zIndex:"2"}}>
+                                {successResponse && (
+                                     <div 
+                                     style={{color:"white",fontSize:"15px",width:"120%",right:"0", background:"#28a745",
+                                     borderRadius: "15px", paddingTop:"15px",paddingBottom:"15px",paddingLeft:"6%",border:"1px solid lightgray",opacity:"0.7",transition:"0.5"}}>
+                                     {successResponse}
+                                    </div>
+                                      
+                                 )}
+                                   {serverError && (
+                                     <div 
+                                    style={{color:"white",fontSize:"15px",width:"120%",right:"0", background:"#ED4337",
+                                    borderRadius: "15px", paddingTop:"15px",paddingBottom:"15px",paddingLeft:"6%",border:"1px solid lightgray",opacity:"0.7",transition:"0.5"}}>
+                                    {serverError}
+                                    </div>
+                                      
+                                 )}
+                          </div>       
+
         <div className='whole' style={{marginLeft:"15%", marginTop:"10%"}}>
         <div className='pic' style={{}}>
            <img src={back} alt="" style={{width:"600px", float:"left", height:"480px", marginTop:"40px", borderRadius:"15px"}} />
@@ -148,9 +193,29 @@ try {
 
            <p style={{ marginLeft: "250px" }}>Forgot Password?</p>
 
-           <button text="submit" style={{width:"400px",borderRadius:"15px",  paddingtop:"5px",paddingBottom:"5px"
-                       ,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>Signup</button>
+           <div >
+{loading&&(
 
+<button text="submit" style={{width:"400px",borderRadius:"15px",  paddingtop:"5px",paddingBottom:"5px"
+,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>
+      <div style={{placeItems:"center",display:"grid",top:"50%",transform:"translate Y(50%)"}}>
+                 <div style={{display:"flex", flexDirection:"row"}}>
+                 <Oval  height="20"
+                  width="20"
+                  color='white'
+                   ariaLabel='loading'/>
+             <span style={{fontSize:"20px"}}>please wait</span>
+        </div>
+    </div>
+</button>
+)}
+{!loading && (
+    
+    <button text="submit" style={{width:"400px",borderRadius:"15px",  paddingtop:"5px",paddingBottom:"5px"
+    ,border:"1px solid white",background:"#f8b609", color:"white",marginBottom:"10px"}}>Signup</button>
+
+)}
+</div>
                        <p>Do you have an account?<Link style={{textDecoration:'none', color:"red", marginLeft:"10px"}} to={"/login"}>Log In </Link></p>
                   
        </form>
@@ -159,7 +224,7 @@ try {
             </div>
         </div>
     </div>
-
+</div>
 );
 }
 
