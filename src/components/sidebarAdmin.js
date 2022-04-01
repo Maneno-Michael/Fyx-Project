@@ -167,7 +167,7 @@ function SidebarAdmin(){
           <NavDropdown.Item href="/carousel">Carousel</NavDropdown.Item>
           <NavDropdown.Item href="/miniForm">Mini form</NavDropdown.Item>
           <NavDropdown.Item href="/advertisements">Advertisements</NavDropdown.Item>
-          <NavDropdown.Item href="/technicians">Technician</NavDropdown.Item>
+          <NavDropdown.Item href="/contenttechnians">Technician</NavDropdown.Item>
           <NavDropdown.Item href="/comments">Comments</NavDropdown.Item>
           <NavDropdown.Item href="contentPolicy">Fyx policy</NavDropdown.Item>
           <NavDropdown.Divider />

@@ -35,6 +35,8 @@ console.log('deta',details);
                     <div><h3>Technicians</h3></div>
 
                     </div>
+                    <div className='d-flex flex-row ' style={{marginLeft:"20%"}}>Dashboard / Technician Managment/<h5 style={{color:"#fca311"}}>Technicians</h5></div>
+
                     <hr style={{width:"60%",marginLeft:"20%",border:"1px solid black"}} />
                     <div className='tables' style={{marginTop:"2%", marginLeft:"20%",width:"60%"}}>
 

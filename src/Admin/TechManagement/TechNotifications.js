@@ -20,6 +20,7 @@ function TechNotifications() {
 <div><h3><b>Notifications</b></h3></div>
 
 </div>
+<div className='d-flex flex-row ' style={{marginLeft:"20%"}}>Dashboard / Technician Managment/<h5 style={{color:"#fca311"}}>Notifications</h5></div>
 <hr style={{width:"60%",marginLeft:"20%",border:"1px solid black"}} />
 
 
