@@ -1,7 +1,4 @@
 import React, { useEffect } from 'react';
-import { Formik, Form } from 'formik';
-import {Formi} from './Formi';
-import * as Yup from 'yup';
 import { FaCamera } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
@@ -11,6 +8,7 @@ import Sidebar from '../../components/Sidebar';
 import ProfileNav from '../../components/profileNav';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { Oval } from 'react-loader-spinner';
 
 
 function Profile() {
@@ -18,6 +16,9 @@ function Profile() {
 
     const navigate = useNavigate();
 
+    const [serverError, setServerError] = useState("")
+    const [loading, setLoading] = useState(false);
+    const [successResponse,setSuccessResponse]=useState("");
     const [errors, seterrors] = useState({});
     const [isSub, setsub] = useState(false);
     const [reg, setregInput] = useState({
@@ -55,16 +56,19 @@ function Profile() {
     }
     //    console.log(errors); 
     
-    
+    setLoading(true);
     axios.put(`/api/customers/1`, details ).then(res =>{
         
-    
+      setLoading(false);
         
         if(res.status === 200)
         {
     
     
-            alert("updated successfully");
+          setSuccessResponse("you have been registered successfully.");
+          setTimeout(() => {
+            setSuccessResponse("")
+          }, 2000);
             
               navigate('/home');
     
@@ -78,7 +82,13 @@ function Profile() {
     
     }).catch(res =>{
 
-      alert("Invalid credentials");
+     
+  setLoading(false);
+  setServerError("Invalid credentials plz check them out")
+  setTimeout(()=>{
+    setServerError("")
+  },2000)
+
     
     });
     
@@ -136,9 +146,26 @@ function Profile() {
            
             <ProfileNav profile="Nicole" />
 
-                        
+            <div style={{marginLeft:"40%",marginTop:"0%",position:"fixed", zIndex:"2"}}>
+                                {successResponse && (
+                                     <div 
+                                     style={{color:"white",fontSize:"15px",width:"120%",right:"0", background:"#28a745",
+                                     borderRadius: "15px", paddingTop:"15px",paddingBottom:"15px",paddingLeft:"6%",border:"1px solid lightgray",opacity:"0.7",transition:"0.5"}}>
+                                     {successResponse}
+                                    </div>
+                                      
+                                 )}
+                                   {serverError && (
+                                     <div 
+                                    style={{color:"white",fontSize:"15px",width:"120%",right:"0", background:"#ED4337",
+                                    borderRadius: "15px", paddingTop:"15px",paddingBottom:"15px",paddingLeft:"6%",border:"1px solid lightgray",opacity:"0.7",transition:"0.5"}}>
+                                    {serverError}
+                                    </div>
+                                      
+                                 )}
+             </div>
                     <div className="page">
-                        <div className="conte" style={{marginLeft:"25%",marginTop:"7%",background:"white", width:"60%", boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)" }}>
+                        <div className="conte" style={{marginLeft:"20%",marginTop:"7%",background:"white", width:"60%", boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)" }}>
                            
                         <FaWindowClose style={{float:"right", fontSize:"25px",borderRadius:"50px",marginTop:"10px", marginRight:"5px"}}/>
 
@@ -220,9 +247,32 @@ function Profile() {
                                              </div>
 
 
-                                            <button type='submit' style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
-                                             border:"1px solid white",marginLeft:"19%", color:"white",fontSize:"22px", marginBottom:"40px"}}>Update</button>
-                                         <BiMessageRounded style={{fontSize:"35px", float:"right",background:"green", color:"white", borderRadius:"50%",
+                                       
+<div >
+{loading&&(
+
+<button type='submit' style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
+border:"1px solid white",marginLeft:"19%", color:"white",fontSize:"22px", marginBottom:"40px"}}>     
+                <div style={{placeItems:"center",display:"grid",top:"50%",transform:"translate Y(50%)"}}>
+                <div style={{display:"flex", flexDirection:"row"}}>
+                <Oval  height="20"
+                  width="20"
+                  color='white'
+                  ariaLabel='loading'/>
+            <span style={{fontSize:"20px"}}>please wait</span>
+        </div>
+    </div>
+</button>
+)}
+{!loading && (
+    
+   
+    <button type='submit' style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
+    border:"1px solid white",marginLeft:"19%", color:"white",fontSize:"22px", marginBottom:"40px"}}>Update</button>
+
+)}
+</div>
+                                        <BiMessageRounded style={{fontSize:"35px", float:"right",background:"green", color:"white", borderRadius:"50%",
                                         padding:"5px", zIndex:"2",marginTop:"55px",marginRight:"-1.5%"}}/>
                                
                                 </form>          

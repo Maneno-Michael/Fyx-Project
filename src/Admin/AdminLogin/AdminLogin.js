@@ -44,6 +44,7 @@ function AdminLogin() {
 axios.post(`api/login`, data) .then(res =>{
     if(res.status === 200)
     {
+      setLoading(false)
         localStorage.setItem("auth_token", res.data.token);
         localStorage.setItem("auth_name", JSON.stringify(res.data));
 
@@ -54,7 +55,7 @@ axios.post(`api/login`, data) .then(res =>{
 
         // alert("logged in successfully");
 
-        // navigate('/admindashboard');
+        navigate('/admindashboard');
 
     }else{
         alert("Invalid credentials");

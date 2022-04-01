@@ -59,7 +59,7 @@ const loginSubmit = (e) => {
                   setSuccessResponse("")
                 }, 3000);
 
-                // navigate('/techhome');
+                navigate('/techhome');
     
             } else {
 

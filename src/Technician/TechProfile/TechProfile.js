@@ -1,7 +1,4 @@
-import React from 'react';
-import { Formik, Form } from 'formik';
-import {Formi} from './Formi';
-import * as Yup from 'yup';
+import React, { useEffect } from 'react';
 import { FaCamera } from "react-icons/fa";
 import { FaWindowClose } from "react-icons/fa";
 import { BiMessageRounded } from "react-icons/bi";
@@ -11,34 +8,18 @@ import ProfileTechNav from '../../components/profileTechNav';
 import "./TechProfile.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Oval } from 'react-loader-spinner';
 
 // const user = JSON.parse(localStorage.getItem('auth_userName'));
 
 function Profile() {
-    const validate = Yup.object({
-        first_name: Yup.string()
-        .required('Field is required'),
-        surname: Yup.string()
-        .required('Field is required'),
-        address: Yup.string()
-        .required('Field is required'),
-        phone: Yup.string()
-        .required('Field is required'),
-        email: Yup.string()
-        .email("Email is invalid")
-        .required('Email field is required'),
-        password: Yup.string()
-        .min(6, "Password must be atleast 6 characters")
-        .required("password field is required"),
-        password_confirmation: Yup.string()
-        .oneOf([Yup.ref('password'), null], 'password must match')
-        . required('confirm password is required'),
-    })
-
-
-
+   
     const navigate = useNavigate();
-
+    const [serverError, setServerError] = useState("")
+    const [loading, setLoading] = useState(false);
+    const [successResponse,setSuccessResponse]=useState("");
+    const [errors, seterrors] = useState({});
+    const [isSub, setsub] = useState(false);
     const [reg, setregInput] = useState({
         first_name:'',
         surname:'',
@@ -59,6 +40,8 @@ function Profile() {
     
     const pageSubmit = (e) => {
     e.preventDefault();
+    seterrors(validate(reg));
+    setsub(true);
     
     const details = {
         first_name: reg.first_name,
@@ -72,32 +55,87 @@ function Profile() {
     }
     //    console.log(errors); 
     
-    
+    setLoading(true);
     axios.put(`/api/customers/1`, details ).then(res =>{
-        // console.log('res', res)
-    
         
-        if(res.status === 200)
-        {
-    
-    
-            alert("updated successfully");
-            
-              navigate('/adminlogin');
-    
-    
-         }else
-        {
-    
-            alert("Oops you have entered invalid credentials");
-    
-        }
-    
-    });
-    
-    }
-    
+        setLoading(false);
+          
+          if(res.status === 200)
+          {
+      
+      
+            setSuccessResponse("you have been registered successfully.");
+            setTimeout(() => {
+              setSuccessResponse("")
+            }, 2000);
+              
+                navigate('/home');
+      
+      
+           }else
+          {
+      
+              alert("Oops you have entered invalid credentials");
+      
+          }
+      
+      }).catch(res =>{
   
+       
+    setLoading(false);
+    setServerError("Invalid credentials plz check them out")
+    setTimeout(()=>{
+      setServerError("")
+    },2000)
+  
+      
+      });
+      
+      }
+      useEffect(()=>{
+          // console.log(errors);
+            if(Object.keys(errors).length === 0 && isSub){
+              // console.log(reg);
+            }
+          },[errors])
+          
+          const validate = ( x  ) =>{ 
+          
+            const err = {};
+            const regrex =  /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ ;
+  
+            if(!x.first_name){
+              err.first_name =" First name field is required"
+            }
+            if(!x.surname){
+              err.surname =" surname field is required"
+            }
+            if(!x.phone){
+              err.phone =" Phone field is required"
+            }
+            if(!x.address){
+              err.address =" Address field is required"
+            }
+            if(!x.password_confirmation){
+              err.password_confirmation =" Confirm password field is required"
+            }
+            if(!x.email){
+              err.email =" Email is required"
+            }else if( !regrex.test(x.email) )
+            {
+              err.email =" Not a valid email" 
+            }
+            if(!x.password){
+              err.password =" password is required";
+            }else if(x.password.length < 4 )
+            {
+              err.password =" Must be more than 4 characters"
+            }
+          
+            return err; 
+          }
+  
+      
 
 
     return ( 
@@ -106,73 +144,141 @@ function Profile() {
         <TechnicianSidebar/>
         <ProfileTechNav profile="" />
 
-  
-        <Formik
-        
-        initialValues={{
-            first_name:"",
-            surname:"",
-            phone:"",
-            email:"",
-            address:"",
-            password:"",
-            password_confirmation:"",
-           
-        }}
-        validationSchema={validate}
-        
-        >
-         {formik => (
-                    
-                <div className="page">
-                    <div className="conte" style={{marginLeft:"25%",marginTop:"7%",background:"white", width:"60%", boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)" }}>
-                       
-                    <FaWindowClose style={{float:"right", fontSize:"25px",borderRadius:"50px",marginTop:"10px", marginRight:"5px"}}/>
+        <div style={{marginLeft:"40%",marginTop:"0%",position:"fixed", zIndex:"2"}}>
+                                {successResponse && (
+                                     <div 
+                                     style={{color:"white",fontSize:"15px",width:"120%",right:"0", background:"#28a745",
+                                     borderRadius: "15px", paddingTop:"15px",paddingBottom:"15px",paddingLeft:"6%",border:"1px solid lightgray",opacity:"0.7",transition:"0.5"}}>
+                                     {successResponse}
+                                    </div>
+                                      
+                                 )}
+                                   {serverError && (
+                                     <div 
+                                    style={{color:"white",fontSize:"15px",width:"120%",right:"0", background:"#ED4337",
+                                    borderRadius: "15px", paddingTop:"15px",paddingBottom:"15px",paddingLeft:"6%",border:"1px solid lightgray",opacity:"0.7",transition:"0.5"}}>
+                                    {serverError}
+                                    </div>
+                                      
+                                 )}
+             </div>
+                    <div className="page">
+                        <div className="conte" style={{marginLeft:"20%",marginTop:"7%",background:"white", width:"60%", boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)" }}>
+                           
+                        <FaWindowClose style={{float:"right", fontSize:"25px",borderRadius:"50px",marginTop:"10px", marginRight:"5px"}}/>
 
-                        <h3 style={{marginLeft:"20px", paddingTop:"10px", marginBottom:"4%"}}>Edit Profile</h3>
-                        
+                            <h3 style={{marginLeft:"20px", paddingTop:"10px", marginBottom:"4%"}}>Edit Profile</h3>
+                            
+                                         
+                                         <div className="wrapper">
+
+                                            <input type="file" className="input" accept='image/*'/>
+                                            <FaCamera style={{fontSize:"20px",borderRadius:"5px", marginTop:"75px",marginLeft:"60px", background:"black",color:"white", zIndex:"2"}}/>
+                                            </div>
                                      
-                                     <div className="wrapper">
+                                        <form onSubmit={pageSubmit} style={{ marginLeft:"25%",marginTop:"15px"}} action="">
 
-                                        <input type="file" className="input" accept='image/*'/>
-                                        <FaCamera style={{fontSize:"20px",borderRadius:"5px", marginTop:"75px",marginLeft:"60px", background:"black",color:"white", zIndex:"2"}}/>
-                                        </div>
-                                    
-                               
-                                    <Form onSubmit={pageSubmit} style={{ marginLeft:"25%",marginTop:"15px"}}>
+                                            <div style={{display:"flex", gap:"10%", marginBottom:"5px",overflow:"wrap" }}>
+                                               
+                                               
+                                                <div>
+                                                  First name <br />
+                                                    <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='first_name' value={reg.first_name} type="text" />
+                                                    
+                                                <p style={{color:"red"}}>{errors.first_name}</p>    
+                                                </div>
+                                                
+                                                <div>
+                                                   Surname <br />
+                                                    <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='surname' value={reg.surname} type="text" />
+                                                     <p style={{color:"red"}}>{errors.surname}</p>
+                                                </div>
+                                                
+                                              </div>
 
-                                        <div style={{display:"flex", gap:"10%", marginBottom:"20px",overflow:"wrap" }}>
-                                       <Formi  onChange={handleIput} value={reg.first_name} label="First name" name="first_name" type="text" style={{background:"#e8e9ed"}}   />
-                                       <Formi onChange={handleIput} value={reg.surname} label="Surname" name="surname" type="text" style={{background:"#e8e9ed"}} />
+                                              <div style={{display:"flex", gap:"10%", marginBottom:"5px",overflow:"wrap" }}>
+                                               
+                                               
+                                               <div>
+                                                 Phone Number <br />
+                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='phone' value={reg.phone} type="text" />
+                                                   
+                                               <p style={{color:"red"}}>{errors.phone}</p>    
+                                               </div>
+                                               
+                                               <div>
+                                                  Address <br />
+                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='address' value={reg.address} type="text" />
+                                                    <p style={{color:"red"}}>{errors.address}</p>
+                                               </div>
+                                               
+                                             </div>
+                                             <div style={{display:"flex", gap:"10%", marginBottom:"5px",overflow:"wrap" }}>
+                                               
+                                               
+                                               <div>
+                                                 Email Address <br />
+                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"235%"}} onChange={handleIput} name='email' value={reg.email} type="text" />
+                                                   
+                                               <p style={{color:"red"}}>{errors.email}</p>    
+                                               </div>
+                                               
+                                            
+                                               
+                                             </div>
+                                             <div style={{display:"flex", gap:"10%", marginBottom:"20px",overflow:"wrap" }}>
+                                               
+                                               
+                                               <div>
+                                                 Password <br />
+                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='password' value={reg.password} type="text" />
+                                                   
+                                               <p style={{color:"red"}}>{errors.password}</p>    
+                                               </div>
+                                               
+                                               <div>
+                                                  Confirm Password <br />
+                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='password_confirmation' value={reg.password_confirmation} type="text" />
+                                                    <p style={{color:"red"}}>{errors.password_confirmation}</p>
+                                               </div>
+                                               
+                                             </div>
+
+
                                        
-                                        </div>
-                                        <div style={{display:"flex", gap:"9.7%", marginBottom:"20px",overflow:"wrap" }}>
-                                        <Formi  onChange={handleIput} value={reg.phone} label="Phone number" name="phone" type="text" style={{width:"225px", marginBottom:"20px" , background:"#e8e9ed"}} />
-                                        <Formi onChange={handleIput} value={reg.address} label="Address" name="address" type="text" style={{width:"235px", marginBottom:"20px",background:"#e8e9ed"}} />
-                                     
-                                        </div>
-                                        <Formi onChange={handleIput} value={reg.email} label="Email address" name="email" type="email" style={{width:"530px", marginBottom:"20px",background:"#e8e9ed"}} />
-                                     
+<div >
+{loading&&(
 
-                                        <div style={{display:"flex", gap:"10%", marginBottom:"20px"}}>
-                                       <Formi onChange={handleIput} value={reg.password} label="Password" name="password" type="password" style={{background:"#e8e9ed"}} />
-                                       <Formi onChange={handleIput} value={reg.password_confirmation} label="Confirm Password" name="password_confirmation" type="password" style={{background:"#e8e9ed"}} />
-                                        </div>
-
-                                        <button type='submit' style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
-                                         border:"1px solid white",marginLeft:"19%", color:"white",fontSize:"22px", marginBottom:"40px"}}>Update</button>
-                                     <BiMessageRounded style={{fontSize:"35px", float:"right",background:"green", color:"white", borderRadius:"50%",
-                                    padding:"5px", zIndex:"2",marginTop:"55px",marginRight:"-1.5%"}}/>
-                            </Form>
-                                    
-                    </div>
-                 </div>
-                     
-         )}
-
-        </Formik>
+<button type='submit' style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
+border:"1px solid white",marginLeft:"19%", color:"white",fontSize:"22px", marginBottom:"40px"}}>     
+                <div style={{placeItems:"center",display:"grid",top:"50%",transform:"translate Y(50%)"}}>
+                <div style={{display:"flex", flexDirection:"row"}}>
+                <Oval  height="20"
+                  width="20"
+                  color='white'
+                  ariaLabel='loading'/>
+            <span style={{fontSize:"20px"}}>please wait</span>
         </div>
-     );
+    </div>
+</button>
+)}
+{!loading && (
+    
+   
+    <button type='submit' style={{background:"#f8b609", width:"200px", paddingTop:"3px", paddingBottom:"3px",borderRadius:"20px",
+    border:"1px solid white",marginLeft:"19%", color:"white",fontSize:"22px", marginBottom:"40px"}}>Update</button>
+
+)}
+</div>
+                                        <BiMessageRounded style={{fontSize:"35px", float:"right",background:"green", color:"white", borderRadius:"50%",
+                                        padding:"5px", zIndex:"2",marginTop:"55px",marginRight:"-1.5%"}}/>
+                               
+                                </form>          
+                        </div>
+                     </div>
+            </div>
+         );
 }
+
 
 export default Profile;
