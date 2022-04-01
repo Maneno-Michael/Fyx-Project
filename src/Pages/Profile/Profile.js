@@ -84,7 +84,7 @@ function Profile() {
 
      
   setLoading(false);
-  setServerError("Invalid credentials plz check them out")
+  setServerError("Invalid credentials.")
   setTimeout(()=>{
     setServerError("")
   },2000)
@@ -259,7 +259,7 @@ border:"1px solid white",marginLeft:"19%", color:"white",fontSize:"22px", margin
                   width="20"
                   color='white'
                   ariaLabel='loading'/>
-            <span style={{fontSize:"20px"}}>please wait</span>
+            <span style={{fontSize:"20px"}}>Updating</span>
         </div>
     </div>
 </button>

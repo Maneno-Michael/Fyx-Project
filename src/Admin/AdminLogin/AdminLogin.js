@@ -65,7 +65,7 @@ axios.post(`api/login`, data) .then(res =>{
 }).catch(res =>{
   
   setLoading(false);
-  setServerError("Invalid credentials plz check them out")
+  setServerError("Invalid credentials.")
   setTimeout(()=>{
     setServerError("")
   },2000)
@@ -173,7 +173,7 @@ useEffect(()=>{
                   width="20"
                   color='white'
                    ariaLabel='loading'/>
-             <span style={{fontSize:"20px"}}>please wait</span>
+             <span style={{fontSize:"20px"}}>Logging In...</span>
         </div>
     </div>
 </button>

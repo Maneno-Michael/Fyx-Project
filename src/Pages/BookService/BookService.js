@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Oval } from 'react-loader-spinner';
+import { AiFillStar } from "react-icons/ai";
 
 function BookService() {
 
@@ -89,7 +90,7 @@ function BookService() {
     
             // alert("created successfully");
             
-                navigate('/home');
+                navigate('/order');
     
          }else
         {
@@ -101,7 +102,7 @@ function BookService() {
     }).catch(res =>{
 
         setLoading(false);
-        setServerError("Invalid credentials plz check them out")
+        setServerError("Invalid credentials")
         setTimeout(()=>{
           setServerError("")
         },2000)
@@ -220,29 +221,29 @@ function BookService() {
                                         
                                                <div>
                                                
-                                                   <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",boxShadow:"none"}} onChange={handleIput} value={booking.first_name}  name="first_name" type="text" placeholder="First name" />
+                                                < AiFillStar style={{color:"orangered",fontSize:"10px"}}/> <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",boxShadow:"none"}} onChange={handleIput} value={booking.first_name}  name="first_name" type="text" placeholder="First name" />
                                                    
                                                <p style={{color:"red"}}>{errors.first_name}</p>    
                                                </div>
                                                
                                                <div>
                                                   
-                                                   <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} value={booking.surname}   name="surname" type="text" placeholder="Surname" />
+                                               < AiFillStar style={{color:"orangered",fontSize:"10px"}}/> <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} value={booking.surname}   name="surname" type="text" placeholder="Surname" />
                                                     <p style={{color:"red"}}>{errors.surname}</p>
                                                </div>
                                                <div>
                                                   
-                                                  <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} value={booking.phone}  name="phone" type="text" placeholder="Phone Number" />
+                                               < AiFillStar style={{color:"orangered",fontSize:"10px"}}/> <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} value={booking.phone}  name="phone" type="text" placeholder="Phone Number" />
                                                    <p style={{color:"red"}}>{errors.phone}</p>
                                               </div>
                                                
                                     </div>
 
-                                    <div style={{display:"flex", marginBottom:"5px",overflow:"wrap",marginLeft:"15.5%" }}>
+                                    <div style={{display:"flex", marginBottom:"5px",overflow:"wrap",marginLeft:"16.5%" }}>
                                             
                                             <div style={{marginLeft:"40px"}}>
                                             
-                                                <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"260%"}} onChange={handleIput} value={booking.mpesa_number}  label="Phone number" name="mpesa_number" type="text" placeholder="Enter your M-pesa number." />
+                                                <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"265%"}} onChange={handleIput} value={booking.mpesa_number}  label="Phone number" name="mpesa_number" type="text" placeholder="Enter your M-pesa number." />
                                                 
                                             <p style={{color:"red"}}>{errors.mpesa_number}</p>    
                                             </div> 
@@ -254,7 +255,7 @@ function BookService() {
                                      <span style={{paddingRight:"20px"}}><b>Location</b></span> 
                                               <div>
                                               
-                                        <select onChange={handleIput} value={booking.location_id}   name='location_id'  style={{background:"#e8e9ed",border:"0px solid white", fontSize:"16px",paddingLeft:"5px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"200px" }} id=" " >
+                                              < AiFillStar style={{color:"orangered",fontSize:"10px"}}/> <select onChange={handleIput} value={booking.location_id}   name='location_id'  style={{background:"#e8e9ed",border:"0px solid white", fontSize:"16px",paddingLeft:"5px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"200px" }} id=" " >
                                             <option value="selected">Location</option>
                                             <option value="Kenya">Kenya</option>
                                             <option value="Tanzania">Tanzania</option>
@@ -270,23 +271,23 @@ function BookService() {
                                               
                                               <div>
                                                  
-                                                  <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} value={booking.area}   name="area" type="text" placeholder="Area e.g Kileleshwa" />
+                                              < AiFillStar style={{color:"orangered",fontSize:"10px"}}/> <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} value={booking.area}   name="area" type="text" placeholder="Area e.g Kileleshwa" />
                                                    <p style={{color:"red"}}>{errors.area}</p>
                                               </div>
                                               <div>
                                                  
-                                                 <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} value={booking.street_building}  name="street_building" type="text" placeholder="Street/building"/>
+                                              < AiFillStar style={{color:"orangered",fontSize:"10px"}}/> <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} value={booking.street_building}  name="street_building" type="text" placeholder="Street/building"/>
                                                   <p style={{color:"red"}}>{errors.street_building}</p>
                                              </div>
                                               
                                      </div>
 
                                      
-                                     <div style={{display:"flex", marginBottom:"5px",overflow:"wrap",marginLeft:"18.5%" }}>
+                                     <div style={{display:"flex", marginBottom:"5px",overflow:"wrap",marginLeft:"19.5%" }}>
              
                                               <div>
                                              
-                                                  <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"260%"}} onChange={handleIput} value={booking.location_extra_details}  name="location_extra_details" type="text" placeholder="Other location details" />
+                                                  <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"265%"}} onChange={handleIput} value={booking.location_extra_details}  name="location_extra_details" type="text" placeholder="Other location details" />
                                                   
                                               <p style={{color:"red"}}>{errors.location_extra_details}</p>    
                                               </div> 
@@ -297,7 +298,7 @@ function BookService() {
                                     
                                               <div style={{}}>
                                               
-                                              <select onChange={handleIput} value={booking.service_id}   name='service_id'  style={{background:"#e8e9ed",border:"0px solid white",fontSize:"16px",paddingLeft:"5px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"200px" }} id=" " >
+                                              < AiFillStar style={{color:"orangered",fontSize:"10px"}}/> <select onChange={handleIput} value={booking.service_id}   name='service_id'  style={{background:"#e8e9ed",border:"0px solid white",fontSize:"16px",paddingLeft:"5px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"200px" }} id=" " >
                                                     <option value="selected">Choose service</option>
                                                     <option value="Kenya">Repair</option>
                                                     <option value="Tanzania">Maintainance</option>
@@ -309,7 +310,7 @@ function BookService() {
                                               
                                               <div>
                                                  
-                                              <select onChange={handleIput} value={booking.brand_id}  name='brand_id'  style={{background:"#e8e9ed",border:"0px solid white",fontSize:"16px",paddingLeft:"5px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"200px" }} id=" " >
+                                              < AiFillStar style={{color:"orangered",fontSize:"10px"}}/><select onChange={handleIput} value={booking.brand_id}  name='brand_id'  style={{background:"#e8e9ed",border:"0px solid white",fontSize:"16px",paddingLeft:"5px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"200px" }} id=" " >
                                                     <option value="selected">Description</option>
                                                     <option value="Kenya">Tv</option>
                                                     <option value="Tanzania">Microwave</option>
@@ -321,7 +322,7 @@ function BookService() {
                                               </div>
                                               <div>
                                                  
-                                              <select onChange={handleIput} value={booking.model_number}   name='model_number'  style={{background:"#e8e9ed",border:"0px solid white",fontSize:"16px",paddingLeft:"5px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"200px" }} id=" " >
+                                              < AiFillStar style={{color:"orangered",fontSize:"10px"}}/><select onChange={handleIput} value={booking.model_number}   name='model_number'  style={{background:"#e8e9ed",border:"0px solid white",fontSize:"16px",paddingLeft:"5px",paddingTop:"10px",paddingBottom:"5px",borderRadius:"5px", width:"200px" }} id=" " >
                                                     <option value="selected">Model</option>
                                                     <option value="Kenya">Sumsung-45-G3</option>
                                                     <option value="Tanzania">LG-345</option>
@@ -334,11 +335,11 @@ function BookService() {
                                              </div>
                                               
                                       </div>
-                                     <div style={{display:"flex", marginBottom:"5px",overflow:"wrap",marginLeft:"18.5%" }}>
+                                     <div style={{display:"flex", marginBottom:"5px",overflow:"wrap",marginLeft:"19.5%" }}>
              
                                               <div>
                                              
-                                                  <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"260%"}} onChange={handleIput} value={booking.category_id}  name="category_id" type="text" placeholder="Model decription" />
+                                                  <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"265%"}} onChange={handleIput} value={booking.category_id}  name="category_id" type="text" placeholder="Model decription" />
                                                   
                                                    <p style={{color:"red"}}>{errors.category_id}</p>    
                                               </div> 
@@ -346,9 +347,9 @@ function BookService() {
                                      </div>
                                      <div style={{display:"flex", gap:"10%", marginBottom:"5px",overflow:"wrap" }}>
              
-                                              <div style={{marginLeft:"18.5%"}}>
-                                                <b>Exact problem</b>
-                                                  <textarea style={{background:"#e8e9ed", width:"93%"}} onChange={handleIput} value={booking.service_extra_details} className="form-control"  cols="113" rows="2" name="service_extra_details"></textarea>
+                                              <div style={{marginLeft:"19.5%"}}>
+                                              < AiFillStar style={{color:"orangered",fontSize:"10px"}}/> <b>Exact problem</b>
+                                                 <textarea style={{background:"#e8e9ed", width:"93%"}} onChange={handleIput} value={booking.service_extra_details} className="form-control"  cols="114" rows="2" name="service_extra_details"></textarea>
                                             <p style={{color:"red"}}>{errors.service_extra_details}</p>    
                                               </div> 
 
@@ -359,14 +360,14 @@ function BookService() {
                <div>
 
                
-                   <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"200px"}} onChange={handleIput} value={booking.date_available}  name="date_available" type="date" placeholder="Select prefered date" />
+               < AiFillStar style={{color:"orangered",fontSize:"10px"}}/> <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"200px"}} onChange={handleIput} value={booking.date_available}  name="date_available" type="date" placeholder="Select prefered date" />
                    
                <p style={{color:"red"}}>{errors.date_available}</p>    
                </div>
                
                <div>
                  
-                   <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"200px"}} onChange={handleIput} value={booking.time_available}  name="time_available" type="time" placeholder="Select prefered time" />
+               < AiFillStar style={{color:"orangered",fontSize:"10px"}}/> <input style={{background:"#e8e9ed",border:"0px solid gray",paddingLeft:"5px",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"200px"}} onChange={handleIput} value={booking.time_available}  name="time_available" type="time" placeholder="Select prefered time" />
                     <p style={{color:"red"}}>{errors.time_available}</p>
                </div>
 

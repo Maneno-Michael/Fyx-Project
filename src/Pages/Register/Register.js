@@ -73,7 +73,7 @@ try {
     }).catch(res =>{
 
       setLoading(false);
-      setServerError("Invalid credentials plz check them out")
+      setServerError("Invalid credentials.")
       setTimeout(()=>{
         setServerError("")
       },3000)

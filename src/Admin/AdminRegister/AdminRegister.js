@@ -81,7 +81,7 @@ function AdminRegister() {
         // alert("oops, invalid credentials")
 
         setLoading(false);
-        setServerError("Invalid credentials plz check them out")
+        setServerError("Invalid credentials.")
         setTimeout(()=>{
           setServerError("")
         },2000)

@@ -77,7 +77,7 @@ try {
       // alert("Invalid credentials or password missmatch")
 
       setLoading(false);
-      setServerError("Invalid credentials plz check them out")
+      setServerError("Invalid credentials.")
       setTimeout(()=>{
         setServerError("")
       },2000)
