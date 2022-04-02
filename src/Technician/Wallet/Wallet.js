@@ -97,8 +97,60 @@ function Wallet() {
                 <h5 className = "ml-5 font-weight-bold">Available Cash</h5>
                 <p className = "ml-5 mb-0 availableCash"style={{textDecoration:"underline"}}><span className="mr-2">Ksh.</span>5,000.00</p>
                 <p className="text-right  mb-0"> </p>
-               
-                
+                <div  className='tabs' style={{marginTop:"3%", marginLeft:"20%",display:"flex", gap:"5%"}}>             
+  
+  
+  {/* modal start */}
+  
+  <div className="modal fade  " id="AlfaModalToggle" aria-hidden="true" aria-labelledby="AlfaModalToggleLabel" tabIndex="-1">
+   <div className="modal-dialog modal-dialog-centered ">
+    <div className="modal-content border border-warning">
+      <div className="modal-header">
+        
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div className="modal-body">
+                    
+                                  <p style={{marginLeft:"10%"}}>Enter the amount of money you wish <br></br>you to withdraw</p>
+                                 <div className="amount">
+                                   Ksh.
+                                   <div>
+                                   <input className="boarderless" type="text" style={{ borderTopStyle:"hidden",borderRightStyle: "hidden", borderLeftStyle: "hidden", borderBottomStyle: "thin", backgroundColor: "white",outline:"none"}} />
+    
+   
+   
+                                   </div>
+
+                                 </div>
+                                    
+    {/* end of first modal */}
+    {/* second modal */}
+      </div>
+      <div className="modal-footer">
+        <button className="btn btn-outline-warning rounded-pill ms-1" data-bs-target="#AlfaModalToggle2" data-bs-toggle="modal">submit</button>
+      </div>
+      </div>
+      </div>
+      </div>
+                          <div className="modal fade" id="AlfaModalToggle2" aria-hidden="true" aria-labelledby="AlfaModalToggleLabel2" tabIndex="-1">
+                           <div className="modal-dialog modal-dialog-centered">
+                            <div className="modal-content border border-warning">
+                            <div className="modal-header">
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                               </div>
+                             <div className="modal-body">
+                               
+                                    you will recieve your money in your M-pesa shortly
+       
+                                    </div>
+           <div className="modal-footer">
+          </div>
+          </div>
+          </div>
+          </div>
+          <a className="btn btn rounded-start btn btn-light " data-bs-toggle="modal" href="#AlfaModalToggle" role="button">Withdraw</a>
+   
+                </div>
                
         {/* modal event */}
                 

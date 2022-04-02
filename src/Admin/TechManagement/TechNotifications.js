@@ -33,7 +33,7 @@ function TechNotifications() {
 
   <div className="modal fade " id="sonicModalToggle" aria-hidden="true" aria-labelledby="sonicModalToggleLabel" tabIndex="-1">
    <div className="modal-dialog modal-dialog-centered">
-    <div className="modal-content">
+    <div className="modal-content border border-warning ">
       <div className="modal-header">
         <h5 className="modal-title" id="sonicModalToggleLabel">NOTIFICATION TO THE TECHNICIAN</h5>
         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -64,7 +64,7 @@ function TechNotifications() {
       </div>
                           <div className="modal fade" id="sonicModalToggle2" aria-hidden="true" aria-labelledby="sonicModalToggleLabel2" tabIndex="-1">
                            <div className="modal-dialog modal-dialog-centered">
-                            <div className="modal-content">
+                            <div className="modal-content border border-warning">
                             <div className="modal-header">
                                </div>
                              <div className="modal-body">
