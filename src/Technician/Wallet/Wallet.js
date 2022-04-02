@@ -10,7 +10,7 @@ import { ArcElement } from "chart.js";
 import Chart from "chart.js/auto";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { render } from 'react-dom';
-import Modal from "../../components/modal";
+
 import  { useState } from "react";
 
 

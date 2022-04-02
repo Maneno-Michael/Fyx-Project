@@ -4,6 +4,7 @@ import "./Homepage.css";
 import { Card,Container,Row,Col } from "react-bootstrap";
 import * as ri from "react-icons/ri";
 
+
 function Homepage() {
   return (
     <div>
@@ -219,6 +220,17 @@ function Homepage() {
     <div className="technicians">
         <h2>Technicians spreadout in kenya</h2>
         <div className="map">
+          
+
+
+
+
+
+
+
+
+
+          
 
             
         </div>
