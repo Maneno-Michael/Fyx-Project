@@ -53,8 +53,8 @@ function NewOrderr() {
                     <tbody className='border shadow p-3 mb-5 bg-body rounded'>
                {details.map((item,index)=>(
                     <tr key={index}>
-                    <td>{item.id}</td>
-                    <td>{item.customer_id}</td>
+                    <td>{item.order_id}</td>
+                    <td>{item.service}</td>
                     <td>{item.status}</td>
                     <td>{item.technician_assigned}</td>
                     <td>{item.claim} </td>

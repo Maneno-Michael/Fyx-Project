@@ -42,15 +42,15 @@ function Clients() {
                 <Table borderless hover variant="outline-light">
                 <thead>
                 <tr>
-                         <th>Id</th>
-                        <th>User Id</th>
-                        <th>First Name</th>
-                        <th>Surname</th>
-                        <th>Phone number</th>
-                        <th>Address</th>
-                        <th>Updated time</th>
+                         <th>Order No</th>
+                        <th>Date</th>
+                        <th>Service</th>
+                        <th>Description</th>
+                        <th>Technician</th>
+                        <th>Claim</th>
+                        <th>Rating & Comment</th>
                         
-                        <th>Completed Orders</th>
+                        <th>Feedback</th>
                         
                         
                     </tr>
@@ -59,13 +59,13 @@ function Clients() {
                 {details.map((item,index)=>(
                     <tr key={index}>
                     <td>{item.id}</td>
-                    <td>{item.user_id}</td>
+                    <td>{item.created_at}</td>
                     <td>{item.name}</td>
                     <td>{item.surname}</td>
-                    <td>{item.phone}</td>
-                    <td>{item.address}</td>
-                    <td>{item.updated_at}</td>
-                    <td>{item.completed_orders}</td>
+                    <td>{item.provider}</td>
+                    <td>{item.provider}</td>
+                    <td>{item.provider}</td>
+                    <td>{item.provider}</td>
                     
                     
                    
