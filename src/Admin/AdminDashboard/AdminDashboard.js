@@ -9,6 +9,14 @@ import { ArcElement } from "chart.js";
 import Chart from "chart.js/auto";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { render } from 'react-dom';
+import  purch from "../../Assets/icons/icons8-purchase-order-50.png";
+import {
+  CircularProgressbar,
+  CircularProgressbarWithChildren,
+  buildStyles
+} from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -32,6 +40,10 @@ ChartJS.register(
   Legend
 );
 function AdminDashboard() {
+  const percentage = 15;
+  const vumz = 15;
+
+
   const options = {
     responsive: true,
     plugins: {
@@ -73,7 +85,7 @@ function AdminDashboard() {
          <h6>Dashboard/Analytics</h6>
       {/* <kilz id = "contentdivider"/> */}
 
-      <a href='/neworder' className='btn btn-outline-warning rounded-pill text-black text-center mb-5 mt-1 ms-5'> neworder</a>
+      <a href='/neworder'  className='btn btn-outline-warning rounded-pill text-black text-center mb-5 mt-1 ms-5'> neworder</a>
   <div className = "row">
     <div className = "col-md-6 col-lg-6">
         <h4 className="secondary-heading mb-1">
@@ -102,7 +114,9 @@ function AdminDashboard() {
                       <div className="card-body">
                         <h6 className = "font-weight-bold">Orders Recieved</h6>
                           <div className="chart-area">
-                              <canvas className = "chartCanvas" id="chLineMonthly" height="100" width="455"></canvas>
+                              <canvas className = "chartCanvas" id="chLineMonthly" height="100" width="455">
+                              
+                              </canvas>
                           </div>
                       </div>
                   </div>
@@ -123,13 +137,26 @@ function AdminDashboard() {
     </div>
     <div className = "col-md-3 col-lg-3 mt-5">
        <div id = "orderscard" className = "card shadow-sm">
+         {/* progress circle */}
            <h5 className = "text-center mt-2">Monthly Orders</h5>
         <div className="card-body">
           <div className="chart-area">
+          <CircularProgressbar
+      
+      value={vumz}
+      text={`15%`} 
+      styles={buildStyles({
+        
+        textColor: "black",
+        pathColor: 'gold',
+        trailColor: "rgb(88, 89, 93)"
+      })}
+    />
+    
+      
 
             
-            <canvas id="monthlyorders"  width="455"></canvas>
-        </div>
+           </div> 
         </div>
        </div> 
     </div>
@@ -231,7 +258,22 @@ function AdminDashboard() {
             <h5 className = "text-center mt-2">Number of Technicians</h5>
          <div className="card-body">
            <div className="chart-area">
-             <canvas id="numberoftechnicians" width="455"></canvas>
+
+      <CircularProgressbar
+      
+        value={percentage}
+        text={`15%`} 
+        styles={buildStyles({
+          
+          textColor: "black",
+          pathColor: 'gold',
+          trailColor: "rgb(88, 89, 93)"
+        })}
+      />
+       {/* <div style={{ fontSize: 12, marginTop: -5 }}>
+          <strong>66%</strong> mate
+        </div> */}
+    
          </div>
          </div>
         </div>  
