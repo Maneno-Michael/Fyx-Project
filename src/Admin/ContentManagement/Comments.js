@@ -7,7 +7,7 @@ import { AiFillStar } from "react-icons/ai";
 
 
 function Comments() {
-     return ( 
+     return (
           <div>
            <SidebarAdmin/>
              <ProfileNavAdmin/>   
