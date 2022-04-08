@@ -1,10 +1,32 @@
-    import React from 'react';
+    import React, { useEffect, useState } from 'react';
     import Sidebar from '../../components/Sidebar'
     import ProfileNav from '../../components/profileNav';
     import Table from 'react-bootstrap/Table'
     import * as fa from "react-icons/fa";
+import axios from 'axios';
 
     function History() {
+ 
+        const [details, getDetails] = useState([]);
+        const getData = async () => {
+            try {
+                const data = await axios.get("http://fixapi.chengegikonyo.com/api/customer/history");
+                console.log(data.data.data);
+                getDetails(data.data.data);
+        
+            } catch (e) {
+                console.log("no execution");
+               
+            }
+        };
+        
+        useEffect(()=>{
+            getData();
+        }, []);
+        
+        console.log('deta',details);
+        
+
         return ( 
             <div className=''>        
                 <Sidebar/> 
@@ -23,7 +45,8 @@
                         </tr>
                     </thead>
                     <tbody className='border shadow p-3 mb-5 bg-body rounded'>
-                        <tr>
+                    {details.map((item,index)=>(
+                        <tr key={index}>
                         <td>1</td>
                         <td>Mark</td>
                         <td>Otto</td>
@@ -31,19 +54,8 @@
                         <td> <fa.FaFileAlt/></td>
                         <td> <fa.FaReceipt/></td>
                         </tr>
-                        <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td> <fa.FaFileAlt/></td>
-                        <td> <fa.FaReceipt/></td>
-                        </tr>
-                        <tr>
-                        <td>3</td>
-                        <td colSpan={2}>Larry the Bird</td>
-                        <td>@twitter</td>
-                        </tr>
+                     ) )}
+                       
                     </tbody>
                     </Table>
                 </div>

@@ -11,7 +11,7 @@ function Clients() {
   const getData = async () => {
       try {
           const data = await axios.get("/api/admin/Super-Admin/customers");
-          console.log(data);
+         
           getDetails(data.data.data);
   
       } catch (e) {

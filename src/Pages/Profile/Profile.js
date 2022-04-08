@@ -12,10 +12,11 @@ import { Oval } from 'react-loader-spinner';
 
 
 function Profile() {
-
+  let user = JSON.parse (localStorage.getItem('auth_name'));
 
     const navigate = useNavigate();
 
+    const [detail, getDetails] = useState([]);
     const [serverError, setServerError] = useState("")
     const [loading, setLoading] = useState(false);
     const [successResponse,setSuccessResponse]=useState("");
@@ -49,15 +50,18 @@ function Profile() {
         surname: reg.surname,
         phone: reg.phone,
         email: reg.email,
-      
+        email: detail.email,
         address: reg.address,
         password: reg.password,
         password_confirmation: reg.password_confirmation,
     }
     //    console.log(errors); 
     
+  
+
+    
     setLoading(true);
-    axios.put(`/api/customers/1`, details ).then(res =>{
+    axios.put(`/api/customers/16`, details ).then((res) =>{
         
       setLoading(false);
         
@@ -80,25 +84,37 @@ function Profile() {
     
         }
     
-    }).catch(res =>{
+    }).catch((res)=>{
+      console.log("pro", res);
+    })
+  //   .catch(res =>{
 
      
-  setLoading(false);
-  setServerError("Invalid credentials.")
-  setTimeout(()=>{
-    setServerError("")
-  },2000)
+  // setLoading(false);
+  // setServerError("Invalid credentials.")
+  // setTimeout(()=>{
+  //   setServerError("")
+  // },2000)
 
     
-    });
+  //   });
     
     }
-    useEffect(()=>{
-        // console.log(errors);
-          if(Object.keys(errors).length === 0 && isSub){
-            // console.log(reg);
-          }
-        },[errors])
+    const getData = async () => {
+      try {
+          const data = await axios.get("/api/admin/Super-Admin/customers");
+         
+          getDetails(data.data.data);
+  
+      } catch (e) {
+          console.log("no execution");
+         
+      }
+  };
+  useEffect(()=>{
+    getData();
+}, []);
+console.log('dt', detail);
         
     
         const validate = ( x  ) =>{ 
@@ -185,7 +201,11 @@ function Profile() {
                                                
                                                 <div>
                                                   First name <br />
-                                                    <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='first_name' value={reg.first_name} type="text" />
+                                                  
+                                                    <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='first_name' value={reg.first_name} type="text" >
+                                                    
+                                                    </ input>
+                                                  
                                                     
                                                 <p style={{color:"red"}}>{errors.first_name}</p>    
                                                 </div>
@@ -220,7 +240,9 @@ function Profile() {
                                                
                                                <div>
                                                  Email Address <br />
-                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"235%"}} onChange={handleIput} name='email' value={reg.email} type="text" />
+                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px",width:"235%"}} onChange={handleIput} name='email' value={reg.email} type="text" >
+                                                   
+                                                     </ input  >
                                                    
                                                <p style={{color:"red"}}>{errors.email}</p>    
                                                </div>
@@ -233,14 +255,14 @@ function Profile() {
                                                
                                                <div>
                                                  Password <br />
-                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='password' value={reg.password} type="text" />
+                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='password' value={reg.password} type="password" />
                                                    
                                                <p style={{color:"red"}}>{errors.password}</p>    
                                                </div>
                                                
                                                <div>
                                                   Confirm Password <br />
-                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='password_confirmation' value={reg.password_confirmation} type="text" />
+                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='password_confirmation' value={reg.password_confirmation} type="password" />
                                                     <p style={{color:"red"}}>{errors.password_confirmation}</p>
                                                </div>
                                                

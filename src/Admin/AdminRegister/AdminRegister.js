@@ -64,7 +64,7 @@ function AdminRegister() {
             }
     
         }) .catch(res =>{
-          // alert("Invalid credentials or password missmatch")
+         
           
         setLoading(false);
         setServerError("Invalid credentials plz check them out")
@@ -72,6 +72,15 @@ function AdminRegister() {
           setServerError("")
         },2000)
           
+        // if( !this.password == this.password_confirmation){
+        //  setLoading(false);
+        // setServerError("Invalid credentials password mismatch")
+        // setTimeout(()=>{
+        //   setServerError("")
+        // },2000)
+          
+
+        // }
         });
         
 

@@ -70,7 +70,8 @@ await axios.post(`api/login`, data) .then(res =>{
         navigate('/login');
     }
 
-}).catch(res =>{
+})
+.catch(res =>{
 
 
   setLoading(false);

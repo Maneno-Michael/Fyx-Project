@@ -14,9 +14,9 @@ function ActiveOrder() {
 const [details, getDetails] = useState([]);
 const getData = async () => {
     try {
-        const data = await axios.get("http://fixapi.chengegikonyo.com/api/customer/history");
+        const data = await axios.get("http://fixapi.chengegikonyo.com/api/customer/scheduled");
         console.log(data.data.data);
-        getDetails(data.data.data);
+        getDetails(data);
 
     } catch (e) {
         console.log("no execution");
