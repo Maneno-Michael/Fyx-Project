@@ -59,7 +59,7 @@ const Toggle =()=>setModal(!modal);
 
 
         
-         <button type="button  " class="btn1 btn-link" style={{marginTop:"20px",marginLeft:"25px"}}>Request for fyx agent to call you</button>
+         <button type="button  " class="btn1 btn" style={{marginTop:"20px",marginLeft:"25px"}}>Request for fyx agent to call you</button>
          
 
 
