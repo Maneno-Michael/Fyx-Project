@@ -10,6 +10,7 @@ import{useState} from "react";
 function ActiveOrder() {
 const[modal,setModal]=useState(false)
 const Toggle =()=>setModal(!modal);
+
     return ( 
        
         <section>
@@ -29,7 +30,7 @@ const Toggle =()=>setModal(!modal);
            <h1 style={{marginLeft:"40%"}}>SUCCESS!</h1>
            </div>
          <div className="Orderz" >
-           <h2 style={{marginLeft:"20%"}}>Your Order No. OR013   is being Processed</h2>
+           <h2 style={{marginLeft:"20%"}}>Your Order id. OR013   is being Processed</h2>
 
           
            </div>

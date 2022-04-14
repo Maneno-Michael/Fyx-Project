@@ -6,6 +6,7 @@ import { Col, Container, Row } from "react-bootstrap";
 function NotScheduled () {
     return (
            <div>
+               
             <div className='border ' style ={{backgroundColor:"#CCCACA"}}>
 
                 <img src='/Assets/images/Copy of registertech.png' className='py-4 mx-auto d-block'/>
@@ -39,26 +40,26 @@ function IsScheduled (){
                 </thead>
                 <tbody className='border shadow p-3 mb-5 bg-body rounded'>
                     <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td> <a style={{color:"yellow"}} >More details</a> </td>
+                    </tr>
+
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td> </td>
+                    <td></td>
+                    </tr>
+                      
                     
-                    </tr>
-                    <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td> <fa.FaFileAlt/></td>
-                    <td> <fa.FaReceipt/></td>
-                    </tr>
-                    <tr>
-                    <td>3</td>
-                    <td colSpan={2}>Larry the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
+                           
                 </tbody>
                 </Table>   
             </div>)

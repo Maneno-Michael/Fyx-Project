@@ -36,7 +36,7 @@ console.log('deta',details);
             <Sidebar/>
         <ProfileNav profile="Nicole" />
        <div>
-       <div className = "container"style={{}}>
+       <div className = "container">
        <div className="nav orderz" style={{marginLeft:"2%",marginBottom:"5%"}}>
        <a  href='/ActiveOrders' className='btn btn-outline-warning rounded-pill ms-1 text-black'> Active orders</a>
        <a  href='/scheduledorder' className='btn btn-outline-warning rounded-pill ms-2 text-black'>Sheduled orders</a>
@@ -48,7 +48,7 @@ console.log('deta',details);
 <table className="table table-borderless">
 <thead>
 <tr style={{color:"gray"}}>
-<th>Order No</th>
+<th>Order id</th>
 <th> Service</th>
 <th>Description</th>
 <th> Date</th>
@@ -63,11 +63,11 @@ console.log('deta',details);
 console.log('i',item),
 
 <tr key={index} >  
-<td> {item.id} </td>                     
-<td> {item.first_name} </td>
-<td>{item.surname}</td>
-<td>{item.phone}</td>
-<td>{item.ID_Number}</td>
+<td> {item.order_id} </td>                     
+<td> {item.service} </td>
+<td>{item.description}</td>
+<td>{item.date}</td>
+<td>{item.location}</td>
 <td><button style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"white"}}>More Details...</button>
        </td>
 <td><button style={{borderRadius:"15px",paddingLeft:"20px", paddingRight:"20px", border:"0px solid", background:"transparent",boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)"}}>Pay</button></td>

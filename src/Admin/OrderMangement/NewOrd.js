@@ -59,6 +59,9 @@ function NewOrderr() {
                     <td>{item.location}</td>
                     <td>{item.technician_assigned}</td>
                     <td>{item.status} </td>
+                    <td class = "text-danger">Not Assigned</td>
+                    <td><button style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"white"}}>More Details...</button>
+       </td>
                    
                     </tr>
                 ) )}
