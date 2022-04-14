@@ -3,6 +3,7 @@ import Carousel from "react-multi-carousel";
 import "./Homepage.css";
 import { Card,Container,Row,Col } from "react-bootstrap";
 import * as ri from "react-icons/ri";
+import {FaTwitter} from 'react-icons/fa';
 
 
 function Homepage() {
@@ -229,22 +230,7 @@ function Homepage() {
         allowfullscreen=""
         loading="lazy"
       ></iframe>
-
-
-      
-          
-
-
-
-
-
-
-
-
-
-          
-
-            
+  
         </div>
     </div>
     <footer>
@@ -258,8 +244,8 @@ function Homepage() {
                 </ul>
                 <h3 className="social">Get Social</h3>
                 <ul className="social-links">
-                    <li><a href="#facebook"><i className="fab fa-facebook"></i></a></li>
-                    <li><a href="#instagram"><i className="fab fa-instagram-square"></i></a></li>
+                    <li><a href="#facebook" style={{fontSize:"20px",color:" black"}}><i className='fa-instagram'></i></a></li>
+                    <li><a href="#instagram"><i className="fa-brands fa-instagram"></i></a></li>
                     <li><a href="#twitter"><i className="fab fa-twitter"></i></a></li>
                 </ul>
             </div> 
