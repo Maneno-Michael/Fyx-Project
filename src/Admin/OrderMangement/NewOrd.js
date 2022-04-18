@@ -45,6 +45,7 @@ function NewOrderr() {
                          <th>Order No</th>
                          <th>Service</th>
                          <th>Customer</th>
+                         <th>Location</th>
                          <th>Technician</th>
                          <th>Status</th>
                          
@@ -55,9 +56,12 @@ function NewOrderr() {
                     <tr key={index}>
                     <td>{item.order_id}</td>
                     <td>{item.service}</td>
-                    <td>{item.status}</td>
+                    <td>{item.location}</td>
                     <td>{item.technician_assigned}</td>
-                    <td>{item.claim} </td>
+                    <td>{item.status} </td>
+                    <td class = "text-danger">Not Assigned</td>
+                    <td><button style={{textDecoration:'Underline', color:" #f8b609",border:"0px solid",background:"white"}}>More Details...</button>
+       </td>
                    
                     </tr>
                 ) )}

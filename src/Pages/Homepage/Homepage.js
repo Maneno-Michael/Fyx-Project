@@ -3,6 +3,7 @@ import Carousel from "react-multi-carousel";
 import "./Homepage.css";
 import { Card,Container,Row,Col } from "react-bootstrap";
 import * as ri from "react-icons/ri";
+import {FaTwitter} from 'react-icons/fa';
 
 
 function Homepage() {
@@ -220,19 +221,16 @@ function Homepage() {
     <div className="technicians">
         <h2>Technicians spreadout in kenya</h2>
         <div className="map">
-          
 
-
-
-
-
-
-
-
-
-          
-
-            
+        <iframe
+         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127641.1704236439!2d36.77735686034806!3d-1.3030363544163734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi!5e0!3m2!1sen!2ske!4v1649766092949!5m2!1sen!2ske"
+        width="100%"
+        height="100%"
+        style={{ border: "0" }}
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+  
         </div>
     </div>
     <footer>
@@ -246,8 +244,8 @@ function Homepage() {
                 </ul>
                 <h3 className="social">Get Social</h3>
                 <ul className="social-links">
-                    <li><a href="#facebook"><i className="fab fa-facebook"></i></a></li>
-                    <li><a href="#instagram"><i className="fab fa-instagram-square"></i></a></li>
+                    <li><a href="#facebook" style={{fontSize:"20px",color:" black"}}><i className='fa-instagram'></i></a></li>
+                    <li><a href="#instagram"><i className="fa-brands fa-instagram"></i></a></li>
                     <li><a href="#twitter"><i className="fab fa-twitter"></i></a></li>
                 </ul>
             </div> 

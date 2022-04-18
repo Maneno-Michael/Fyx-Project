@@ -8,6 +8,7 @@ function NotScheduled () {
 
     return (
            <div>
+               
             <div className='border ' style ={{backgroundColor:"#CCCACA"}}>
 
                 <img src='/Assets/images/Copy of registertech.png' className='py-4 mx-auto d-block'/>
@@ -65,7 +66,25 @@ console.log('deta',details);
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>@mdo</td>
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td> <a style={{color:"yellow"}} >More details</a> </td>
+                    </tr>
+
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td> </td>
+                    <td></td>
+                    </tr>
+                      
                     
                     </tr>
 

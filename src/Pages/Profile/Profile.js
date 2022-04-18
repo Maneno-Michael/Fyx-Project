@@ -13,6 +13,17 @@ import { Oval } from 'react-loader-spinner';
 
 function Profile() {
   let user = JSON.parse (localStorage.getItem('auth_name'));
+  const [first_name, setFirst_name] = useState("");
+  const [email, setEmail] = useState("");
+
+  
+
+
+
+
+
+
+
 
     const navigate = useNavigate();
 
@@ -61,8 +72,12 @@ function Profile() {
 
     
     setLoading(true);
-    axios.put(`/api/customers/16`, details ).then((res) =>{
-        
+    axios.put(`/api/customers/1`, details ).then(res =>{
+    // prefilled form
+   
+    setEmail(res[0].reg.email) 
+     
+     
       setLoading(false);
         
         if(res.status === 200)
@@ -255,7 +270,7 @@ console.log('dt', detail);
                                                
                                                <div>
                                                  Password <br />
-                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={handleIput} name='password' value={reg.password} type="password" />
+                                                   <input style={{background:"#e8e9ed",border:"1px solid gray",paddingTop:"5px",paddingBottom:"5px",borderRadius:"5px"}} onChange={(e)=>{setEmail(e.target.value)}} name='password' value={reg.password} type="text" />
                                                    
                                                <p style={{color:"red"}}>{errors.password}</p>    
                                                </div>
